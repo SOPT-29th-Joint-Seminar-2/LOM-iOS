@@ -10,7 +10,6 @@
 		02534706D12A0DA53145CAAC /* Pods_LOM_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38BA6CC16FEBF121FA54A169 /* Pods_LOM_iOS.framework */; };
 		15B7CC6C273F866D006D34E9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B7CC6B273F866D006D34E9 /* AppDelegate.swift */; };
 		15B7CC6E273F866D006D34E9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B7CC6D273F866D006D34E9 /* SceneDelegate.swift */; };
-		15B7CC70273F866D006D34E9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B7CC6F273F866D006D34E9 /* ViewController.swift */; };
 		15B7CC73273F866D006D34E9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 15B7CC71273F866D006D34E9 /* Main.storyboard */; };
 		15B7CC75273F866F006D34E9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 15B7CC74273F866F006D34E9 /* Assets.xcassets */; };
 		15B7CC78273F866F006D34E9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 15B7CC76273F866F006D34E9 /* LaunchScreen.storyboard */; };
@@ -18,6 +17,12 @@
 		15B7CC86273F91E8006D34E9 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B7CC85273F91E8006D34E9 /* HomeVC.swift */; };
 		15B7CC88273F923A006D34E9 /* Detail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 15B7CC87273F923A006D34E9 /* Detail.storyboard */; };
 		15B7CC8A273F9241006D34E9 /* DetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B7CC89273F9241006D34E9 /* DetailVC.swift */; };
+		15B7CC90273F98A2006D34E9 /* HomeBestTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B7CC8E273F98A2006D34E9 /* HomeBestTVC.swift */; };
+		15B7CC91273F98A2006D34E9 /* HomeBestTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15B7CC8F273F98A2006D34E9 /* HomeBestTVC.xib */; };
+		15B7CC94273F98C8006D34E9 /* HomeBannerCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B7CC92273F98C7006D34E9 /* HomeBannerCVC.swift */; };
+		15B7CC95273F98C8006D34E9 /* HomeBannerCVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15B7CC93273F98C8006D34E9 /* HomeBannerCVC.xib */; };
+		15B7CC98273F98EA006D34E9 /* DetailReviewTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B7CC96273F98EA006D34E9 /* DetailReviewTVC.swift */; };
+		15B7CC99273F98EA006D34E9 /* DetailReviewTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15B7CC97273F98EA006D34E9 /* DetailReviewTVC.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,7 +30,6 @@
 		15B7CC68273F866D006D34E9 /* LOM-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "LOM-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		15B7CC6B273F866D006D34E9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		15B7CC6D273F866D006D34E9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		15B7CC6F273F866D006D34E9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		15B7CC72273F866D006D34E9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		15B7CC74273F866F006D34E9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		15B7CC77273F866F006D34E9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -34,6 +38,12 @@
 		15B7CC85273F91E8006D34E9 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		15B7CC87273F923A006D34E9 /* Detail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Detail.storyboard; sourceTree = "<group>"; };
 		15B7CC89273F9241006D34E9 /* DetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailVC.swift; sourceTree = "<group>"; };
+		15B7CC8E273F98A2006D34E9 /* HomeBestTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeBestTVC.swift; sourceTree = "<group>"; };
+		15B7CC8F273F98A2006D34E9 /* HomeBestTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeBestTVC.xib; sourceTree = "<group>"; };
+		15B7CC92273F98C7006D34E9 /* HomeBannerCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeBannerCVC.swift; sourceTree = "<group>"; };
+		15B7CC93273F98C8006D34E9 /* HomeBannerCVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeBannerCVC.xib; sourceTree = "<group>"; };
+		15B7CC96273F98EA006D34E9 /* DetailReviewTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailReviewTVC.swift; sourceTree = "<group>"; };
+		15B7CC97273F98EA006D34E9 /* DetailReviewTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailReviewTVC.xib; sourceTree = "<group>"; };
 		38BA6CC16FEBF121FA54A169 /* Pods_LOM_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LOM_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3A77476930A56A371C15361 /* Pods-LOM-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LOM-iOS.release.xcconfig"; path = "Target Support Files/Pods-LOM-iOS/Pods-LOM-iOS.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -75,7 +85,6 @@
 				15B7CC80273F916D006D34E9 /* Source */,
 				15B7CC6B273F866D006D34E9 /* AppDelegate.swift */,
 				15B7CC6D273F866D006D34E9 /* SceneDelegate.swift */,
-				15B7CC6F273F866D006D34E9 /* ViewController.swift */,
 				15B7CC74273F866F006D34E9 /* Assets.xcassets */,
 				15B7CC76273F866F006D34E9 /* LaunchScreen.storyboard */,
 				15B7CC79273F866F006D34E9 /* Info.plist */,
@@ -123,6 +132,10 @@
 		15B7CC8B273F9364006D34E9 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				15B7CC8E273F98A2006D34E9 /* HomeBestTVC.swift */,
+				15B7CC8F273F98A2006D34E9 /* HomeBestTVC.xib */,
+				15B7CC92273F98C7006D34E9 /* HomeBannerCVC.swift */,
+				15B7CC93273F98C8006D34E9 /* HomeBannerCVC.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -130,6 +143,8 @@
 		15B7CC8C273F9370006D34E9 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				15B7CC96273F98EA006D34E9 /* DetailReviewTVC.swift */,
+				15B7CC97273F98EA006D34E9 /* DetailReviewTVC.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -211,10 +226,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				15B7CC91273F98A2006D34E9 /* HomeBestTVC.xib in Resources */,
 				15B7CC78273F866F006D34E9 /* LaunchScreen.storyboard in Resources */,
 				15B7CC75273F866F006D34E9 /* Assets.xcassets in Resources */,
 				15B7CC73273F866D006D34E9 /* Main.storyboard in Resources */,
 				15B7CC88273F923A006D34E9 /* Detail.storyboard in Resources */,
+				15B7CC95273F98C8006D34E9 /* HomeBannerCVC.xib in Resources */,
+				15B7CC99273F98EA006D34E9 /* DetailReviewTVC.xib in Resources */,
 				15B7CC84273F91C0006D34E9 /* Home.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -269,9 +287,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				15B7CC8A273F9241006D34E9 /* DetailVC.swift in Sources */,
-				15B7CC70273F866D006D34E9 /* ViewController.swift in Sources */,
 				15B7CC86273F91E8006D34E9 /* HomeVC.swift in Sources */,
 				15B7CC6C273F866D006D34E9 /* AppDelegate.swift in Sources */,
+				15B7CC98273F98EA006D34E9 /* DetailReviewTVC.swift in Sources */,
+				15B7CC94273F98C8006D34E9 /* HomeBannerCVC.swift in Sources */,
+				15B7CC90273F98A2006D34E9 /* HomeBestTVC.swift in Sources */,
 				15B7CC6E273F866D006D34E9 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
