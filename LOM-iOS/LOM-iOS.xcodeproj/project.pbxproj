@@ -23,6 +23,7 @@
 		15B7CC95273F98C8006D34E9 /* HomeBannerCVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15B7CC93273F98C8006D34E9 /* HomeBannerCVC.xib */; };
 		15B7CC98273F98EA006D34E9 /* DetailReviewTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B7CC96273F98EA006D34E9 /* DetailReviewTVC.swift */; };
 		15B7CC99273F98EA006D34E9 /* DetailReviewTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15B7CC97273F98EA006D34E9 /* DetailReviewTVC.xib */; };
+		15B7CC9F274037BD006D34E9 /* UIColor +.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B7CC9E274037BD006D34E9 /* UIColor +.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		15B7CC93273F98C8006D34E9 /* HomeBannerCVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeBannerCVC.xib; sourceTree = "<group>"; };
 		15B7CC96273F98EA006D34E9 /* DetailReviewTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailReviewTVC.swift; sourceTree = "<group>"; };
 		15B7CC97273F98EA006D34E9 /* DetailReviewTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailReviewTVC.xib; sourceTree = "<group>"; };
+		15B7CC9E274037BD006D34E9 /* UIColor +.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor +.swift"; sourceTree = "<group>"; };
 		38BA6CC16FEBF121FA54A169 /* Pods_LOM_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LOM_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3A77476930A56A371C15361 /* Pods-LOM-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LOM-iOS.release.xcconfig"; path = "Target Support Files/Pods-LOM-iOS/Pods-LOM-iOS.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -95,6 +97,7 @@
 		15B7CC7F273F9156006D34E9 /* Configuration */ = {
 			isa = PBXGroup;
 			children = (
+				15B7CC9D27403799006D34E9 /* Extension */,
 			);
 			path = Configuration;
 			sourceTree = "<group>";
@@ -147,6 +150,14 @@
 				15B7CC97273F98EA006D34E9 /* DetailReviewTVC.xib */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		15B7CC9D27403799006D34E9 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				15B7CC9E274037BD006D34E9 /* UIColor +.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 		4C1F3BE2F5764932DF10D121 /* Pods */ = {
@@ -288,6 +299,7 @@
 			files = (
 				15B7CC8A273F9241006D34E9 /* DetailVC.swift in Sources */,
 				15B7CC86273F91E8006D34E9 /* HomeVC.swift in Sources */,
+				15B7CC9F274037BD006D34E9 /* UIColor +.swift in Sources */,
 				15B7CC6C273F866D006D34E9 /* AppDelegate.swift in Sources */,
 				15B7CC98273F98EA006D34E9 /* DetailReviewTVC.swift in Sources */,
 				15B7CC94273F98C8006D34E9 /* HomeBannerCVC.swift in Sources */,
