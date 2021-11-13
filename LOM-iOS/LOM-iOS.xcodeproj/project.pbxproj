@@ -14,6 +14,10 @@
 		15B7CC73273F866D006D34E9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 15B7CC71273F866D006D34E9 /* Main.storyboard */; };
 		15B7CC75273F866F006D34E9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 15B7CC74273F866F006D34E9 /* Assets.xcassets */; };
 		15B7CC78273F866F006D34E9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 15B7CC76273F866F006D34E9 /* LaunchScreen.storyboard */; };
+		15B7CC84273F91C0006D34E9 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 15B7CC83273F91C0006D34E9 /* Home.storyboard */; };
+		15B7CC86273F91E8006D34E9 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B7CC85273F91E8006D34E9 /* HomeVC.swift */; };
+		15B7CC88273F923A006D34E9 /* Detail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 15B7CC87273F923A006D34E9 /* Detail.storyboard */; };
+		15B7CC8A273F9241006D34E9 /* DetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B7CC89273F9241006D34E9 /* DetailVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +30,10 @@
 		15B7CC74273F866F006D34E9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		15B7CC77273F866F006D34E9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		15B7CC79273F866F006D34E9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		15B7CC83273F91C0006D34E9 /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
+		15B7CC85273F91E8006D34E9 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
+		15B7CC87273F923A006D34E9 /* Detail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Detail.storyboard; sourceTree = "<group>"; };
+		15B7CC89273F9241006D34E9 /* DetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailVC.swift; sourceTree = "<group>"; };
 		38BA6CC16FEBF121FA54A169 /* Pods_LOM_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LOM_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3A77476930A56A371C15361 /* Pods-LOM-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LOM-iOS.release.xcconfig"; path = "Target Support Files/Pods-LOM-iOS/Pods-LOM-iOS.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -63,15 +71,67 @@
 		15B7CC6A273F866D006D34E9 /* LOM-iOS */ = {
 			isa = PBXGroup;
 			children = (
+				15B7CC7F273F9156006D34E9 /* Configuration */,
+				15B7CC80273F916D006D34E9 /* Source */,
 				15B7CC6B273F866D006D34E9 /* AppDelegate.swift */,
 				15B7CC6D273F866D006D34E9 /* SceneDelegate.swift */,
 				15B7CC6F273F866D006D34E9 /* ViewController.swift */,
-				15B7CC71273F866D006D34E9 /* Main.storyboard */,
 				15B7CC74273F866F006D34E9 /* Assets.xcassets */,
 				15B7CC76273F866F006D34E9 /* LaunchScreen.storyboard */,
 				15B7CC79273F866F006D34E9 /* Info.plist */,
 			);
 			path = "LOM-iOS";
+			sourceTree = "<group>";
+		};
+		15B7CC7F273F9156006D34E9 /* Configuration */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Configuration;
+			sourceTree = "<group>";
+		};
+		15B7CC80273F916D006D34E9 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				15B7CC71273F866D006D34E9 /* Main.storyboard */,
+				15B7CC81273F9182006D34E9 /* Home */,
+				15B7CC82273F91AF006D34E9 /* Detail */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		15B7CC81273F9182006D34E9 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				15B7CC83273F91C0006D34E9 /* Home.storyboard */,
+				15B7CC85273F91E8006D34E9 /* HomeVC.swift */,
+				15B7CC8B273F9364006D34E9 /* Cell */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		15B7CC82273F91AF006D34E9 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				15B7CC87273F923A006D34E9 /* Detail.storyboard */,
+				15B7CC89273F9241006D34E9 /* DetailVC.swift */,
+				15B7CC8C273F9370006D34E9 /* Cell */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
+		15B7CC8B273F9364006D34E9 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		15B7CC8C273F9370006D34E9 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		4C1F3BE2F5764932DF10D121 /* Pods */ = {
@@ -80,7 +140,6 @@
 				05A7B393A464559242CCF322 /* Pods-LOM-iOS.debug.xcconfig */,
 				B3A77476930A56A371C15361 /* Pods-LOM-iOS.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -155,6 +214,8 @@
 				15B7CC78273F866F006D34E9 /* LaunchScreen.storyboard in Resources */,
 				15B7CC75273F866F006D34E9 /* Assets.xcassets in Resources */,
 				15B7CC73273F866D006D34E9 /* Main.storyboard in Resources */,
+				15B7CC88273F923A006D34E9 /* Detail.storyboard in Resources */,
+				15B7CC84273F91C0006D34E9 /* Home.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -207,7 +268,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				15B7CC8A273F9241006D34E9 /* DetailVC.swift in Sources */,
 				15B7CC70273F866D006D34E9 /* ViewController.swift in Sources */,
+				15B7CC86273F91E8006D34E9 /* HomeVC.swift in Sources */,
 				15B7CC6C273F866D006D34E9 /* AppDelegate.swift in Sources */,
 				15B7CC6E273F866D006D34E9 /* SceneDelegate.swift in Sources */,
 			);
