@@ -26,6 +26,12 @@
 		15B7CC9F274037BD006D34E9 /* UIColor +.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B7CC9E274037BD006D34E9 /* UIColor +.swift */; };
 		15B7CCA227403E7D006D34E9 /* Const.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B7CCA127403E7D006D34E9 /* Const.swift */; };
 		15B7CCA427403EAA006D34E9 /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B7CCA327403EAA006D34E9 /* Image.swift */; };
+		15B7CCA92742454A006D34E9 /* Seawater.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 15B7CCA82742454A006D34E9 /* Seawater.storyboard */; };
+		15B7CCAB2742458F006D34E9 /* SeawaterHomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B7CCAA2742458F006D34E9 /* SeawaterHomeVC.swift */; };
+		15B7CCAD2742459B006D34E9 /* SeawaterDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B7CCAC2742459B006D34E9 /* SeawaterDetailVC.swift */; };
+		15B7CCB0274245D5006D34E9 /* SeawaterHomeBestTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B7CCAF274245D5006D34E9 /* SeawaterHomeBestTVC.swift */; };
+		15B7CCB2274245EB006D34E9 /* SeawaterDetailReviewTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B7CCB1274245EB006D34E9 /* SeawaterDetailReviewTVC.swift */; };
+		15B7CCB4274245FE006D34E9 /* SeawaterHomeBannerCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B7CCB3274245FE006D34E9 /* SeawaterHomeBannerCVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +56,12 @@
 		15B7CC9E274037BD006D34E9 /* UIColor +.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor +.swift"; sourceTree = "<group>"; };
 		15B7CCA127403E7D006D34E9 /* Const.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Const.swift; sourceTree = "<group>"; };
 		15B7CCA327403EAA006D34E9 /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
+		15B7CCA82742454A006D34E9 /* Seawater.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Seawater.storyboard; sourceTree = "<group>"; };
+		15B7CCAA2742458F006D34E9 /* SeawaterHomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeawaterHomeVC.swift; sourceTree = "<group>"; };
+		15B7CCAC2742459B006D34E9 /* SeawaterDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeawaterDetailVC.swift; sourceTree = "<group>"; };
+		15B7CCAF274245D5006D34E9 /* SeawaterHomeBestTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeawaterHomeBestTVC.swift; sourceTree = "<group>"; };
+		15B7CCB1274245EB006D34E9 /* SeawaterDetailReviewTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeawaterDetailReviewTVC.swift; sourceTree = "<group>"; };
+		15B7CCB3274245FE006D34E9 /* SeawaterHomeBannerCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeawaterHomeBannerCVC.swift; sourceTree = "<group>"; };
 		38BA6CC16FEBF121FA54A169 /* Pods_LOM_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LOM_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3A77476930A56A371C15361 /* Pods-LOM-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LOM-iOS.release.xcconfig"; path = "Target Support Files/Pods-LOM-iOS/Pods-LOM-iOS.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -113,6 +125,7 @@
 				15B7CC71273F866D006D34E9 /* Main.storyboard */,
 				15B7CC81273F9182006D34E9 /* Home */,
 				15B7CC82273F91AF006D34E9 /* Detail */,
+				15B7CCA727424527006D34E9 /* Seawater */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -172,6 +185,27 @@
 				15B7CCA327403EAA006D34E9 /* Image.swift */,
 			);
 			path = Constants;
+			sourceTree = "<group>";
+		};
+		15B7CCA727424527006D34E9 /* Seawater */ = {
+			isa = PBXGroup;
+			children = (
+				15B7CCA82742454A006D34E9 /* Seawater.storyboard */,
+				15B7CCAA2742458F006D34E9 /* SeawaterHomeVC.swift */,
+				15B7CCAC2742459B006D34E9 /* SeawaterDetailVC.swift */,
+				15B7CCAE274245AA006D34E9 /* Cell */,
+			);
+			path = Seawater;
+			sourceTree = "<group>";
+		};
+		15B7CCAE274245AA006D34E9 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				15B7CCB3274245FE006D34E9 /* SeawaterHomeBannerCVC.swift */,
+				15B7CCAF274245D5006D34E9 /* SeawaterHomeBestTVC.swift */,
+				15B7CCB1274245EB006D34E9 /* SeawaterDetailReviewTVC.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		4C1F3BE2F5764932DF10D121 /* Pods */ = {
@@ -259,6 +293,7 @@
 				15B7CC95273F98C8006D34E9 /* HomeBannerCVC.xib in Resources */,
 				15B7CC99273F98EA006D34E9 /* DetailReviewTVC.xib in Resources */,
 				15B7CC84273F91C0006D34E9 /* Home.storyboard in Resources */,
+				15B7CCA92742454A006D34E9 /* Seawater.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -316,11 +351,16 @@
 				15B7CC9F274037BD006D34E9 /* UIColor +.swift in Sources */,
 				15B7CC6C273F866D006D34E9 /* AppDelegate.swift in Sources */,
 				15B7CC98273F98EA006D34E9 /* DetailReviewTVC.swift in Sources */,
+				15B7CCAD2742459B006D34E9 /* SeawaterDetailVC.swift in Sources */,
+				15B7CCB0274245D5006D34E9 /* SeawaterHomeBestTVC.swift in Sources */,
 				15B7CC94273F98C8006D34E9 /* HomeBannerCVC.swift in Sources */,
+				15B7CCAB2742458F006D34E9 /* SeawaterHomeVC.swift in Sources */,
 				15B7CC90273F98A2006D34E9 /* HomeBestTVC.swift in Sources */,
+				15B7CCB2274245EB006D34E9 /* SeawaterDetailReviewTVC.swift in Sources */,
 				15B7CC6E273F866D006D34E9 /* SceneDelegate.swift in Sources */,
 				15B7CCA227403E7D006D34E9 /* Const.swift in Sources */,
 				15B7CCA427403EAA006D34E9 /* Image.swift in Sources */,
+				15B7CCB4274245FE006D34E9 /* SeawaterHomeBannerCVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
