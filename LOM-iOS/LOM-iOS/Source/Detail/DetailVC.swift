@@ -10,16 +10,30 @@ import UIKit
 class DetailVC: UIViewController {
 
     @IBOutlet weak var detailReviewTV: UITableView!
+    @IBOutlet weak var detailSC: UISegmentedControl!
+    @IBOutlet weak var reviewPostButton: UIButton!
+    @IBOutlet weak var reviewContentView: UIView!
     
     var detailTVContentList: [detailReviewTVData] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setBasicLayout()
         registerXib()
         detailReviewTV.delegate = self
         detailReviewTV.dataSource = self
         initItemTVContentList()
     }
+    
+    func setBasicLayout() {
+        self.detailSC.layer.cornerRadius = 20.5
+        reviewPostButton.layer.cornerRadius = 8
+        reviewContentView.layer.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1).cgColor
+        reviewContentView.layer.cornerRadius = 8
+        reviewContentView.layer.borderWidth = 1
+        reviewContentView.layer.borderColor = UIColor(red: 0.757, green: 0.757, blue: 0.757, alpha: 1).cgColor
+    }
+    
     // MARK: - Navigation
     func registerXib(){
         let xibTableViewName = UINib(nibName: DetailReviewTVC.identifier, bundle: nil)

@@ -490,7 +490,7 @@
                                                         <rect key="frame" x="62" y="0.0" width="220" height="54"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="다양한 생각을 남겨주세요" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H0k-tP-los">
-                                                                <rect key="frame" x="12" y="32" width="171" height="21"/>
+                                                                <rect key="frame" x="12" y="29" width="171" height="21"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <color key="textColor" red="0.75686274509803919" green="0.75686274509803919" blue="0.75686274509803919" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <nil key="highlightedColor"/>
@@ -507,7 +507,7 @@
                                                             <constraint firstItem="H0k-tP-los" firstAttribute="leading" secondItem="LuM-3Z-pOx" secondAttribute="leading" id="Xgd-SF-3Ux"/>
                                                             <constraint firstAttribute="height" constant="54" id="a7p-fT-su4"/>
                                                             <constraint firstItem="LuM-3Z-pOx" firstAttribute="leading" secondItem="Pbc-yC-fmA" secondAttribute="leading" constant="12" id="bVV-Xs-qnF"/>
-                                                            <constraint firstItem="H0k-tP-los" firstAttribute="top" secondItem="LuM-3Z-pOx" secondAttribute="bottom" constant="7" id="lSJ-jM-vt7"/>
+                                                            <constraint firstItem="H0k-tP-los" firstAttribute="top" secondItem="LuM-3Z-pOx" secondAttribute="bottom" constant="4" id="lSJ-jM-vt7"/>
                                                             <constraint firstItem="LuM-3Z-pOx" firstAttribute="top" secondItem="Pbc-yC-fmA" secondAttribute="top" constant="10" id="vLK-gm-8da"/>
                                                         </constraints>
                                                     </view>
@@ -616,6 +616,9 @@
                     <size key="freeformSize" width="375" height="812"/>
                     <connections>
                         <outlet property="detailReviewTV" destination="Sxn-bj-jsW" id="jdF-HC-rHo"/>
+                        <outlet property="detailSC" destination="RSO-Tu-SJg" id="gWB-JF-8zK"/>
+                        <outlet property="reviewContentView" destination="Pbc-yC-fmA" id="xw2-5T-UtJ"/>
+                        <outlet property="reviewPostButton" destination="7Vs-Gt-jTg" id="o5v-Wa-zUH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
