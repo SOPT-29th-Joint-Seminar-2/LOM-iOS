@@ -1,29 +1,32 @@
-//
-//  HomeVC.swift
-//  LOM-iOS
-//
-//  Created by 김혜수 on 2021/11/13.
-//
-
 import UIKit
 
 class HomeVC: UIViewController {
 
+    // MARK: @IBOutlets
+    @IBOutlet weak var homePageView: UIView!
+    @IBOutlet weak var homePageScrollView: UIScrollView!
+    
+    @IBOutlet weak var homeBannerCollectionView: UICollectionView!
+    
+    
+    
+    
+    
+    @IBOutlet weak var todayBookButton: UIButton!
+    @IBOutlet weak var todayBookView: UIView!
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
