@@ -9,15 +9,59 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="HomeBestTVC" customModule="LOM_iOS" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="327" height="44"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="HomeBestTVC" id="KGk-i7-Jjw" customClass="HomeBestTVC" customModule="LOM_iOS" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="327" height="104"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="327" height="44"/>
+                <rect key="frame" x="0.0" y="0.0" width="327" height="104"/>
                 <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="book1" translatesAutoresizingMaskIntoConstraints="NO" id="myv-oF-4NK">
+                        <rect key="frame" x="30" y="12" width="59" height="87"/>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x8i-bN-Fvh">
+                        <rect key="frame" x="114" y="41" width="10" height="24"/>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ㅇㅇㅇ ㅇㅇㅇ ㅇㅇ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dCa-EX-yr4">
+                        <rect key="frame" x="144" y="37" width="118.5" height="19.5"/>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ㅇㅇㅇ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dgh-VI-zTt">
+                        <rect key="frame" x="144" y="62.5" width="36.5" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="dgh-VI-zTt" firstAttribute="top" secondItem="dCa-EX-yr4" secondAttribute="bottom" constant="6" id="7YN-cx-cuT"/>
+                    <constraint firstAttribute="bottom" secondItem="myv-oF-4NK" secondAttribute="bottom" constant="5" id="9RV-Lm-VGQ"/>
+                    <constraint firstItem="x8i-bN-Fvh" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="41" id="FGe-4q-gZK"/>
+                    <constraint firstAttribute="trailing" secondItem="myv-oF-4NK" secondAttribute="trailing" constant="238" id="KEL-ua-EtD"/>
+                    <constraint firstItem="dCa-EX-yr4" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="37" id="MEc-Or-cAN"/>
+                    <constraint firstItem="dCa-EX-yr4" firstAttribute="leading" secondItem="x8i-bN-Fvh" secondAttribute="trailing" constant="20" id="Q2E-ba-Ixf"/>
+                    <constraint firstItem="dgh-VI-zTt" firstAttribute="leading" secondItem="x8i-bN-Fvh" secondAttribute="trailing" constant="20" id="Yd4-Mj-jjl"/>
+                    <constraint firstItem="myv-oF-4NK" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="30" id="dfF-rz-nAT"/>
+                    <constraint firstItem="x8i-bN-Fvh" firstAttribute="leading" secondItem="myv-oF-4NK" secondAttribute="trailing" constant="25" id="kqF-oZ-Aad"/>
+                    <constraint firstItem="myv-oF-4NK" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="12" id="uyD-Vn-cHl"/>
+                </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
-            <point key="canvasLocation" x="139" y="114"/>
+            <connections>
+                <outlet property="bookImageView" destination="myv-oF-4NK" id="luy-k5-dGp"/>
+                <outlet property="bookNameLabel" destination="dCa-EX-yr4" id="t29-5J-DEP"/>
+                <outlet property="bookRankLabel" destination="x8i-bN-Fvh" id="bRT-Wa-EMG"/>
+                <outlet property="writerNameLabel" destination="dgh-VI-zTt" id="My5-Bu-HQ9"/>
+            </connections>
+            <point key="canvasLocation" x="138.40579710144928" y="113.83928571428571"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="book1" width="88" height="128"/>
+    </resources>
 </document>
