@@ -5,7 +5,6 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
-        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -35,17 +34,7 @@
                                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                 </collectionViewFlowLayout>
-                                                <cells>
-                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="HomeBannerCVC" id="GtV-YM-Fg0" customClass="HomeBannerCVC" customModule="LOM_iOS" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="0.0" width="375" height="515"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="SCd-Im-AuX">
-                                                            <rect key="frame" x="0.0" y="0.0" width="375" height="515"/>
-                                                            <autoresizingMask key="autoresizingMask"/>
-                                                        </collectionViewCellContentView>
-                                                        <size key="customSize" width="375" height="515"/>
-                                                    </collectionViewCell>
-                                                </cells>
+                                                <cells/>
                                             </collectionView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wdz-nC-amK">
                                                 <rect key="frame" x="26" y="537" width="328" height="24"/>
@@ -266,11 +255,29 @@
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <size key="freeformSize" width="375" height="2000"/>
                     <connections>
-                        <outlet property="homeBannerCollectionView" destination="kw8-wy-6AS" id="Gu1-dY-Ln7"/>
+                        <outlet property="bannerCollectionView" destination="kw8-wy-6AS" id="8yG-aK-PEB"/>
+                        <outlet property="bestBookButton" destination="8y6-o0-U8M" id="EQ7-Lw-ut3"/>
+                        <outlet property="bestBookListTableView" destination="U6E-jI-RrM" id="6nM-uD-fos"/>
                         <outlet property="homePageScrollView" destination="q7o-T4-ojE" id="aK5-p0-uJz"/>
                         <outlet property="homePageView" destination="R2z-t2-o8x" id="7Pw-5j-TfJ"/>
-                        <outlet property="todayBookButton" destination="Wdz-nC-amK" id="57K-x2-lUk"/>
-                        <outlet property="todayBookView" destination="1ZK-Mz-BpZ" id="dvw-D4-FOO"/>
+                        <outlet property="horizonLineView" destination="vbG-iC-X4g" id="iiB-Cd-JKj"/>
+                        <outlet property="moreInfoOneButton" destination="fKf-pr-j26" id="da4-nc-M8V"/>
+                        <outlet property="moreInfoThreeButton" destination="ihi-ph-2Oe" id="t38-Tu-FzM"/>
+                        <outlet property="moreInfoTwoButton" destination="Ti0-mE-e2H" id="xmq-Qn-7i9"/>
+                        <outlet property="pageScrollView" destination="q7o-T4-ojE" id="sU9-hC-bZ3"/>
+                        <outlet property="pageView" destination="R2z-t2-o8x" id="KzL-uG-zi4"/>
+                        <outlet property="pointOneImageView" destination="XYZ-QL-fBy" id="F64-pB-1gg"/>
+                        <outlet property="pointThreeImageView" destination="MQT-NG-g44" id="Bad-Ht-MXi"/>
+                        <outlet property="pointTwoImageView" destination="RkZ-TO-xzs" id="8fl-ZD-95E"/>
+                        <outlet property="saveBookButton" destination="4Do-7q-k5o" id="6eM-UL-UEg"/>
+                        <outlet property="saveIconImageView" destination="3Eh-qr-3cU" id="cBx-ix-DZ0"/>
+                        <outlet property="timeExplainLabel" destination="7bu-2V-bm4" id="CKN-Z2-AS2"/>
+                        <outlet property="timeIconImageView" destination="fSZ-aN-hbp" id="zrS-RF-A2v"/>
+                        <outlet property="timeLabel" destination="D5X-UV-tKx" id="xew-a0-ope"/>
+                        <outlet property="todaysBookButton" destination="Wdz-nC-amK" id="rXd-O2-q9c"/>
+                        <outlet property="todaysBookImageView" destination="gLo-wB-whk" id="9Tc-k4-eET"/>
+                        <outlet property="todaysBookView" destination="1ZK-Mz-BpZ" id="QfN-aL-cSd"/>
+                        <outlet property="verticalLineView" destination="djf-03-g7w" id="bYc-ph-wqO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

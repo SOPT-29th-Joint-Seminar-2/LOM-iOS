@@ -12,14 +12,10 @@ class HomeBannerCVC: UICollectionViewCell {
     @IBOutlet weak var noticeImageView: UIImageView!
     @IBOutlet weak var menuImageView: UIImageView!
     @IBOutlet weak var optionImageView: UIImageView!
-    
     @IBOutlet weak var bookImageView: UIImageView!
     @IBOutlet weak var promotionLabel: UILabel!
-    
     @IBOutlet weak var explainLabel: UILabel!
-    
     @IBOutlet weak var pageView: UIView!
-    
     @IBOutlet weak var pageLabel: UILabel!
     
     

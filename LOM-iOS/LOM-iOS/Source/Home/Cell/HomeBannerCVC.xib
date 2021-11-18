@@ -129,7 +129,7 @@
                 <outlet property="backgroundImageView" destination="id3-io-BIG" id="Oxq-cv-eYr"/>
                 <outlet property="bookImageView" destination="ntP-kj-qnI" id="mBm-su-zNw"/>
                 <outlet property="explainLabel" destination="Wdn-sk-j4s" id="OiA-CX-N9v"/>
-                <outlet property="logoImageView" destination="id3-io-BIG" id="jTG-IX-oss"/>
+                <outlet property="logoImageView" destination="cz2-sy-2iT" id="ofd-ou-d6S"/>
                 <outlet property="menuImageView" destination="ypg-M7-3bX" id="Nd3-mv-aIc"/>
                 <outlet property="noticeImageView" destination="Jlo-1D-9yb" id="Wgb-Fl-X4G"/>
                 <outlet property="optionImageView" destination="QB2-cl-nJV" id="s90-k5-DCG"/>
