@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--홈-->
+        <!--Seawater HomeVC-->
         <scene sceneID="mOQ-pC-84M">
             <objects>
                 <viewController storyboardIdentifier="SeawaterHomeVC" id="XhN-fv-JXl" customClass="SeawaterHomeVC" customModule="LOM_iOS" customModuleProvider="target" sceneMemberID="viewController">
@@ -466,7 +466,7 @@
                             <constraint firstItem="Ftg-V0-grN" firstAttribute="bottom" secondItem="IVk-rz-0JL" secondAttribute="bottom" id="vKG-iE-zbV"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="홈" image="ic_home_inactive" selectedImage="ic_home_active" id="q48-JK-gv4"/>
+                    <navigationItem key="navigationItem" id="D4E-RJ-unC"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <size key="freeformSize" width="414" height="2000"/>
                     <connections>
@@ -478,7 +478,22 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YoR-uc-deP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-720.28985507246387" y="1235.4910714285713"/>
+            <point key="canvasLocation" x="591" y="1235"/>
+        </scene>
+        <!--Seawater DetailVC-->
+        <scene sceneID="v3q-1v-OYY">
+            <objects>
+                <viewController storyboardIdentifier="SeawaterDetailVC" id="UoS-hU-h2k" customClass="SeawaterDetailVC" customModule="LOM_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="62G-6S-CNZ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="l78-70-IL9"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="o0y-bO-drx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1392.753623188406" y="951.5625"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="04i-hA-dhR">
@@ -491,12 +506,31 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="XhN-fv-JXl" kind="relationship" relationship="viewControllers" id="sS9-HO-OTx"/>
+                        <segue destination="nqv-ip-jls" kind="relationship" relationship="viewControllers" id="sS9-HO-OTx"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="A8C-ot-9ja" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2.8985507246376816" y="130.58035714285714"/>
+        </scene>
+        <!--홈-->
+        <scene sceneID="p7t-8g-mlG">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="nqv-ip-jls" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="홈" image="ic_home_inactive" selectedImage="ic_home_active" id="q48-JK-gv4"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="TYy-pc-da4">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="XhN-fv-JXl" kind="relationship" relationship="rootViewController" id="NXQ-mI-xGY"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IPf-o0-iR4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-720.28985507246387" y="1235.4910714285713"/>
         </scene>
     </scenes>
     <resources>
