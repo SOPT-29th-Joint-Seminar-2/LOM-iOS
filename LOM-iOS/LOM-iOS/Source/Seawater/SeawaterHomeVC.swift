@@ -24,9 +24,11 @@ class SeawaterHomeVC: UIViewController {
     var bannerList: [Banner] = []
     var bestBookList: [Book] = []
     
+    @IBOutlet weak var statusBgView: UIView!
     @IBOutlet weak var bgView: UIView!
     @IBOutlet weak var navigationView: UIView!
     @IBOutlet weak var homeTableView: UITableView!
+    @IBOutlet weak var statusBgViewHeight: NSLayoutConstraint!
     
     // MARK: - View Controller LifeCycle
     override func viewDidLoad() {
@@ -37,7 +39,11 @@ class SeawaterHomeVC: UIViewController {
     }
     
     func setUI() {
-        
+        statusBgView.translatesAutoresizingMaskIntoConstraints = false
+        statusBgView.topAnchor.constraint(equalTo: view.topAnchor, constant: 0).isActive = true
+        statusBgView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0).isActive = true
+        statusBgView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0).isActive = true
+        statusBgView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor , constant: 0).isActive = true
     }
     
     // MARK: - set TableView, CollectionView
@@ -57,10 +63,12 @@ extension SeawaterHomeVC: UITableViewDelegate {
         if homeTableView.contentOffset.y > -20 {
             UIView.animate(withDuration: 0.2) {
                 self.navigationView.backgroundColor = .white
+                self.statusBgView.backgroundColor = .white
             }
         } else {
             UIView.animate(withDuration: 0.2) {
                 self.navigationView.backgroundColor = .clear
+                self.statusBgView.backgroundColor = .clear
             }
         }
     }
