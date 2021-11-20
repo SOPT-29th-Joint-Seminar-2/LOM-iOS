@@ -146,7 +146,7 @@
         <image name="ic_save" width="48" height="48"/>
         <image name="ic_search" width="48" height="48"/>
         <image name="img_banner1" width="154" height="227"/>
-        <image name="logo" width="72" height="64"/>
+        <image name="logo" width="49" height="40"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
