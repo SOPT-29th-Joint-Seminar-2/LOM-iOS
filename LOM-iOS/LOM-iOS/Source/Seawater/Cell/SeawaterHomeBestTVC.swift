@@ -8,16 +8,27 @@
 import UIKit
 
 class SeawaterHomeBestTVC: UITableViewCell {
+    
+    public static let identifier = "SeawaterHomeBestTVC"
 
+    @IBOutlet weak var rankLabel: UILabel!
+    @IBOutlet weak var bookImageView: UIImageView!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var writerLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    }
+    
+    func setData(rank: Int, image: UIImage, title: String, writer: String) {
+        rankLabel.text = "\(rank)"
+        bookImageView.image = image
+        titleLabel.text = title
+        writerLabel.text = writer
     }
 
 }
