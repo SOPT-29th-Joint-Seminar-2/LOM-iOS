@@ -258,8 +258,6 @@
                         <outlet property="bannerCollectionView" destination="kw8-wy-6AS" id="8yG-aK-PEB"/>
                         <outlet property="bestBookButton" destination="8y6-o0-U8M" id="EQ7-Lw-ut3"/>
                         <outlet property="bestBookListTableView" destination="U6E-jI-RrM" id="6nM-uD-fos"/>
-                        <outlet property="homePageScrollView" destination="q7o-T4-ojE" id="aK5-p0-uJz"/>
-                        <outlet property="homePageView" destination="R2z-t2-o8x" id="7Pw-5j-TfJ"/>
                         <outlet property="horizonLineView" destination="vbG-iC-X4g" id="iiB-Cd-JKj"/>
                         <outlet property="moreInfoOneButton" destination="fKf-pr-j26" id="da4-nc-M8V"/>
                         <outlet property="moreInfoThreeButton" destination="ihi-ph-2Oe" id="t38-Tu-FzM"/>
