@@ -101,21 +101,21 @@
                                                             <fontDescription key="titleFontDescription" type="system" pointSize="14"/>
                                                         </buttonConfiguration>
                                                     </button>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_check" translatesAutoresizingMaskIntoConstraints="NO" id="XYZ-QL-fBy">
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_check1" translatesAutoresizingMaskIntoConstraints="NO" id="XYZ-QL-fBy">
                                                         <rect key="frame" x="22" y="338" width="12" height="12"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="12" id="s4K-dP-4P9"/>
                                                             <constraint firstAttribute="width" secondItem="XYZ-QL-fBy" secondAttribute="height" multiplier="1:1" id="sAk-fP-tYu"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_check" translatesAutoresizingMaskIntoConstraints="NO" id="RkZ-TO-xzs">
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_check1" translatesAutoresizingMaskIntoConstraints="NO" id="RkZ-TO-xzs">
                                                         <rect key="frame" x="22" y="363" width="12" height="12"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="RkZ-TO-xzs" secondAttribute="height" multiplier="1:1" id="8iG-yf-BUW"/>
                                                             <constraint firstAttribute="width" constant="12" id="tvL-Tf-Oq1"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_check" translatesAutoresizingMaskIntoConstraints="NO" id="MQT-NG-g44">
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_check1" translatesAutoresizingMaskIntoConstraints="NO" id="MQT-NG-g44">
                                                         <rect key="frame" x="22" y="388" width="12" height="12"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="12" id="1h2-mE-B7D"/>
@@ -130,8 +130,14 @@
                                                         </constraints>
                                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <state key="normal" title="Button"/>
-                                                        <buttonConfiguration key="configuration" style="plain" title="오늘은 산의 날">
-                                                            <fontDescription key="titleFontDescription" type="system" pointSize="10"/>
+                                                        <buttonConfiguration key="configuration" style="plain">
+                                                            <attributedString key="attributedTitle">
+                                                                <fragment content="오늘은 산의 날">
+                                                                    <attributes>
+                                                                        <font key="NSFont" metaFont="system" size="10"/>
+                                                                    </attributes>
+                                                                </fragment>
+                                                            </attributedString>
                                                         </buttonConfiguration>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="fill" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ti0-mE-e2H">
@@ -285,7 +291,7 @@
     </scenes>
     <resources>
         <image name="book6" width="104" height="144"/>
-        <image name="ic_check" width="48" height="48"/>
+        <image name="ic_check1" width="14.666666984558105" height="13"/>
         <image name="ic_home_active" width="48" height="48"/>
         <image name="ic_save" width="48" height="48"/>
         <image name="ic_time" width="48" height="48"/>
