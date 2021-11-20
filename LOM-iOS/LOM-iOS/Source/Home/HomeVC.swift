@@ -1,29 +1,34 @@
-//
-//  HomeVC.swift
-//  LOM-iOS
-//
-//  Created by 김혜수 on 2021/11/13.
-//
-
 import UIKit
 
 class HomeVC: UIViewController {
 
+    // MARK: @IBOutlets
+    @IBOutlet weak var pageScrollView: UIScrollView!
+    @IBOutlet weak var pageView: UIView!
+    @IBOutlet weak var bannerCollectionView: UICollectionView!
+    @IBOutlet weak var todaysBookButton: UIButton!
+    @IBOutlet weak var todaysBookView: UIView!
+    @IBOutlet weak var todaysBookImageView: UIImageView!
+    @IBOutlet weak var timeIconImageView: UIImageView!
+    @IBOutlet weak var timeExplainLabel: UILabel!
+    @IBOutlet weak var timeLabel: UILabel!
+    @IBOutlet weak var verticalLineView: UIView!
+    @IBOutlet weak var horizonLineView: UIView!
+    @IBOutlet weak var saveIconImageView: UIImageView!
+    @IBOutlet weak var saveBookButton: UIButton!
+    @IBOutlet weak var pointOneImageView: UIImageView!
+    @IBOutlet weak var pointTwoImageView: UIImageView!
+    @IBOutlet weak var pointThreeImageView: UIImageView!
+    @IBOutlet weak var moreInfoOneButton: UIButton!
+    @IBOutlet weak var moreInfoTwoButton: UIButton!
+    @IBOutlet weak var moreInfoThreeButton: UIButton!
+    @IBOutlet weak var bestBookListTableView: UITableView!
+    @IBOutlet weak var bestBookButton: UIButton!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
