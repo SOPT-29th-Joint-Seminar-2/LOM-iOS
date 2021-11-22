@@ -51,7 +51,7 @@ class DetailVC: UIViewController {
 
 extension DetailVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 117
+        return 119
     }
 }
 

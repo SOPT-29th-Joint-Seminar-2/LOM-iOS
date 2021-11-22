@@ -6,6 +6,11 @@
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="NotoSansKR-Regular.otf">
+            <string>NotoSansKR-Regular</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--DetailVC-->
         <scene sceneID="s0d-6b-0kx">
@@ -55,15 +60,15 @@
                                                 </segments>
                                             </segmentedControl>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="book2" translatesAutoresizingMaskIntoConstraints="NO" id="78x-st-ViM">
-                                                <rect key="frame" x="64.666666666666686" y="136" width="246" height="377"/>
+                                                <rect key="frame" x="66" y="136" width="246" height="377"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="377" id="Mpl-KP-4nz"/>
                                                     <constraint firstAttribute="width" constant="246" id="SKb-vB-I92"/>
                                                 </constraints>
                                             </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="달러구트 꿈 백화점 2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g5N-xs-ogD">
-                                                <rect key="frame" x="105" y="535" width="165" height="24"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="달러구트 꿈 백화점 2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g5N-xs-ogD">
+                                                <rect key="frame" x="100.66666666666669" y="535" width="174" height="24"/>
+                                                <fontDescription key="fontDescription" name="NotoSansKR-Regular" family="Noto Sans KR" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -81,14 +86,14 @@
                                                                 </constraints>
                                                             </imageView>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4.9만 개 +" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5pR-Wk-bW3">
-                                                                <rect key="frame" x="31.333333333333329" y="48" width="62" height="17"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                <rect key="frame" x="32" y="51" width="60.333333333333343" height="21"/>
+                                                                <fontDescription key="fontDescription" name="NotoSansKR-Regular" family="Noto Sans KR" pointSize="14"/>
                                                                 <color key="textColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="이 책이 담긴 서재" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YUX-4T-Hhv">
-                                                                <rect key="frame" x="20.666666666666671" y="29" width="83" height="15"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                                <rect key="frame" x="18.333333333333336" y="29" width="87.666666666666657" height="18"/>
+                                                                <fontDescription key="fontDescription" name="NotoSansKR-Regular" family="Noto Sans KR" pointSize="12"/>
                                                                 <color key="textColor" red="0.6470588235294118" green="0.6470588235294118" blue="0.6470588235294118" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
@@ -130,14 +135,14 @@
                                                                 </constraints>
                                                             </imageView>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="633개" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZId-zq-30a">
-                                                                <rect key="frame" x="42.666666666666671" y="48" width="39" height="17"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                <rect key="frame" x="44.000000000000014" y="51" width="36.333333333333329" height="21"/>
+                                                                <fontDescription key="fontDescription" name="NotoSansKR-Regular" family="Noto Sans KR" pointSize="14"/>
                                                                 <color key="textColor" red="0.33333333329999998" green="0.33333333329999998" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="한 줄 리뷰" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VrU-Zr-pgt">
-                                                                <rect key="frame" x="37.666666666666671" y="29" width="49" height="15"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                                <rect key="frame" x="36.666666666666671" y="29" width="51" height="18"/>
+                                                                <fontDescription key="fontDescription" name="NotoSansKR-Regular" family="Noto Sans KR" pointSize="12"/>
                                                                 <color key="textColor" red="0.64705882349999999" green="0.64705882349999999" blue="0.64705882349999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
@@ -160,14 +165,14 @@
                                                                 </constraints>
                                                             </imageView>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="13개" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="byO-jR-2xy">
-                                                                <rect key="frame" x="48.333333333333343" y="48" width="28" height="17"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                <rect key="frame" x="48.000000000000028" y="51" width="28.666666666666671" height="21"/>
+                                                                <fontDescription key="fontDescription" name="NotoSansKR-Regular" family="Noto Sans KR" pointSize="14"/>
                                                                 <color key="textColor" red="0.33333333329999998" green="0.33333333329999998" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="포스트" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0m5-as-LTy">
-                                                                <rect key="frame" x="46.333333333333343" y="29" width="31.666666666666671" height="15"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                                <rect key="frame" x="45.666666666666657" y="29" width="33.333333333333343" height="18"/>
+                                                                <fontDescription key="fontDescription" name="NotoSansKR-Regular" family="Noto Sans KR" pointSize="12"/>
                                                                 <color key="textColor" red="0.64705882349999999" green="0.64705882349999999" blue="0.64705882349999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
@@ -208,29 +213,29 @@
                                                     <constraint firstAttribute="trailing" secondItem="cxH-u0-guF" secondAttribute="trailing" id="zBm-o5-LJH"/>
                                                 </constraints>
                                             </view>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="이미예(지은이)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="chN-tM-2o6">
-                                                <rect key="frame" x="145.66666666666666" y="569" width="84" height="17"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="이미예(지은이)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="chN-tM-2o6">
+                                                <rect key="frame" x="144" y="569" width="87" height="17"/>
+                                                <fontDescription key="fontDescription" name="NotoSansKR-Regular" family="Noto Sans KR" pointSize="14"/>
                                                 <color key="textColor" red="0.6470588235294118" green="0.6470588235294118" blue="0.6470588235294118" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S4n-OL-w3a">
-                                                <rect key="frame" x="111" y="104" width="153" height="20"/>
+                                                <rect key="frame" x="110.66666666666669" y="104" width="154" height="20"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="54b-2O-Bsa">
-                                                        <rect key="frame" x="8" y="0.0" width="45" height="20.333333333333332"/>
+                                                        <rect key="frame" x="8" y="-2" width="44.333333333333336" height="24"/>
                                                         <attributedString key="attributedText">
                                                             <fragment content="밀리픽">
                                                                 <attributes>
                                                                     <color key="NSColor" red="0.64313725490196072" green="0.31764705882352939" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                    <font key="NSFont" metaFont="system" size="17"/>
+                                                                    <font key="NSFont" size="16" name="NotoSansKR-Regular"/>
                                                                 </attributes>
                                                             </fragment>
                                                         </attributedString>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nyo-az-eyW">
-                                                        <rect key="frame" x="56" y="3" width="1" height="14"/>
+                                                        <rect key="frame" x="55.333333333333329" y="3" width="1" height="14"/>
                                                         <color key="backgroundColor" red="0.75686274509803919" green="0.75686274509803919" blue="0.75686274509803919" alpha="1" colorSpace="calibratedRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="1" id="5Pa-aN-ZuR"/>
@@ -238,8 +243,8 @@
                                                         </constraints>
                                                     </view>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="완독할 확률 72%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6T8-4k-uM6">
-                                                        <rect key="frame" x="60" y="3.3333333333333295" width="84" height="13.333333333333336"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                        <rect key="frame" x="59.333333333333321" y="1" width="85.666666666666686" height="18"/>
+                                                        <fontDescription key="fontDescription" name="NotoSansKR-Regular" family="Noto Sans KR" pointSize="12"/>
                                                         <color key="textColor" red="0.43529411764705883" green="0.43529411764705883" blue="0.43529411764705883" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
@@ -262,15 +267,16 @@
                                             <constraint firstItem="cD9-dm-vO9" firstAttribute="top" secondItem="chN-tM-2o6" secondAttribute="bottom" constant="22" id="712-Gx-sBj"/>
                                             <constraint firstItem="RSO-Tu-SJg" firstAttribute="centerX" secondItem="1Iv-6k-ElU" secondAttribute="centerX" id="7in-QF-4gM"/>
                                             <constraint firstAttribute="trailing" secondItem="cD9-dm-vO9" secondAttribute="trailing" id="8Sx-ca-LDq"/>
-                                            <constraint firstItem="78x-st-ViM" firstAttribute="centerX" secondItem="1Iv-6k-ElU" secondAttribute="centerX" id="AVc-Z8-4RL"/>
                                             <constraint firstItem="78x-st-ViM" firstAttribute="top" secondItem="S4n-OL-w3a" secondAttribute="bottom" constant="12" id="CBE-py-L1b"/>
                                             <constraint firstItem="g5N-xs-ogD" firstAttribute="centerX" secondItem="1Iv-6k-ElU" secondAttribute="centerX" id="CNy-7R-AK7"/>
                                             <constraint firstAttribute="trailing" secondItem="mmZ-Vi-XQv" secondAttribute="trailing" constant="24" id="DKM-4E-WrU"/>
+                                            <constraint firstItem="78x-st-ViM" firstAttribute="leading" secondItem="1Iv-6k-ElU" secondAttribute="leading" constant="66" id="Qzu-fk-6j1"/>
                                             <constraint firstItem="HMg-vF-gca" firstAttribute="top" secondItem="1Iv-6k-ElU" secondAttribute="top" constant="1" id="Wwd-UD-aGj"/>
                                             <constraint firstItem="cD9-dm-vO9" firstAttribute="leading" secondItem="1Iv-6k-ElU" secondAttribute="leading" id="XPU-Zd-pJo"/>
                                             <constraint firstItem="S4n-OL-w3a" firstAttribute="centerX" secondItem="1Iv-6k-ElU" secondAttribute="centerX" id="XrQ-0a-ux2"/>
                                             <constraint firstItem="chN-tM-2o6" firstAttribute="centerX" secondItem="1Iv-6k-ElU" secondAttribute="centerX" id="bq7-9l-kFE"/>
                                             <constraint firstItem="chN-tM-2o6" firstAttribute="top" secondItem="g5N-xs-ogD" secondAttribute="bottom" constant="10" id="caV-lF-1Gw"/>
+                                            <constraint firstAttribute="trailing" secondItem="78x-st-ViM" secondAttribute="trailing" constant="63" id="edn-em-R7H"/>
                                             <constraint firstItem="S4n-OL-w3a" firstAttribute="top" secondItem="RSO-Tu-SJg" secondAttribute="bottom" constant="27" id="pWj-vM-aLH"/>
                                             <constraint firstItem="mmZ-Vi-XQv" firstAttribute="leading" secondItem="HMg-vF-gca" secondAttribute="trailing" constant="24" id="qDp-gP-4F3"/>
                                             <constraint firstAttribute="bottom" secondItem="cD9-dm-vO9" secondAttribute="bottom" constant="34" id="su4-Vg-WGd"/>
@@ -291,20 +297,16 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MFO-6q-R4W">
                                         <rect key="frame" x="0.0" y="716" width="375" height="186"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="7" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GLO-uJ-eVd">
-                                                <rect key="frame" x="24" y="65" width="327" height="83.666666666666686"/>
-                                                <string key="text">100만 독자를 사로잡은 &lt;달러구트 꿈 백화점&gt;, 그 두번째
-이야기. 어느덧 페니가 달러구트 꿈 백화점에서 일한 지도 
-1년이 넘었다. 재고가 부족한 꿈을 관리하고 꿈값 창고에서
-감정으로 가득 찬 병을 옮기고, 프런트의 수많은 눈꺼풀
-저울을 관리하는 일에 페니는 점점 능숙해진다.</string>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="justified" lineBreakMode="characterWrap" numberOfLines="7" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GLO-uJ-eVd">
+                                                <rect key="frame" x="24" y="68" width="327" height="103.66666666666669"/>
+                                                <string key="text">100만 독자를 사로잡은 &lt;달러구트 꿈 백화점&gt;, 그 두번째 이야기. 어느덧 페니가 달러구트 꿈 백화점에서 일한 지도 1년이 넘었다. 재고가 부족한 꿈을 관리하고 꿈값 창고에서 감정으로 가득 찬 병을 옮기고, 프런트의 수많은 눈꺼풀 저울을 관리하는 일에 페니는 점점 능숙해진다.</string>
+                                                <fontDescription key="fontDescription" name="NotoSansKR-Regular" family="Noto Sans KR" pointSize="14"/>
                                                 <color key="textColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="책 소개" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7fG-hs-VjI">
-                                                <rect key="frame" x="28" y="24" width="49" height="21"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <rect key="frame" x="27.999999999999996" y="24" width="48.666666666666657" height="24"/>
+                                                <fontDescription key="fontDescription" name="NotoSansKR-Regular" family="Noto Sans KR" pointSize="16"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -328,14 +330,14 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="124.33333333333333" height="67"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="이 책이 담긴 서재" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jdf-Gx-f72">
-                                                                <rect key="frame" x="20.666666666666671" y="2" width="83" height="15"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                                <rect key="frame" x="18.333333333333336" y="2" width="87.666666666666657" height="18"/>
+                                                                <fontDescription key="fontDescription" name="NotoSansKR-Regular" family="Noto Sans KR" pointSize="12"/>
                                                                 <color key="textColor" red="0.64705882349999999" green="0.64705882349999999" blue="0.64705882349999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="소설" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YTi-jG-taN">
-                                                                <rect key="frame" x="49.666666666666664" y="44" width="24.999999999999993" height="17"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                <rect key="frame" x="49.333333333333336" y="47" width="26.000000000000007" height="21"/>
+                                                                <fontDescription key="fontDescription" name="NotoSansKR-Regular" family="Noto Sans KR" pointSize="14"/>
                                                                 <color key="textColor" red="0.33333333329999998" green="0.33333333329999998" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
@@ -367,14 +369,14 @@
                                                         <rect key="frame" x="125.33333333333334" y="0.0" width="124.33333333333334" height="67"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="308P" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oY6-Kx-WBO">
-                                                                <rect key="frame" x="44.666666666666671" y="44" width="35" height="17"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                <rect key="frame" x="46.000000000000014" y="47" width="32.333333333333329" height="21"/>
+                                                                <fontDescription key="fontDescription" name="NotoSansKR-Regular" family="Noto Sans KR" pointSize="14"/>
                                                                 <color key="textColor" red="0.33333333329999998" green="0.33333333329999998" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="한 줄 리뷰" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yc9-GT-dTR">
-                                                                <rect key="frame" x="37.666666666666671" y="2" width="49" height="15"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                                <rect key="frame" x="36.666666666666671" y="2" width="51" height="18"/>
+                                                                <fontDescription key="fontDescription" name="NotoSansKR-Regular" family="Noto Sans KR" pointSize="12"/>
                                                                 <color key="textColor" red="0.64705882349999999" green="0.64705882349999999" blue="0.64705882349999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
@@ -389,14 +391,14 @@
                                                         <rect key="frame" x="250.66666666666666" y="0.0" width="124.33333333333334" height="67"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="28.6 MB" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z5z-3b-2rG">
-                                                                <rect key="frame" x="35.333333333333343" y="44" width="54" height="17"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                <rect key="frame" x="36.666666666666657" y="47" width="51" height="21"/>
+                                                                <fontDescription key="fontDescription" name="NotoSansKR-Regular" family="Noto Sans KR" pointSize="14"/>
                                                                 <color key="textColor" red="0.33333333329999998" green="0.33333333329999998" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="포스트" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xa2-jz-lIV">
-                                                                <rect key="frame" x="46.333333333333343" y="2" width="31.666666666666671" height="15"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                                <rect key="frame" x="45.666666666666657" y="2" width="33.333333333333343" height="18"/>
+                                                                <fontDescription key="fontDescription" name="NotoSansKR-Regular" family="Noto Sans KR" pointSize="12"/>
                                                                 <color key="textColor" red="0.64705882349999999" green="0.64705882349999999" blue="0.64705882349999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
@@ -454,7 +456,7 @@
                                         <rect key="frame" x="0.0" y="1009" width="375" height="594"/>
                                         <subviews>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Sxn-bj-jsW">
-                                                <rect key="frame" x="0.0" y="77" width="375" height="240"/>
+                                                <rect key="frame" x="0.0" y="81" width="375" height="240"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="375" id="ot1-D7-Z88"/>
@@ -472,32 +474,32 @@
                                                 </prototypes>
                                             </tableView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="한 줄 리뷰" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ccy-hp-aPa">
-                                                <rect key="frame" x="28" y="24" width="64" height="20"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                <rect key="frame" x="28" y="24" width="68" height="24"/>
+                                                <fontDescription key="fontDescription" name="NotoSansKR-Regular" family="Noto Sans KR" pointSize="16"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oJD-a3-4dS">
-                                                <rect key="frame" x="95" y="24" width="10" height="20"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                <rect key="frame" x="99" y="24" width="9" height="24"/>
+                                                <fontDescription key="fontDescription" name="NotoSansKR-Regular" family="Noto Sans KR" pointSize="16"/>
                                                 <color key="textColor" red="1" green="0.72549019607843135" blue="0.015686274509803921" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lOC-Lp-2mS">
-                                                <rect key="frame" x="0.0" y="317" width="375" height="68"/>
+                                                <rect key="frame" x="0.0" y="321" width="375" height="68"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pbc-yC-fmA">
                                                         <rect key="frame" x="62" y="0.0" width="220" height="54"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="다양한 생각을 남겨주세요" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H0k-tP-los">
-                                                                <rect key="frame" x="12" y="29" width="171" height="21"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                <rect key="frame" x="12" y="26" width="181.66666666666666" height="25.333333333333329"/>
+                                                                <fontDescription key="fontDescription" name="NotoSansKR-Regular" family="Noto Sans KR" pointSize="17"/>
                                                                 <color key="textColor" red="0.75686274509803919" green="0.75686274509803919" blue="0.75686274509803919" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="한줄리뷰" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LuM-3Z-pOx">
-                                                                <rect key="frame" x="12" y="10" width="42" height="15"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                                <rect key="frame" x="12.000000000000004" y="10" width="44.333333333333343" height="18"/>
+                                                                <fontDescription key="fontDescription" name="NotoSansKR-Regular" family="Noto Sans KR" pointSize="12"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
@@ -507,7 +509,7 @@
                                                             <constraint firstItem="H0k-tP-los" firstAttribute="leading" secondItem="LuM-3Z-pOx" secondAttribute="leading" id="Xgd-SF-3Ux"/>
                                                             <constraint firstAttribute="height" constant="54" id="a7p-fT-su4"/>
                                                             <constraint firstItem="LuM-3Z-pOx" firstAttribute="leading" secondItem="Pbc-yC-fmA" secondAttribute="leading" constant="12" id="bVV-Xs-qnF"/>
-                                                            <constraint firstItem="H0k-tP-los" firstAttribute="top" secondItem="LuM-3Z-pOx" secondAttribute="bottom" constant="4" id="lSJ-jM-vt7"/>
+                                                            <constraint firstItem="H0k-tP-los" firstAttribute="top" secondItem="LuM-3Z-pOx" secondAttribute="bottom" constant="-2" id="lSJ-jM-vt7"/>
                                                             <constraint firstItem="LuM-3Z-pOx" firstAttribute="top" secondItem="Pbc-yC-fmA" secondAttribute="top" constant="10" id="vLK-gm-8da"/>
                                                         </constraints>
                                                     </view>
@@ -525,15 +527,16 @@
                                                             <constraint firstAttribute="height" constant="54" id="DGS-hr-IXO"/>
                                                             <constraint firstAttribute="width" constant="62" id="Mxf-vy-Ccs"/>
                                                         </constraints>
+                                                        <fontDescription key="fontDescription" name="NotoSansKR-Regular" family="Noto Sans KR" pointSize="18"/>
                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                         <state key="normal" title="등록">
                                                             <color key="titleColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.93725490196078431" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         </state>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0/50" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vna-ph-NgO">
-                                                        <rect key="frame" x="252" y="51" width="27" height="15"/>
+                                                        <rect key="frame" x="252" y="51" width="25" height="18"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                        <fontDescription key="fontDescription" name="NotoSansKR-Regular" family="Noto Sans KR" pointSize="12"/>
                                                         <color key="textColor" red="0.43529411764705883" green="0.43529411764705883" blue="0.43529411764705883" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
