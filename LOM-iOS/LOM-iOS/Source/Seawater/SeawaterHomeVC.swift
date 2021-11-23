@@ -65,6 +65,7 @@ class SeawaterHomeVC: UIViewController {
 // MARK: - TableView Extension
 extension SeawaterHomeVC: UITableViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        print(homeTableView.contentOffset.y)
         if homeTableView.contentOffset.y > -20 {
             UIView.animate(withDuration: 0.2) {
                 self.navigationView.backgroundColor = .white
