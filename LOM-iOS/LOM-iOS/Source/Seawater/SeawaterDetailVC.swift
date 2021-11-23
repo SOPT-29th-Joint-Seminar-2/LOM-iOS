@@ -37,7 +37,6 @@ class SeawaterDetailVC: UIViewController {
 
         percentLabel.attributedText = attributedStr
         
-        
     }
     
    
