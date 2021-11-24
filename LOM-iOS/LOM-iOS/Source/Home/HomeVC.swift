@@ -26,8 +26,8 @@ class HomeVC: UIViewController {
     @IBOutlet weak var moreInfoLabelTwo: UILabel!
     @IBOutlet weak var moreInfoLabelThree: UILabel!
     
+    @IBOutlet weak var bestBookLabel: UILabel!
     @IBOutlet weak var bestBookListTableView: UITableView!
-    @IBOutlet weak var bestBookButton: UIButton!
     
     var mainBannerContentList: [Banner] = []
     var bestBookContentList: [Book] = []
@@ -40,6 +40,7 @@ class HomeVC: UIViewController {
         registerXib()
         bannerCollectionView.dataSource = self
         bannerCollectionView.delegate = self
+        pageScrollView.showsVerticalScrollIndicator = false
     }
     
     func registerXib(){
@@ -52,7 +53,7 @@ class HomeVC: UIViewController {
         bannerCollectionView.isPagingEnabled = true
         bannerCollectionView.decelerationRate = .fast
         bannerCollectionView.contentInsetAdjustmentBehavior = .automatic
-        
+        bannerCollectionView.showsHorizontalScrollIndicator = false
         let layout = bannerCollectionView.collectionViewLayout as! UICollectionViewFlowLayout
 
         let cellHeight = bannerCollectionView.frame.height
@@ -70,6 +71,7 @@ class HomeVC: UIViewController {
         
         todaysBookLabel.text = "오늘의 책"
         todaysBookLabel.font = UIFont.NotoSans(.bold, size: 20)
+        bestBookLabel.font = UIFont.NotoSans(.bold, size: 20)
         
         moreInfoLabelOne.font = UIFont.NotoSans(.medium, size: 13)
         moreInfoLabelTwo.font = UIFont.NotoSans(.medium, size: 13)

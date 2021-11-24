@@ -20,10 +20,10 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="1917"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R2z-t2-o8x">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="3790"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="1917"/>
                                         <subviews>
-                                            <collectionView multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" dataMode="prototypes" prefetchingEnabled="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kw8-wy-6AS">
-                                                <rect key="frame" x="0.0" y="0.0" width="375" height="515"/>
+                                            <collectionView multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" contentInsetAdjustmentBehavior="never" dataMode="prototypes" prefetchingEnabled="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kw8-wy-6AS">
+                                                <rect key="frame" x="0.0" y="-50" width="375" height="515"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="515" id="Tvf-ZQ-ED1"/>
@@ -37,7 +37,7 @@
                                                 <cells/>
                                             </collectionView>
                                             <view clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1ZK-Mz-BpZ">
-                                                <rect key="frame" x="24" y="584" width="327" height="427"/>
+                                                <rect key="frame" x="24" y="534" width="327" height="427"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="book6" translatesAutoresizingMaskIntoConstraints="NO" id="gLo-wB-whk">
                                                         <rect key="frame" x="92" y="19" width="143" height="200"/>
@@ -69,7 +69,7 @@
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vbG-iC-X4g">
-                                                        <rect key="frame" x="22" y="313.33333333333348" width="281.66666666666669" height="1.3333333333333144"/>
+                                                        <rect key="frame" x="22" y="313.33333333333337" width="281.66666666666669" height="1.3333333333333144"/>
                                                         <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="281.5" id="DAq-pB-cCB"/>
@@ -113,19 +113,19 @@
                                                         </constraints>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="오늘은 산의 날" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ipz-8L-1b2">
-                                                        <rect key="frame" x="44" y="332.66666666666652" width="81" height="17"/>
+                                                        <rect key="frame" x="44" y="332.66666666666663" width="81" height="17"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="무료한 삶에 성취를 느끼고 싶다면" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cou-F6-TKp">
-                                                        <rect key="frame" x="44" y="355.66666666666652" width="185" height="17"/>
+                                                        <rect key="frame" x="44" y="355.66666666666663" width="185" height="17"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="완독할 확률 64%  |  완독 예상 시간 1시간 3분" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QIj-wI-mbt">
-                                                        <rect key="frame" x="44" y="378.66666666666652" width="256.66666666666669" height="17"/>
+                                                        <rect key="frame" x="44" y="378.66666666666663" width="256.66666666666669" height="17"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -171,14 +171,8 @@
                                                     <constraint firstItem="djf-03-g7w" firstAttribute="top" secondItem="1ZK-Mz-BpZ" secondAttribute="top" constant="243" id="wcc-mr-eXd"/>
                                                 </constraints>
                                             </view>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8y6-o0-U8M">
-                                                <rect key="frame" x="24" y="1055" width="328" height="31"/>
-                                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain" title="서점 베스트 Top 10"/>
-                                            </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="오늘의 책" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3mI-9t-MWp">
-                                                <rect key="frame" x="25" y="530" width="327" height="23"/>
+                                                <rect key="frame" x="25" y="480" width="327" height="23"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="23" id="AGZ-dq-QG6"/>
                                                 </constraints>
@@ -187,11 +181,16 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="9Jt-86-zss">
-                                                <rect key="frame" x="24" y="1105" width="327" height="2685"/>
+                                                <rect key="frame" x="24" y="1045" width="327" height="872"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             </tableView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="서점 베스트 TOP 10" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qMR-DT-8AE">
+                                                <rect key="frame" x="23" y="1005" width="328" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstItem="9Jt-86-zss" firstAttribute="leading" secondItem="R2z-t2-o8x" secondAttribute="leading" constant="24" id="1Dp-YY-bz2"/>
                                             <constraint firstAttribute="trailing" secondItem="3mI-9t-MWp" secondAttribute="trailing" constant="23" id="3yx-kP-ZXS"/>
@@ -199,26 +198,26 @@
                                             <constraint firstAttribute="trailing" secondItem="kw8-wy-6AS" secondAttribute="trailing" id="Bbd-B5-MBg"/>
                                             <constraint firstItem="1ZK-Mz-BpZ" firstAttribute="leading" secondItem="R2z-t2-o8x" secondAttribute="leading" constant="24" id="DYA-a3-YnB"/>
                                             <constraint firstItem="1ZK-Mz-BpZ" firstAttribute="top" secondItem="3mI-9t-MWp" secondAttribute="bottom" constant="31" id="DjU-ct-RP4"/>
-                                            <constraint firstItem="8y6-o0-U8M" firstAttribute="top" secondItem="1ZK-Mz-BpZ" secondAttribute="bottom" constant="44" id="Lw6-gf-qsz"/>
-                                            <constraint firstItem="kw8-wy-6AS" firstAttribute="top" secondItem="R2z-t2-o8x" secondAttribute="top" id="Ly4-1I-GiC"/>
+                                            <constraint firstAttribute="trailing" secondItem="qMR-DT-8AE" secondAttribute="trailing" constant="24" id="E1i-d9-rbe"/>
+                                            <constraint firstItem="9Jt-86-zss" firstAttribute="top" secondItem="qMR-DT-8AE" secondAttribute="bottom" constant="19" id="ISU-rr-DZR"/>
+                                            <constraint firstItem="qMR-DT-8AE" firstAttribute="leading" secondItem="R2z-t2-o8x" secondAttribute="leading" constant="23" id="L3c-V2-neq"/>
+                                            <constraint firstItem="kw8-wy-6AS" firstAttribute="top" secondItem="R2z-t2-o8x" secondAttribute="top" constant="-50" id="Ly4-1I-GiC"/>
                                             <constraint firstAttribute="trailing" secondItem="9Jt-86-zss" secondAttribute="trailing" constant="24" id="NpL-RY-zhf"/>
                                             <constraint firstItem="kw8-wy-6AS" firstAttribute="leading" secondItem="R2z-t2-o8x" secondAttribute="leading" id="OEZ-xj-84Z"/>
-                                            <constraint firstItem="8y6-o0-U8M" firstAttribute="leading" secondItem="R2z-t2-o8x" secondAttribute="leading" constant="24" id="P7h-QV-wYz"/>
-                                            <constraint firstAttribute="trailing" secondItem="8y6-o0-U8M" secondAttribute="trailing" constant="23" id="cep-ry-RdH"/>
                                             <constraint firstItem="3mI-9t-MWp" firstAttribute="top" secondItem="kw8-wy-6AS" secondAttribute="bottom" constant="15" id="ePB-Lf-rog"/>
                                             <constraint firstItem="3mI-9t-MWp" firstAttribute="leading" secondItem="R2z-t2-o8x" secondAttribute="leading" constant="25" id="qgQ-Hf-SLM"/>
-                                            <constraint firstItem="9Jt-86-zss" firstAttribute="top" secondItem="8y6-o0-U8M" secondAttribute="bottom" constant="19" id="vvE-2T-F5B"/>
                                             <constraint firstAttribute="bottom" secondItem="9Jt-86-zss" secondAttribute="bottom" id="wc7-Cp-VaQ"/>
+                                            <constraint firstItem="qMR-DT-8AE" firstAttribute="top" secondItem="1ZK-Mz-BpZ" secondAttribute="bottom" constant="44" id="wcu-Fk-Qbh"/>
                                         </constraints>
                                     </view>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="R2z-t2-o8x" firstAttribute="top" secondItem="np5-Aw-VVW" secondAttribute="top" id="M5T-YK-FlC"/>
+                                    <constraint firstItem="R2z-t2-o8x" firstAttribute="top" secondItem="Eso-HK-sDy" secondAttribute="top" id="M5T-YK-FlC"/>
                                     <constraint firstItem="R2z-t2-o8x" firstAttribute="height" secondItem="np5-Aw-VVW" secondAttribute="height" priority="250" id="UsC-BI-1xd"/>
                                     <constraint firstItem="R2z-t2-o8x" firstAttribute="width" secondItem="np5-Aw-VVW" secondAttribute="width" id="dWG-QW-hWA"/>
-                                    <constraint firstItem="R2z-t2-o8x" firstAttribute="trailing" secondItem="Eso-HK-sDy" secondAttribute="trailing" constant="240" id="jal-kZ-KNq"/>
+                                    <constraint firstItem="R2z-t2-o8x" firstAttribute="trailing" secondItem="Eso-HK-sDy" secondAttribute="trailing" id="jal-kZ-KNq"/>
                                     <constraint firstItem="R2z-t2-o8x" firstAttribute="leading" secondItem="Eso-HK-sDy" secondAttribute="leading" id="oM4-xG-rQ1"/>
-                                    <constraint firstItem="R2z-t2-o8x" firstAttribute="bottom" secondItem="Eso-HK-sDy" secondAttribute="bottom" constant="3790" id="roH-k7-ZiD"/>
+                                    <constraint firstItem="R2z-t2-o8x" firstAttribute="bottom" secondItem="Eso-HK-sDy" secondAttribute="bottom" id="roH-k7-ZiD"/>
                                 </constraints>
                                 <viewLayoutGuide key="contentLayoutGuide" id="Eso-HK-sDy"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="np5-Aw-VVW"/>
@@ -239,7 +238,7 @@
                     <size key="freeformSize" width="375" height="2000"/>
                     <connections>
                         <outlet property="bannerCollectionView" destination="kw8-wy-6AS" id="8yG-aK-PEB"/>
-                        <outlet property="bestBookButton" destination="8y6-o0-U8M" id="EQ7-Lw-ut3"/>
+                        <outlet property="bestBookLabel" destination="qMR-DT-8AE" id="KPe-mJ-fwp"/>
                         <outlet property="bestBookListTableView" destination="9Jt-86-zss" id="dPa-xp-tec"/>
                         <outlet property="horizonLineView" destination="vbG-iC-X4g" id="iiB-Cd-JKj"/>
                         <outlet property="moreInfoLabelOne" destination="Ipz-8L-1b2" id="jTt-ED-WfJ"/>

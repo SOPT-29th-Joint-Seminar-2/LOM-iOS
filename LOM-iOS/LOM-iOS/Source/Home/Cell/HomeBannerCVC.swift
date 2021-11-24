@@ -68,7 +68,7 @@ class HomeBannerCVC: UICollectionViewCell {
             backgroundImageView.image = UIImage(named: "Rectangle 103")
 
             NSLayoutConstraint.init(item: bookImageView, attribute: .bottom, relatedBy: .equal, toItem: backgroundImageView, attribute: .bottom, multiplier: 1.0, constant: 15).isActive = true
-            NSLayoutConstraint.init(item: bookImageView, attribute: .leading, relatedBy: .equal, toItem: backgroundImageView, attribute: .leading, multiplier: 1.0, constant: 203).isActive = true
+            NSLayoutConstraint.init(item: bookImageView, attribute: .leading, relatedBy: .equal, toItem: backgroundImageView, attribute: .leading, multiplier: 1.0, constant: 220).isActive = true
 
 
 
@@ -76,13 +76,13 @@ class HomeBannerCVC: UICollectionViewCell {
             backgroundImageView.image = UIImage(named: "Rectangle 104")
 
             NSLayoutConstraint.init(item: bookImageView, attribute: .bottom, relatedBy: .equal, toItem: backgroundImageView, attribute: .bottom, multiplier: 1.0, constant: 15).isActive = true
-            NSLayoutConstraint.init(item: bookImageView, attribute: .leading, relatedBy: .equal, toItem: backgroundImageView, attribute: .leading, multiplier: 1.0, constant: 200).isActive = true
+            NSLayoutConstraint.init(item: bookImageView, attribute: .leading, relatedBy: .equal, toItem: backgroundImageView, attribute: .leading, multiplier: 1.0, constant: 220).isActive = true
 
         case 3:
             backgroundImageView.image = UIImage(named: "Rectangle 105")
 
             NSLayoutConstraint.init(item: bookImageView, attribute: .bottom, relatedBy: .equal, toItem: backgroundImageView, attribute: .bottom, multiplier: 1.0, constant: 20).isActive = true
-            NSLayoutConstraint.init(item: bookImageView, attribute: .leading, relatedBy: .equal, toItem: backgroundImageView, attribute: .leading, multiplier: 1.0, constant: 225).isActive = true
+            NSLayoutConstraint.init(item: bookImageView, attribute: .leading, relatedBy: .equal, toItem: backgroundImageView, attribute: .leading, multiplier: 1.0, constant: 220).isActive = true
 
         default:
             backgroundImageView.image = UIImage(named: "Rectangle 103")
