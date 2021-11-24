@@ -2,18 +2,6 @@ import UIKit
 
 class HomeVC: UIViewController {
 
-    struct Banners {
-        let title: String
-        let subtitle: String
-        let image: UIImage?
-    }
-
-    struct Books {
-        let title: String
-        let writer: String
-        let image: UIImage?
-    }
-    
     // MARK: @IBOutlets
     @IBOutlet weak var pageScrollView: UIScrollView!
     @IBOutlet weak var pageView: UIView!
@@ -47,16 +35,31 @@ class HomeVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         initMainBannerContentList()
+        initializeBannerCollectionViewLayout()
         initializeTodaysBookLayout()
         registerXib()
         bannerCollectionView.dataSource = self
         bannerCollectionView.delegate = self
-        bannerCollectionView.isPagingEnabled = true
     }
     
     func registerXib(){
         let xibName = UINib(nibName: HomeBannerCVC.identifier, bundle: nil)
         bannerCollectionView.register(xibName, forCellWithReuseIdentifier: HomeBannerCVC.identifier)
+    }
+    
+    func initializeBannerCollectionViewLayout(){
+        
+        bannerCollectionView.isPagingEnabled = true
+        bannerCollectionView.decelerationRate = .fast
+        bannerCollectionView.contentInsetAdjustmentBehavior = .automatic
+        
+        let layout = bannerCollectionView.collectionViewLayout as! UICollectionViewFlowLayout
+
+        let cellHeight = bannerCollectionView.frame.height
+        let cellWidth = UIScreen.main.bounds.size.width
+        
+        layout.itemSize = CGSize(width: cellWidth, height: cellHeight)
+
     }
     
     func initializeTodaysBookLayout(){
@@ -98,11 +101,7 @@ class HomeVC: UIViewController {
     }
 }
 
-extension HomeVC: UICollectionViewDelegate {
-    
-}
-
-extension HomeVC: UICollectionViewDataSource {
+extension HomeVC: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return mainBannerContentList.count
     }
@@ -113,7 +112,34 @@ extension HomeVC: UICollectionViewDataSource {
         let nowData = mainBannerContentList[indexPath.row]
         
         cell.setData(page: indexPath.row+1, promote: nowData.title , explain: nowData.subtitle, bookImage: nowData.image)
+        
         return cell
     }
     
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let cellHeight = collectionView.frame.size.height
+        let cellWidth = collectionView.frame.size.width
+        
+        return CGSize(width: cellWidth, height: cellHeight)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+    }
+    
 }
+
+//extension HomeVC: UITableViewDelegate, UITableViewDataSource {
+//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        return 10
+//    }
+//
+//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//    }
+//
+//
+//}
