@@ -167,5 +167,12 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 104
     }
-
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if(indexPath.row == 0){
+            let storyboard = UIStoryboard.init(name: "Detail",bundle: nil)
+            guard let nextVC = storyboard.instantiateViewController(withIdentifier: "Detail") as? DetailVC else {return}
+            present(nextVC, animated: true, completion: nil)
+        }
+    }
 }
