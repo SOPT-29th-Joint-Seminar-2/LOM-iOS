@@ -236,7 +236,7 @@
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="q7o-T4-ojE" secondAttribute="trailing" id="rup-Se-jXF"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="홈" selectedImage="ic_home_active" id="M74-fQ-y6b"/>
+                    <tabBarItem key="tabBarItem" title="홈" image="ic_home_inactive" selectedImage="ic_home_active" id="M74-fQ-y6b"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <size key="freeformSize" width="375" height="2000"/>
                     <connections>
@@ -272,6 +272,7 @@
         <image name="book6" width="104" height="144"/>
         <image name="ic_check1" width="14.666666984558105" height="13"/>
         <image name="ic_home_active" width="48" height="48"/>
+        <image name="ic_home_inactive" width="48" height="48"/>
         <image name="ic_save" width="48" height="48"/>
         <image name="ic_time" width="48" height="48"/>
         <systemColor name="opaqueSeparatorColor">
