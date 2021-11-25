@@ -36,7 +36,7 @@ class DetailReviewTVC: UITableViewCell {
     }
     
     func setData(appData: detailReviewTVData) {
-        usernameLabel.text = appData.username
+        usernameLabel.text = "\(appData.username)·"
         dateLabel.text = appData.date
         reviewLabel.text = appData.review
         profileIV.image = appData.makeImage()

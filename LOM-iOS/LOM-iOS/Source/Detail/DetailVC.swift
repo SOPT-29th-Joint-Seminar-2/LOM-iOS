@@ -10,9 +10,9 @@ import UIKit
 class DetailVC: UIViewController {
 
     @IBOutlet weak var detailReviewTV: UITableView!
-    @IBOutlet weak var detailSC: UISegmentedControl!
     @IBOutlet weak var reviewPostButton: UIButton!
     @IBOutlet weak var reviewContentView: UIView!
+    @IBOutlet weak var segmentedControlBackView: UIView!
     
     var detailTVContentList: [detailReviewTVData] = []
     
@@ -23,10 +23,21 @@ class DetailVC: UIViewController {
         detailReviewTV.delegate = self
         detailReviewTV.dataSource = self
         initItemTVContentList()
+        setSegmentedControl()
+    }
+    
+    func setSegmentedControl() {
+        let array: [String] = ["전자책", "오디오북"]
+        let sc = CustomSegmentedControl(items: array)
+        sc.frame = CGRect(x: 50, y: 400, width: 165, height: 41)
+        sc.center = CGPoint(x: self.segmentedControlBackView.frame.width/2, y: self.segmentedControlBackView.frame.height/2)
+        sc.backgroundColor = UIColor.lightGray1
+        sc.tintColor = UIColor.white
+        sc.selectedSegmentIndex = 0
+        self.segmentedControlBackView.addSubview(sc)
     }
     
     func setBasicLayout() {
-        self.detailSC.layer.cornerRadius = 20.5
         reviewPostButton.layer.cornerRadius = 8
         reviewContentView.layer.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1).cgColor
         reviewContentView.layer.cornerRadius = 8
@@ -51,7 +62,7 @@ class DetailVC: UIViewController {
 
 extension DetailVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 117
+        return 119
     }
 }
 
@@ -94,5 +105,47 @@ struct detailReviewTVData{
     
     func makeImage() -> UIImage? {
         return UIImage(named: imageName)
+    }
+}
+
+class CustomSegmentedControl: UISegmentedControl{
+    private let segmentInset: CGFloat = 5       //your inset amount
+    private let segmentImage: UIImage? = UIImage(color: UIColor.white)    //your color
+
+    override func layoutSubviews(){
+        super.layoutSubviews()
+        //background
+        layer.cornerRadius = bounds.height/2
+        //foreground
+        let foregroundIndex = numberOfSegments
+        if subviews.indices.contains(foregroundIndex),  let foregroundImageView = subviews[foregroundIndex] as? UIImageView
+        {
+            foregroundImageView.bounds = foregroundImageView.bounds.insetBy(dx: segmentInset, dy: segmentInset)
+            foregroundImageView.image = segmentImage    //substitute with our own colored image
+            foregroundImageView.layer.removeAnimation(forKey: "SelectionBounds")    //this removes the weird scaling animation!
+            foregroundImageView.layer.masksToBounds = true
+            foregroundImageView.layer.cornerRadius = foregroundImageView.bounds.height/2
+//            foregroundImageView.layer.shadowColor = UIColor.black.cgColor
+//            foregroundImageView.layer.shadowOffset = CGSize(width: 0, height: 4)
+//            foregroundImageView.layer.shadowRadius = 5
+//            foregroundImageView.layer.shadowOpacity = 0.9
+            
+        }
+    }
+}
+
+extension UIImage{
+    
+    //creates a UIImage given a UIColor
+    public convenience init?(color: UIColor, size: CGSize = CGSize(width: 1, height: 1)) {
+        let rect = CGRect(origin: .zero, size: size)
+        UIGraphicsBeginImageContextWithOptions(rect.size, false, 0.0)
+        color.setFill()
+        UIRectFill(rect)
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+    
+        guard let cgImage = image?.cgImage else { return nil }
+        self.init(cgImage: cgImage)
     }
 }
