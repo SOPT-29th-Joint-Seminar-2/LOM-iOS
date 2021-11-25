@@ -171,7 +171,10 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if(indexPath.row == 0){
             let storyboard = UIStoryboard.init(name: "Detail",bundle: nil)
-            guard let nextVC = storyboard.instantiateViewController(withIdentifier: "Detail") as? DetailVC else {return}
+            guard let nextVC = storyboard.instantiateViewController(withIdentifier: "DetailVC") as? DetailVC else {return}
+
+            nextVC.modalPresentationStyle = .fullScreen
+            nextVC.modalTransitionStyle = .coverVertical
             present(nextVC, animated: true, completion: nil)
         }
     }
