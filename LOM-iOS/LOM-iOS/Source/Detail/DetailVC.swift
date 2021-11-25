@@ -125,6 +125,11 @@ class CustomSegmentedControl: UISegmentedControl{
             foregroundImageView.layer.removeAnimation(forKey: "SelectionBounds")    //this removes the weird scaling animation!
             foregroundImageView.layer.masksToBounds = true
             foregroundImageView.layer.cornerRadius = foregroundImageView.bounds.height/2
+//            foregroundImageView.layer.shadowColor = UIColor.black.cgColor
+//            foregroundImageView.layer.shadowOffset = CGSize(width: 0, height: 4)
+//            foregroundImageView.layer.shadowRadius = 5
+//            foregroundImageView.layer.shadowOpacity = 0.9
+            
         }
     }
 }
