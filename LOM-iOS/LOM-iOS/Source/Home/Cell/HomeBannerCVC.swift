@@ -4,8 +4,7 @@ class HomeBannerCVC: UICollectionViewCell {
 
     static let identifier = "HomeBannerCVC"
     
-    // MARK: @IBOutlets
-    
+    // MARK: CollectionViewCell @IBOutlets
     @IBOutlet weak var backgroundImageView: UIImageView!
     @IBOutlet weak var logoImageView: UIImageView!
     @IBOutlet weak var searchImageView: UIImageView!
@@ -15,15 +14,12 @@ class HomeBannerCVC: UICollectionViewCell {
     @IBOutlet weak var nowUnderBarView: UIView!
     @IBOutlet weak var audioMenuLabel: UILabel!
     @IBOutlet weak var storyMenuLabel: UILabel!
-    
     @IBOutlet weak var optionImageView: UIImageView!
     @IBOutlet weak var bookImageView: UIImageView!
     @IBOutlet weak var promotionLabel: UILabel!
     @IBOutlet weak var explainLabel: UILabel!
     @IBOutlet weak var pageView: UIView!
     @IBOutlet weak var pageLabel: UILabel!
-    
-    
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -58,7 +54,6 @@ class HomeBannerCVC: UICollectionViewCell {
         explainLabel.text = explain
         bookImageView.image = bookImage
         
-        self.addSubview(bookImageView)
         bookImageView.clipsToBounds = false
         bookImageView.translatesAutoresizingMaskIntoConstraints = false
         bookImageView.contentMode = .bottomRight
@@ -66,24 +61,16 @@ class HomeBannerCVC: UICollectionViewCell {
         switch page {
         case 1:
             backgroundImageView.image = UIImage(named: "Rectangle 103")
-
             NSLayoutConstraint.init(item: bookImageView, attribute: .bottom, relatedBy: .equal, toItem: backgroundImageView, attribute: .bottom, multiplier: 1.0, constant: 15).isActive = true
             NSLayoutConstraint.init(item: bookImageView, attribute: .leading, relatedBy: .equal, toItem: backgroundImageView, attribute: .leading, multiplier: 1.0, constant: 220).isActive = true
-
-
-
         case 2:
             backgroundImageView.image = UIImage(named: "Rectangle 104")
-
             NSLayoutConstraint.init(item: bookImageView, attribute: .bottom, relatedBy: .equal, toItem: backgroundImageView, attribute: .bottom, multiplier: 1.0, constant: 15).isActive = true
             NSLayoutConstraint.init(item: bookImageView, attribute: .leading, relatedBy: .equal, toItem: backgroundImageView, attribute: .leading, multiplier: 1.0, constant: 220).isActive = true
-
         case 3:
             backgroundImageView.image = UIImage(named: "Rectangle 105")
-
-            NSLayoutConstraint.init(item: bookImageView, attribute: .bottom, relatedBy: .equal, toItem: backgroundImageView, attribute: .bottom, multiplier: 1.0, constant: 20).isActive = true
+            NSLayoutConstraint.init(item: bookImageView, attribute: .bottom, relatedBy: .equal, toItem: backgroundImageView, attribute: .bottom, multiplier: 1.0, constant: 15).isActive = true
             NSLayoutConstraint.init(item: bookImageView, attribute: .leading, relatedBy: .equal, toItem: backgroundImageView, attribute: .leading, multiplier: 1.0, constant: 220).isActive = true
-
         default:
             backgroundImageView.image = UIImage(named: "Rectangle 103")
         }

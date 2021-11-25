@@ -2,14 +2,16 @@ import UIKit
 
 class HomeVC: UIViewController {
 
-    // MARK: @IBOutlets
+    // MARK: Whole Page @IBOutlets
     @IBOutlet weak var pageScrollView: UIScrollView!
     @IBOutlet weak var pageView: UIView!
+    
+    // MARK: CollectionView @IBOutlets
     @IBOutlet weak var bannerCollectionView: UICollectionView!
 
+    // MARK: TodaysBookView @IBOutlets
     @IBOutlet weak var todaysBookView: UIView!
     @IBOutlet weak var todaysBookLabel: UILabel!
-    
     @IBOutlet weak var todaysBookImageView: UIImageView!
     @IBOutlet weak var timeIconImageView: UIImageView!
     @IBOutlet weak var timeExplainLabel: UILabel!
@@ -21,11 +23,11 @@ class HomeVC: UIViewController {
     @IBOutlet weak var pointOneImageView: UIImageView!
     @IBOutlet weak var pointTwoImageView: UIImageView!
     @IBOutlet weak var pointThreeImageView: UIImageView!
-
     @IBOutlet weak var moreInfoLabelOne: UILabel!
     @IBOutlet weak var moreInfoLabelTwo: UILabel!
     @IBOutlet weak var moreInfoLabelThree: UILabel!
     
+    // MARK: TableView @IBOutlets
     @IBOutlet weak var bestBookLabel: UILabel!
     @IBOutlet weak var bestBookListTableView: UITableView!
     
@@ -37,10 +39,14 @@ class HomeVC: UIViewController {
         initMainBannerContentList()
         initializeBannerCollectionViewLayout()
         initializeTodaysBookLayout()
+        initBestBookContentList()
         registerXib()
+        registerTableXib()
         bannerCollectionView.dataSource = self
         bannerCollectionView.delegate = self
-        pageScrollView.showsVerticalScrollIndicator = false
+        bestBookListTableView.dataSource = self
+        bestBookListTableView.delegate = self
+        
     }
     
     func registerXib(){
@@ -48,19 +54,25 @@ class HomeVC: UIViewController {
         bannerCollectionView.register(xibName, forCellWithReuseIdentifier: HomeBannerCVC.identifier)
     }
     
+    func registerTableXib(){
+        let xibName = UINib(nibName: HomeBestTVC.identifier, bundle: nil)
+        bestBookListTableView.register(xibName, forCellReuseIdentifier: HomeBestTVC.identifier)
+    }
+    
     func initializeBannerCollectionViewLayout(){
+        pageScrollView.showsVerticalScrollIndicator = false
         
         bannerCollectionView.isPagingEnabled = true
         bannerCollectionView.decelerationRate = .fast
         bannerCollectionView.contentInsetAdjustmentBehavior = .automatic
         bannerCollectionView.showsHorizontalScrollIndicator = false
+        
         let layout = bannerCollectionView.collectionViewLayout as! UICollectionViewFlowLayout
 
         let cellHeight = bannerCollectionView.frame.height
         let cellWidth = UIScreen.main.bounds.size.width
-        
+    
         layout.itemSize = CGSize(width: cellWidth, height: cellHeight)
-
     }
     
     func initializeTodaysBookLayout(){
@@ -71,12 +83,12 @@ class HomeVC: UIViewController {
         
         todaysBookLabel.text = "오늘의 책"
         todaysBookLabel.font = UIFont.NotoSans(.bold, size: 20)
+        
         bestBookLabel.font = UIFont.NotoSans(.bold, size: 20)
         
         moreInfoLabelOne.font = UIFont.NotoSans(.medium, size: 13)
         moreInfoLabelTwo.font = UIFont.NotoSans(.medium, size: 13)
         moreInfoLabelThree.font = UIFont.NotoSans(.medium, size: 13)
-        
         moreInfoLabelOne.textColor = .darkGray
         moreInfoLabelTwo.textColor = .darkGray
         moreInfoLabelThree.textColor = .darkGray
@@ -99,7 +111,9 @@ class HomeVC: UIViewController {
     }
     
     func initBestBookContentList(){
-        //from server
+        bestBookContentList.append(contentsOf: [
+            Book(title: "달러구트 꿈 백화점 2", writer: "이미예(지은이)", image: Const.Image.bestImg4)
+        ])
     }
 }
 
@@ -135,13 +149,23 @@ extension HomeVC: UICollectionViewDataSource, UICollectionViewDelegate, UICollec
     
 }
 
-//extension HomeVC: UITableViewDelegate, UITableViewDataSource {
-//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return 10
-//    }
-//
-//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//    }
-//
-//
-//}
+extension HomeVC: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return bestBookContentList.count
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: HomeBestTVC.identifier) as? HomeBestTVC else {return UITableViewCell()}
+        
+        let nowData = bestBookContentList[indexPath.row]
+        
+        cell.setData(rank: indexPath.row + 1, bookName: nowData.title, writerName: nowData.writer, image: nowData.image)
+    
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 104
+    }
+
+}
