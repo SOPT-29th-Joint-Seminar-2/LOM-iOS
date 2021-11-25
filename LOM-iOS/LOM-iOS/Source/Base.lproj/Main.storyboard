@@ -14,8 +14,10 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="fPf-PR-Ri4" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Bzo-r4-QlW">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="selectedImageTintColor" systemColor="systemYellowColor"/>
                     </tabBar>
                     <connections>
                         <segue destination="ISi-2a-r5r" kind="relationship" relationship="viewControllers" id="tN6-AG-fYc"/>
@@ -37,7 +39,7 @@
                         <viewLayoutGuide key="safeArea" id="dsS-Ey-jdK"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="내서재" id="iE1-Gl-Fwn"/>
+                    <tabBarItem key="tabBarItem" title="내서재" image="ic_studyroom_inactive" selectedImage="ic_studyroom_active" id="iE1-Gl-Fwn"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pdE-N2-Dd8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -53,7 +55,7 @@
                         <viewLayoutGuide key="safeArea" id="LYV-59-rkr"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="피드" id="qJn-c6-n8h"/>
+                    <tabBarItem key="tabBarItem" title="피드" image="ic_feed_inactive" selectedImage="ic_feed_active" id="qJn-c6-n8h"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dga-kN-Z3j" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -72,8 +74,15 @@
         </scene>
     </scenes>
     <resources>
+        <image name="ic_feed_active" width="48" height="48"/>
+        <image name="ic_feed_inactive" width="48" height="48"/>
+        <image name="ic_studyroom_active" width="48" height="48"/>
+        <image name="ic_studyroom_inactive" width="48" height="48"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemYellowColor">
+            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
