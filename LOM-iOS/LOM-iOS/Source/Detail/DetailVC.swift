@@ -14,6 +14,17 @@ class DetailVC: UIViewController {
     @IBOutlet weak var reviewContentView: UIView!
     @IBOutlet weak var segmentedControlBackView: UIView!
     
+    @IBOutlet weak var completePercentLabel: UILabel!
+    @IBOutlet weak var bookNameLabel: UILabel!
+    @IBOutlet weak var authorLabel: UILabel!
+    @IBOutlet weak var userStorageLabel: UILabel!
+    @IBOutlet weak var reviewCountLabel: UILabel!
+    @IBOutlet weak var reviewPointLabel: UILabel!
+    @IBOutlet weak var postCountLabel: UILabel!
+    @IBOutlet weak var bookInfoDescriptionLabel: UILabel!
+    @IBOutlet weak var categoryLabel: UILabel!
+    @IBOutlet weak var postSizeLabel: UILabel!
+
     var detailTVContentList: [detailReviewTVData] = []
     
     override func viewDidLoad() {
@@ -24,6 +35,7 @@ class DetailVC: UIViewController {
         detailReviewTV.dataSource = self
         initItemTVContentList()
         setSegmentedControl()
+        getUserData()
     }
     
     func setSegmentedControl() {
@@ -147,5 +159,156 @@ extension UIImage{
     
         guard let cgImage = image?.cgImage else { return nil }
         self.init(cgImage: cgImage)
+    }
+}
+
+
+// 여기부터 네트워크
+
+import Foundation
+struct APIConstants {
+    static let baseURL = "https://asia-northeast3-library-of-millie.cloudfunctions.net/api"
+    
+    static let getBookInfoURL = baseURL + "/book"
+}
+
+enum NetworkResult<T> {
+    case success(T)
+    case requestErr(T)
+    case pathErr
+    case serverErr
+    case networkFail
+}
+
+import Alamofire
+
+struct UserSignService{
+    static let shared = UserSignService()
+        
+    func readUserData(bookId: Int, completion: @escaping (NetworkResult<Any>) -> (Void)) {
+        let url = APIConstants.getBookInfoURL + "/\(bookId)"
+        let header: HTTPHeaders = [
+            "content-Type" : "application/json"
+            ]
+        
+        let dataRequest = AF.request(url,
+                                     method: .get,
+                                     encoding: JSONEncoding.default,
+                                     headers: header)
+        dataRequest.responseData { dataResponse in
+            switch dataResponse.result{
+            case .success:
+                guard let statusCode = dataResponse.response?.statusCode else {return}
+                guard let value = dataResponse.value else {return}
+                let networkResult = self.judgeGetInfoStatus(by: statusCode, value)
+                completion(networkResult)
+            case .failure(let err):
+                print(err)
+                completion(.networkFail)
+            }
+        }
+    }
+    
+    private func judgeGetInfoStatus(by statusCode: Int, _ data: Data) -> NetworkResult<Any> {
+        switch statusCode{
+        case 200: return isValidInfoData(data: data)
+        case 400: return .pathErr
+        case 500: return .serverErr
+        default: return .networkFail
+        }
+    }
+    
+    private func isValidInfoData(data: Data) -> NetworkResult<Any>{
+        let decoder = JSONDecoder()
+        guard let decodeData = try? decoder.decode(DetailResponseData.self, from: data)
+        else {return .pathErr}
+        return .success(decodeData)
+    }
+}
+
+// MARK: - Welcome
+struct DetailResponseData: Codable {
+    let status: Int
+    let success: Bool
+    let message: String
+    let data: DetailResultData?
+}
+
+// MARK: - DataClass
+struct DetailResultData: Codable {
+    let bookInfoList: BookInfoList
+    let reviewList: [ReviewList]
+}
+
+// MARK: - BookInfoList
+struct BookInfoList: Codable {
+    let completePercent: Int
+    let bookImg: String
+    let bookName, author, userStorage: String
+    let postCount: Int
+    let bookInfoListDescription, category: String
+    let reviewPoint: Int
+    let postSize, createdAt, updatedAt: String
+    let id: Int
+
+    enum CodingKeys: String, CodingKey {
+        case completePercent, bookImg, bookName, author, userStorage, postCount
+        case bookInfoListDescription = "description"
+        case category, reviewPoint, postSize, createdAt, updatedAt, id
+    }
+}
+
+// MARK: - ReviewList
+struct ReviewList: Codable {
+    let id: Int
+    let userImg: String?
+    let nickname: String
+    let createdAt, updatedAt: String?
+    let contents: String
+    let likeCount: Int
+}
+
+extension DetailVC {
+    
+    func getUserData() {
+        UserSignService.shared.readUserData(bookId: 4) { responseData in
+            switch responseData {
+            case .success(let BookInfoResponse):
+                guard let response = BookInfoResponse as?
+                        DetailResponseData else {return}
+                if let userData = response.data {
+                    let completePercent = String(userData.bookInfoList.completePercent)
+                    self.completePercentLabel.text = "완독할 확률 \(completePercent)%"
+                    self.completePercentLabel.sizeToFit()
+                    
+                    
+                    
+                    let reviewCount = userData.reviewList.count
+                    self.reviewCountLabel.text = "\(reviewCount)개"
+                    self.authorLabel.text = userData.bookInfoList.author
+                    self.authorLabel.sizeToFit()
+                    self.userStorageLabel.text = userData.bookInfoList.userStorage
+                    self.userStorageLabel.sizeToFit()
+                    self.bookInfoDescriptionLabel.text = userData.bookInfoList.bookInfoListDescription
+                    self.bookInfoDescriptionLabel.sizeToFit()
+                    self.bookNameLabel.text = userData.bookInfoList.bookName
+                    self.bookNameLabel.sizeToFit()
+                    self.categoryLabel.text = userData.bookInfoList.category
+                    self.categoryLabel.sizeToFit()
+                    self.reviewPointLabel.text = String(userData.bookInfoList.reviewPoint) + "P"
+                    self.reviewPointLabel.sizeToFit()
+                    self.postSizeLabel.text = userData.bookInfoList.postSize
+                    self.postSizeLabel.sizeToFit()
+                }
+            case .requestErr(let msg):
+                print("requestErr \(msg)")
+            case .pathErr:
+                print("pathErr")
+            case .serverErr:
+                print("serverErr")
+            case .networkFail:
+                print("networkFail")
+            }
+        }
     }
 }
