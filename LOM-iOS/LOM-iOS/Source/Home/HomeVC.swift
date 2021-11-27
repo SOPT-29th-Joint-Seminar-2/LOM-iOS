@@ -175,6 +175,54 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
 
             nextVC.modalPresentationStyle = .fullScreen
             nextVC.modalTransitionStyle = .coverVertical
+            
+            func getUserData() {
+                detailInfoGetService.shared.readUserData(bookId: 4) { responseData in
+                    switch responseData {
+                    case .success(let BookInfoResponse):
+                        guard let response = BookInfoResponse as?
+                                DetailResponseData else {return}
+                        if let userData = response.data {
+                            let completePercent = String(userData.bookInfoList.completePercent)
+                            nextVC.completePercentLabel.text = "완독할 확률 \(completePercent)%"
+                            nextVC.completePercentLabel.sizeToFit()
+                            let reviewCount = userData.reviewList.count
+                            nextVC.reviewTransfer = reviewCount
+                            nextVC.reviewCountLabel.text = "\(reviewCount)개"
+                            nextVC.authorLabel.text = userData.bookInfoList.author
+                            nextVC.authorLabel.sizeToFit()
+                            nextVC.userStorageLabel.text = userData.bookInfoList.userStorage
+                            nextVC.userStorageLabel.sizeToFit()
+                            nextVC.bookInfoDescriptionLabel.text = userData.bookInfoList.bookInfoListDescription
+                            nextVC.bookInfoDescriptionLabel.sizeToFit()
+                            nextVC.bookNameLabel.text = userData.bookInfoList.bookName
+                            nextVC.bookNameLabel.sizeToFit()
+                            nextVC.categoryLabel.text = userData.bookInfoList.category
+                            nextVC.categoryLabel.sizeToFit()
+                            nextVC.reviewPointLabel.text = String(userData.bookInfoList.reviewPoint) + "P"
+                            nextVC.reviewPointLabel.sizeToFit()
+                            nextVC.postSizeLabel.text = userData.bookInfoList.postSize
+                            nextVC.postSizeLabel.sizeToFit()
+                            
+                            for i in 0...(reviewCount-1){
+                                nextVC.detailTVContentList.append(contentsOf: [
+                                    detailReviewTVData(username: userData.reviewList[i].nickname, date: userData.reviewList[i].createdAt ?? "2021.11.05", review: userData.reviewList[i].contents, imageName: "Profile", likeCount: userData.reviewList[i].likeCount)
+                                ])
+                            }
+                        }
+                    case .requestErr(let msg):
+                        print("requestErr \(msg)")
+                    case .pathErr:
+                        print("pathErr")
+                    case .serverErr:
+                        print("serverErr")
+                    case .networkFail:
+                        print("networkFail")
+                    }
+                }
+            }
+            getUserData()
+            
             present(nextVC, animated: true, completion: nil)
         }
     }
