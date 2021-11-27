@@ -42,6 +42,7 @@
 		9877CEC52748C93000DE4166 /* NotoSansKR-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9877CEC02748C93000DE4166 /* NotoSansKR-Regular.otf */; };
 		9877CEC62748C93000DE4166 /* NotoSansKR-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9877CEC12748C93000DE4166 /* NotoSansKR-Bold.otf */; };
 		9877CEC72748C93000DE4166 /* Lato-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9877CEC22748C93000DE4166 /* Lato-Bold.ttf */; };
+		EB6948362752136F00B0A3DD /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6948352752136F00B0A3DD /* APIConstants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -84,6 +85,7 @@
 		9877CEC12748C93000DE4166 /* NotoSansKR-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Bold.otf"; sourceTree = "<group>"; };
 		9877CEC22748C93000DE4166 /* Lato-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Bold.ttf"; sourceTree = "<group>"; };
 		B3A77476930A56A371C15361 /* Pods-LOM-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LOM-iOS.release.xcconfig"; path = "Target Support Files/Pods-LOM-iOS/Pods-LOM-iOS.release.xcconfig"; sourceTree = "<group>"; };
+		EB6948352752136F00B0A3DD /* APIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +136,7 @@
 			isa = PBXGroup;
 			children = (
 				9877CEBD2748C8C900DE4166 /* Font */,
+				EB6948342752135200B0A3DD /* Network */,
 				15B7CCA027403E74006D34E9 /* Constants */,
 				15B7CC9D27403799006D34E9 /* Extension */,
 			);
@@ -261,6 +264,14 @@
 				38BA6CC16FEBF121FA54A169 /* Pods_LOM_iOS.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EB6948342752135200B0A3DD /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				EB6948352752136F00B0A3DD /* APIConstants.swift */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -397,6 +408,7 @@
 				9877CEBC2748C8BB00DE4166 /* UIFont +.swift in Sources */,
 				15B7CC98273F98EA006D34E9 /* DetailReviewTVC.swift in Sources */,
 				15B7CCAD2742459B006D34E9 /* SeawaterDetailVC.swift in Sources */,
+				EB6948362752136F00B0A3DD /* APIConstants.swift in Sources */,
 				15B7CCC02742D01C006D34E9 /* SeawaterHomeTodayBookTVC.swift in Sources */,
 				15B7CCB0274245D5006D34E9 /* SeawaterHomeBestTVC.swift in Sources */,
 				15B7CC94273F98C8006D34E9 /* HomeBannerCVC.swift in Sources */,
