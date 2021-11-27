@@ -39,11 +39,16 @@ class SeawaterHomeVC: UIViewController {
     }
     
     func setUI() {
+        setNavigationBarUI()
         statusBgView.translatesAutoresizingMaskIntoConstraints = false
         statusBgView.topAnchor.constraint(equalTo: view.topAnchor, constant: 0).isActive = true
         statusBgView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0).isActive = true
         statusBgView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0).isActive = true
         statusBgView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor , constant: 0).isActive = true
+    }
+    
+    func setNavigationBarUI() {
+        self.navigationController?.navigationBar.isHidden = true
     }
     
     // MARK: - set TableView, CollectionView
@@ -60,6 +65,7 @@ class SeawaterHomeVC: UIViewController {
 // MARK: - TableView Extension
 extension SeawaterHomeVC: UITableViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        print(homeTableView.contentOffset.y)
         if homeTableView.contentOffset.y > -20 {
             UIView.animate(withDuration: 0.2) {
                 self.navigationView.backgroundColor = .white
@@ -71,6 +77,14 @@ extension SeawaterHomeVC: UITableViewDelegate {
                 self.statusBgView.backgroundColor = .clear
             }
         }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.row >= 4, indexPath.row <= 13 {
+            guard let detailVC = self.storyboard?.instantiateViewController(withIdentifier: "SeawaterDetailVC") as? SeawaterDetailVC else { return }
+            self.navigationController?.pushViewController(detailVC, animated: true)
+        }
+        
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
