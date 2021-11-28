@@ -176,14 +176,23 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
             nextVC.modalPresentationStyle = .fullScreen
             nextVC.modalTransitionStyle = .coverVertical
             
+            let num = Int.random(in: 1...4)
+            
             func getUserData() {
-                detailInfoGetService.shared.readUserData(bookId: 4) { responseData in
+                detailInfoGetService.shared.readUserData(bookId: num) { responseData in
                     switch responseData {
                     case .success(let BookInfoResponse):
                         guard let response = BookInfoResponse as?
                                 DetailResponseData else {return}
                         if let userData = response.data {
                             let completePercent = String(userData.bookInfoList.completePercent)
+                            let url = URL(string: userData.bookInfoList.bookImg)
+                            DispatchQueue.global().async {
+                                let data = try? Data(contentsOf: url!)
+                                DispatchQueue.main.async {
+                                    nextVC.bookImageView.image = UIImage(data: data!)
+                                }
+                            }
                             nextVC.completePercentLabel.text = "완독할 확률 \(completePercent)%"
                             nextVC.completePercentLabel.sizeToFit()
                             let reviewCount = userData.reviewList.count

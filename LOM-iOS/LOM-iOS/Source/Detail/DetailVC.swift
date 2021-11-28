@@ -16,6 +16,7 @@ class DetailVC: UIViewController {
     @IBOutlet weak var segmentedControlBackView: UIView!
     
     @IBOutlet weak var completePercentLabel: UILabel!
+    @IBOutlet weak var bookImageView: UIImageView!
     @IBOutlet weak var bookNameLabel: UILabel!
     @IBOutlet weak var authorLabel: UILabel!
     @IBOutlet weak var userStorageLabel: UILabel!
@@ -60,7 +61,7 @@ class DetailVC: UIViewController {
         
         view.isSkeletonable = true
         view.showAnimatedGradientSkeleton()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2) { [weak self] in
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3) { [weak self] in
             self?.view.hideSkeleton() // Hide Skeleton
         }
     }

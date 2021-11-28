@@ -51,7 +51,7 @@
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" image="ic_favotire"/>
                                             </button>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="book2" translatesAutoresizingMaskIntoConstraints="NO" id="78x-st-ViM">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="78x-st-ViM">
                                                 <rect key="frame" x="66" y="149" width="246" height="367"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="367" id="Mpl-KP-4nz"/>
@@ -725,6 +725,7 @@
                     <size key="freeformSize" width="375" height="812"/>
                     <connections>
                         <outlet property="authorLabel" destination="chN-tM-2o6" id="K6W-7X-8dK"/>
+                        <outlet property="bookImageView" destination="78x-st-ViM" id="rz2-99-Z6H"/>
                         <outlet property="bookInfoDescriptionLabel" destination="GLO-uJ-eVd" id="crY-HS-ZXB"/>
                         <outlet property="bookNameLabel" destination="g5N-xs-ogD" id="DGH-S5-MNw"/>
                         <outlet property="categoryLabel" destination="YTi-jG-taN" id="9sa-cy-wB8"/>
@@ -747,7 +748,6 @@
     </scenes>
     <resources>
         <image name="Profile" width="34" height="34"/>
-        <image name="book2" width="69" height="103"/>
         <image name="ic_favotire" width="48" height="48"/>
         <image name="ic_more" width="48" height="48"/>
         <image name="ic_post" width="48" height="48"/>
