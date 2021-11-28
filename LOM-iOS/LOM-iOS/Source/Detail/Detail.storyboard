@@ -710,6 +710,7 @@
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="yAv-Ux-ogi" secondAttribute="bottom" id="61S-fh-gjO"/>
                             <constraint firstAttribute="trailing" secondItem="yAv-Ux-ogi" secondAttribute="trailing" id="D7Z-TQ-iIc"/>
@@ -719,6 +720,9 @@
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
                         </userDefinedRuntimeAttributes>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="GWl-KA-qCo" appends="YES" id="tnl-Yv-KID"/>
+                        </connections>
                     </view>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
@@ -742,6 +746,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="right" id="GWl-KA-qCo">
+                    <connections>
+                        <action selector="swipeGesture:" destination="Y6W-OH-hqX" id="wxh-0K-Gqb"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="18.399999999999999" y="97.536945812807886"/>
         </scene>

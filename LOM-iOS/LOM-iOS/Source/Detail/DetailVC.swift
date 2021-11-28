@@ -34,7 +34,7 @@ class DetailVC: UIViewController {
             NotificationCenter.default.post(name: NSNotification.Name("TestNotification"), object: nil, userInfo: nil)
         }
     }
-    func call(){
+    func loadTableViewData(){
         NotificationCenter.default.addObserver(self, selector: #selector(dataRecieved), name: NSNotification.Name("TestNotification"), object:nil)
     }
     
@@ -51,7 +51,7 @@ class DetailVC: UIViewController {
         detailReviewTV.delegate = self
         detailReviewTV.dataSource = self
         setSegmentedControl()
-        call()
+        loadTableViewData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -89,6 +89,12 @@ class DetailVC: UIViewController {
     func registerXib(){
         let xibTableViewName = UINib(nibName: DetailReviewTVC.identifier, bundle: nil)
         detailReviewTV.register(xibTableViewName, forCellReuseIdentifier: DetailReviewTVC.identifier)
+    }
+    
+    
+    @IBAction func swipeGesture(_ sender: UISwipeGestureRecognizer) {
+        self.modalTransitionStyle = .crossDissolve
+        self.dismiss(animated: true, completion: nil)
     }
 }
 
