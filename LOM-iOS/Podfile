@@ -7,4 +7,5 @@ target 'LOM-iOS' do
 
   # Pods for LOM-iOS
 pod 'Alamofire', '~> 5.4'
+pod 'SkeletonView'
 end

@@ -46,7 +46,7 @@ class HomeVC: UIViewController {
         bannerCollectionView.delegate = self
         bestBookListTableView.dataSource = self
         bestBookListTableView.delegate = self
-        
+    
     }
     
     func registerXib(){
