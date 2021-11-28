@@ -43,6 +43,11 @@
 		9877CEC62748C93000DE4166 /* NotoSansKR-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9877CEC12748C93000DE4166 /* NotoSansKR-Bold.otf */; };
 		9877CEC72748C93000DE4166 /* Lato-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9877CEC22748C93000DE4166 /* Lato-Bold.ttf */; };
 		EB6948362752136F00B0A3DD /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6948352752136F00B0A3DD /* APIConstants.swift */; };
+		EB69483A2752B2C100B0A3DD /* DetailResponseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6948392752B2C100B0A3DD /* DetailResponseData.swift */; };
+		EB69483C2752B30800B0A3DD /* DetailInfoGetService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB69483B2752B30800B0A3DD /* DetailInfoGetService.swift */; };
+		EB69483E2752B32500B0A3DD /* NetworkResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB69483D2752B32500B0A3DD /* NetworkResult.swift */; };
+		EB6948402752B41F00B0A3DD /* UISegmentedControl +.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB69483F2752B41F00B0A3DD /* UISegmentedControl +.swift */; };
+		EB6948442752B43F00B0A3DD /* UIImage +.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6948432752B43F00B0A3DD /* UIImage +.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -86,6 +91,11 @@
 		9877CEC22748C93000DE4166 /* Lato-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Bold.ttf"; sourceTree = "<group>"; };
 		B3A77476930A56A371C15361 /* Pods-LOM-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LOM-iOS.release.xcconfig"; path = "Target Support Files/Pods-LOM-iOS/Pods-LOM-iOS.release.xcconfig"; sourceTree = "<group>"; };
 		EB6948352752136F00B0A3DD /* APIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstants.swift; sourceTree = "<group>"; };
+		EB6948392752B2C100B0A3DD /* DetailResponseData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailResponseData.swift; sourceTree = "<group>"; };
+		EB69483B2752B30800B0A3DD /* DetailInfoGetService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailInfoGetService.swift; sourceTree = "<group>"; };
+		EB69483D2752B32500B0A3DD /* NetworkResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResult.swift; sourceTree = "<group>"; };
+		EB69483F2752B41F00B0A3DD /* UISegmentedControl +.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UISegmentedControl +.swift"; sourceTree = "<group>"; };
+		EB6948432752B43F00B0A3DD /* UIImage +.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage +.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -199,6 +209,8 @@
 			children = (
 				15B7CC9E274037BD006D34E9 /* UIColor +.swift */,
 				9877CEBB2748C8BB00DE4166 /* UIFont +.swift */,
+				EB69483F2752B41F00B0A3DD /* UISegmentedControl +.swift */,
+				EB6948432752B43F00B0A3DD /* UIImage +.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -270,6 +282,9 @@
 			isa = PBXGroup;
 			children = (
 				EB6948352752136F00B0A3DD /* APIConstants.swift */,
+				EB6948392752B2C100B0A3DD /* DetailResponseData.swift */,
+				EB69483B2752B30800B0A3DD /* DetailInfoGetService.swift */,
+				EB69483D2752B32500B0A3DD /* NetworkResult.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -402,17 +417,22 @@
 			files = (
 				15B7CC8A273F9241006D34E9 /* DetailVC.swift in Sources */,
 				15B7CC86273F91E8006D34E9 /* HomeVC.swift in Sources */,
+				EB6948442752B43F00B0A3DD /* UIImage +.swift in Sources */,
 				15B7CCB82742B9E9006D34E9 /* SeawaterHomeTVC.swift in Sources */,
+				EB69483A2752B2C100B0A3DD /* DetailResponseData.swift in Sources */,
 				15B7CC9F274037BD006D34E9 /* UIColor +.swift in Sources */,
 				15B7CC6C273F866D006D34E9 /* AppDelegate.swift in Sources */,
+				EB69483C2752B30800B0A3DD /* DetailInfoGetService.swift in Sources */,
 				9877CEBC2748C8BB00DE4166 /* UIFont +.swift in Sources */,
 				15B7CC98273F98EA006D34E9 /* DetailReviewTVC.swift in Sources */,
 				15B7CCAD2742459B006D34E9 /* SeawaterDetailVC.swift in Sources */,
+				EB6948402752B41F00B0A3DD /* UISegmentedControl +.swift in Sources */,
 				EB6948362752136F00B0A3DD /* APIConstants.swift in Sources */,
 				15B7CCC02742D01C006D34E9 /* SeawaterHomeTodayBookTVC.swift in Sources */,
 				15B7CCB0274245D5006D34E9 /* SeawaterHomeBestTVC.swift in Sources */,
 				15B7CC94273F98C8006D34E9 /* HomeBannerCVC.swift in Sources */,
 				15B7CCAB2742458F006D34E9 /* SeawaterHomeVC.swift in Sources */,
+				EB69483E2752B32500B0A3DD /* NetworkResult.swift in Sources */,
 				15B7CCC227436997006D34E9 /* SeawaterHomeTitleTVC.swift in Sources */,
 				15B7CC90273F98A2006D34E9 /* HomeBestTVC.swift in Sources */,
 				15B7CCB2274245EB006D34E9 /* SeawaterDetailReviewTVC.swift in Sources */,
