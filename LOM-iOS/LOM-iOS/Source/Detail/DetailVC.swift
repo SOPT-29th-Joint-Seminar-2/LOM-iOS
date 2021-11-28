@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SkeletonView
 
 class DetailVC: UIViewController {
 
@@ -50,6 +51,18 @@ class DetailVC: UIViewController {
         detailReviewTV.dataSource = self
         setSegmentedControl()
         call()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        bookNameLabel.isSkeletonable = true
+        
+        view.isSkeletonable = true
+        view.showAnimatedGradientSkeleton()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) { [weak self] in
+            self?.view.hideSkeleton() // Hide Skeleton
+        }
     }
     
     func setSegmentedControl() {
