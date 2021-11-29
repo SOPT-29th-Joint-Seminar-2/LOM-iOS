@@ -26,8 +26,11 @@ class DetailVC: UIViewController {
     @IBOutlet weak var bookInfoDescriptionLabel: UILabel!
     @IBOutlet weak var categoryLabel: UILabel!
     @IBOutlet weak var postSizeLabel: UILabel!
-
+    @IBOutlet weak var reviewTextField: UITextField!
+    
+    
     public var reviewTransfer = -1
+    var receivedBookID: Int = 1
     
     var detailTVContentList: [detailReviewTVData] = []{
         didSet{
@@ -36,12 +39,19 @@ class DetailVC: UIViewController {
     }
     func loadTableViewData(){
         NotificationCenter.default.addObserver(self, selector: #selector(dataRecieved), name: NSNotification.Name("TestNotification"), object:nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(reviewIdRecieved), name: NSNotification.Name("sendReviewId"), object:nil)
     }
     
     @objc func dataRecieved(notification: NSNotification){
         if detailTVContentList.count == reviewTransfer {
             self.detailReviewTV.reloadData()
         }
+    }
+    
+    @objc func reviewIdRecieved(notification: NSNotification){
+        reviewNumber = notification.object as! Int
+        putLikeCount()
     }
     
     override func viewDidLoad() {
@@ -51,6 +61,7 @@ class DetailVC: UIViewController {
         detailReviewTV.delegate = self
         detailReviewTV.dataSource = self
         setSegmentedControl()
+        getUserData()
         loadTableViewData()
     }
     
@@ -96,6 +107,28 @@ class DetailVC: UIViewController {
         self.modalTransitionStyle = .crossDissolve
         self.dismiss(animated: true, completion: nil)
     }
+    
+    @IBAction func postReviewButton(_ sender: Any) {
+        postReview()
+    }
+    
+    public var updateCount : Int = 0 {
+        didSet {
+            getReviewLikeData()
+            print("1")
+            detailReviewTV.reloadData()
+        }
+    }
+    public var updateReview : Int = 0 {
+        didSet {
+            print("2")
+        }
+    }
+    
+    public var bookNumber : Int = 1
+    public let num = Int.random(in: 1...4)
+    public var reviewNumber : Int = -1
+    public var reviewIdForGet : Int = 0
 }
 
 extension DetailVC: UITableViewDelegate {
@@ -118,19 +151,6 @@ extension DetailVC: UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-//        let homeItemSB = UIStoryboard.init(name: "HomeItemSB", bundle:nil)
-//
-//        guard let nextVC = homeItemSB.instantiateViewController(identifier: "HomeItemVC") as? HomeItemVC else {return}
-//
-//        //
-//        nextVC.itemIndex = indexPath.row
-//        nextVC.itemTVContentList = itemTVContentList
-//
-//        // 화면전환
-//        nextVC.modalPresentationStyle = .fullScreen
-//        self.navigationController?.pushViewController(nextVC, animated: true)
-        
-//        TV.separatorInset = UIEdgeInsets(top: , left: , bottom: , right: )
     }
 }
 
@@ -139,9 +159,147 @@ struct detailReviewTVData{
     let date: String
     let review: String
     let imageName: String
-    let likeCount: Int
+    var likeCount: Int
+    var updatedLike: Int
+    let reviewId: Int
     
     func makeImage() -> UIImage? {
         return UIImage(named: imageName)
     }
 }
+
+// MARK: - 네트워킹 관련 함수들
+extension DetailVC{
+    func getUserData() {
+        detailInfoGetService.shared.readUserData(bookId: num) { responseData in
+            switch responseData {
+            case .success(let BookInfoResponse):
+                guard let response = BookInfoResponse as?
+                        DetailResponseData else {return}
+                if let userData = response.data {
+                    let completePercent = String(userData.bookInfoList.completePercent)
+                    let url = URL(string: userData.bookInfoList.bookImg)
+                    DispatchQueue.global().async {
+                        let data = try? Data(contentsOf: url!)
+                        DispatchQueue.main.async {
+                            self.bookImageView.image = UIImage(data: data!)
+                        }
+                    }
+                    self.completePercentLabel.text = "완독할 확률 \(completePercent)%"
+                    self.completePercentLabel.sizeToFit()
+                    let reviewCount = userData.reviewList.count
+                    self.reviewTransfer = reviewCount
+                    self.reviewCountLabel.text = "\(reviewCount)개"
+                    self.authorLabel.text = userData.bookInfoList.author
+                    self.authorLabel.sizeToFit()
+                    self.userStorageLabel.text = userData.bookInfoList.userStorage
+                    self.userStorageLabel.sizeToFit()
+                    self.bookInfoDescriptionLabel.text = userData.bookInfoList.bookInfoListDescription
+                    self.bookInfoDescriptionLabel.sizeToFit()
+                    self.bookNameLabel.text = userData.bookInfoList.bookName
+                    self.bookNameLabel.sizeToFit()
+                    self.categoryLabel.text = userData.bookInfoList.category
+                    self.categoryLabel.sizeToFit()
+                    self.reviewPointLabel.text = String(userData.bookInfoList.reviewPoint) + "P"
+                    self.reviewPointLabel.sizeToFit()
+                    self.postSizeLabel.text = userData.bookInfoList.postSize
+                    self.postSizeLabel.sizeToFit()
+                    
+                    for i in 0...(reviewCount-1){
+                        self.detailTVContentList.append(contentsOf: [
+                            detailReviewTVData(username: userData.reviewList[i].nickname, date: userData.reviewList[i].createdAt ?? "2021.11.05", review: userData.reviewList[i].contents, imageName: "Profile", likeCount: userData.reviewList[i].likeCount, updatedLike: 0, reviewId:userData.reviewList[i].id)
+                        ])
+                    }
+                }
+            case .requestErr(let msg):
+                print("requestErr \(msg)")
+            case .pathErr:
+                print("pathErr")
+            case .serverErr:
+                print("serverErr")
+            case .networkFail:
+                print("networkFail")
+            }
+        }
+    }
+    
+    func putLikeCount() {
+        ReviewLikeService.shared.putLikeCount(reviewId: reviewNumber) { responseData in
+            switch responseData {
+            case .success:
+                self.updateCount += 1
+            case .requestErr(let msg):
+                print("requestErr \(msg)")
+            case .pathErr:
+                print("pathErr")
+            case .serverErr:
+                print("serverErr")
+            case .networkFail:
+                print("networkFail")
+            }
+        }
+    }
+    
+    func getReviewLikeData() {
+        detailInfoGetService.shared.readUserData(bookId: num) { responseData in
+            switch responseData {
+            case .success(let BookInfoResponse):
+                guard let response = BookInfoResponse as?
+                        DetailResponseData else {return}
+                if let userData = response.data {
+                    self.detailTVContentList[self.reviewNumber-1].likeCount = userData.reviewList[self.reviewNumber-1].likeCount
+                    self.detailTVContentList[self.reviewNumber-1].updatedLike += 1
+                }
+            case .requestErr(let msg):
+                print("requestErr \(msg)")
+            case .pathErr:
+                print("pathErr")
+            case .serverErr:
+                print("serverErr")
+            case .networkFail:
+                print("networkFail")
+            }
+        }
+    }
+    
+    func postReview() {
+        PostReviewService.shared.makeReviewService(content: reviewTextField.text ?? "") { responseData in
+            switch responseData {
+            case .success(let postReviewResponse):
+                guard let response = postReviewResponse as?
+                        postReviewResponseData else {return}
+                if let reviewData = response.data {
+                    self.reviewIdForGet = reviewData.reviewID
+                    self.updateReview += 1
+                }
+                self.makeAlert(title: "로그인", message: response.message)
+            case .requestErr(let msg):
+                print("requestErr \(msg)")
+            case .pathErr:
+                print("pathErr")
+            case .serverErr:
+                print("serverErr")
+            case .networkFail:
+                print("networkFail")
+            }
+        }
+    }
+}
+
+
+extension UIViewController {
+    func makeAlert(title: String,
+                   message: String,
+                   okAction : ((UIAlertAction) -> Void)? = nil,
+                   completion : (() -> ())? = nil)
+    {
+        let alertViewController = UIAlertController(title: title,
+                                                    message: message,
+                                                    preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "확인", style: .default, handler: okAction)
+        alertViewController.addAction(okAction)
+        
+        self.present(alertViewController, animated: true, completion: completion)
+    }
+}
+

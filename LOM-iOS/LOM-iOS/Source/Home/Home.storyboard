@@ -20,7 +20,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="1917"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R2z-t2-o8x">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="1149"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="1461"/>
                                         <subviews>
                                             <collectionView multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" contentInsetAdjustmentBehavior="never" dataMode="prototypes" prefetchingEnabled="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kw8-wy-6AS">
                                                 <rect key="frame" x="0.0" y="-50" width="375" height="515"/>
@@ -181,10 +181,10 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="9Jt-86-zss">
-                                                <rect key="frame" x="24" y="1045" width="327" height="104"/>
+                                                <rect key="frame" x="24" y="1045" width="327" height="416"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="104" id="hbP-aR-S38"/>
+                                                    <constraint firstAttribute="height" constant="416" id="hbP-aR-S38"/>
                                                 </constraints>
                                             </tableView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="서점 베스트 TOP 10" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qMR-DT-8AE">
@@ -254,6 +254,7 @@
                         <outlet property="pointTwoImageView" destination="RkZ-TO-xzs" id="8fl-ZD-95E"/>
                         <outlet property="saveBookButton" destination="4Do-7q-k5o" id="6eM-UL-UEg"/>
                         <outlet property="saveIconImageView" destination="3Eh-qr-3cU" id="cBx-ix-DZ0"/>
+                        <outlet property="tableViewHeight" destination="hbP-aR-S38" id="Ne3-V7-fu4"/>
                         <outlet property="timeExplainLabel" destination="7bu-2V-bm4" id="CKN-Z2-AS2"/>
                         <outlet property="timeIconImageView" destination="fSZ-aN-hbp" id="zrS-RF-A2v"/>
                         <outlet property="timeLabel" destination="D5X-UV-tKx" id="xew-a0-ope"/>

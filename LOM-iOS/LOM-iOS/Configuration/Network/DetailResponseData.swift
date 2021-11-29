@@ -48,3 +48,34 @@ struct ReviewList: Codable {
     let contents: String
     let likeCount: Int
 }
+
+
+// MARK: - likeCountResponseData
+struct likeCountResponseData: Codable {
+    let status: Int
+    let success: Bool
+    let message: String
+    let data: likeCountClass?
+}
+
+// MARK: - DataClass
+struct likeCountClass: Codable {
+    let like: Int
+}
+
+// MARK: - postReviewResponseData
+struct postReviewResponseData: Codable {
+    let status: Int
+    let success: Bool
+    let message: String
+    let data: PostReviewClass?
+}
+
+// MARK: - DataClass
+struct PostReviewClass: Codable {
+    let reviewID: Int
+
+    enum CodingKeys: String, CodingKey {
+        case reviewID = "reviewId"
+    }
+}

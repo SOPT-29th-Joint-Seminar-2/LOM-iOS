@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -62,29 +63,36 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VeE-Nc-Qnq">
                         <rect key="frame" x="297.5" y="71" width="54" height="25"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="heart" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="QN7-31-NWQ">
-                                <rect key="frame" x="3" y="5.5" width="17" height="14.5"/>
-                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="17" id="Fnv-Ij-RKr"/>
-                                    <constraint firstAttribute="height" constant="17" id="hns-eR-0dS"/>
-                                </constraints>
-                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rbr-bG-vRj">
-                                <rect key="frame" x="32" y="4" width="7" height="17"/>
+                                <rect key="frame" x="32.5" y="4" width="7" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" red="0.43529411764705883" green="0.43529411764705883" blue="0.43529411764705883" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="98d-k1-Qv9">
+                                <rect key="frame" x="7" y="4" width="17" height="17"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="17" id="ZPg-9s-dBE"/>
+                                    <constraint firstAttribute="width" constant="17" id="y9d-6l-ZWO"/>
+                                </constraints>
+                                <color key="tintColor" red="0.43529411764705883" green="0.43529411764705883" blue="0.43529411764705883" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain">
+                                    <imageReference key="image" image="suit.heart" catalog="system" symbolScale="medium"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="tapToRaiseCount:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="LXo-jY-Pmr"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="Rbr-bG-vRj" firstAttribute="centerX" secondItem="VeE-Nc-Qnq" secondAttribute="centerX" constant="9" id="2Bw-lD-905"/>
                             <constraint firstAttribute="height" constant="25" id="6tM-kT-fKM"/>
+                            <constraint firstItem="98d-k1-Qv9" firstAttribute="top" secondItem="VeE-Nc-Qnq" secondAttribute="top" constant="4" id="ANp-Bf-JaB"/>
                             <constraint firstAttribute="width" constant="54" id="DjL-PX-YMV"/>
-                            <constraint firstItem="QN7-31-NWQ" firstAttribute="leading" secondItem="VeE-Nc-Qnq" secondAttribute="leading" constant="3" id="eZE-CH-fJk"/>
-                            <constraint firstItem="Rbr-bG-vRj" firstAttribute="leading" secondItem="QN7-31-NWQ" secondAttribute="trailing" constant="12" id="grH-g4-rVn"/>
-                            <constraint firstItem="Rbr-bG-vRj" firstAttribute="centerY" secondItem="QN7-31-NWQ" secondAttribute="centerY" id="qgY-2m-zvd"/>
-                            <constraint firstItem="QN7-31-NWQ" firstAttribute="top" secondItem="VeE-Nc-Qnq" secondAttribute="top" constant="4" id="r10-MV-eXM"/>
+                            <constraint firstItem="98d-k1-Qv9" firstAttribute="leading" secondItem="VeE-Nc-Qnq" secondAttribute="leading" constant="7" id="HZi-gu-7hv"/>
+                            <constraint firstItem="98d-k1-Qv9" firstAttribute="centerY" secondItem="Rbr-bG-vRj" secondAttribute="centerY" id="k5K-qu-9OT"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -108,6 +116,7 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="dateLabel" destination="8E6-TP-nW4" id="gnu-uL-Bmi"/>
+                <outlet property="likeButton" destination="98d-k1-Qv9" id="gcz-pb-pmP"/>
                 <outlet property="likeLabel" destination="Rbr-bG-vRj" id="0hh-hx-ive"/>
                 <outlet property="likeUIVIew" destination="VeE-Nc-Qnq" id="ONf-VQ-Wbx"/>
                 <outlet property="profileIV" destination="eSI-IG-rbk" id="dwT-CD-itl"/>
@@ -119,7 +128,7 @@
     </objects>
     <resources>
         <image name="Profile" width="34" height="34"/>
-        <image name="heart" catalog="system" width="128" height="109"/>
+        <image name="suit.heart" catalog="system" width="128" height="109"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

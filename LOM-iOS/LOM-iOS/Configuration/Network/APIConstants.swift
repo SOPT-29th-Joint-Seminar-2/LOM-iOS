@@ -11,4 +11,6 @@ struct APIConstants {
     static let baseURL = "https://asia-northeast3-library-of-millie.cloudfunctions.net/api"
     
     static let getBookInfoURL = baseURL + "/book"
+    static let reviewLikeURL = baseURL + "/review"
+    static let postReviewURL = baseURL + "/review"
 }
