@@ -178,7 +178,7 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
             nextVC.receivedBookID = indexPath.row + 1
             nextVC.modalPresentationStyle = .fullScreen
             nextVC.modalTransitionStyle = .coverVertical
-                       
+
             present(nextVC, animated: true, completion: nil)
     }
 }
