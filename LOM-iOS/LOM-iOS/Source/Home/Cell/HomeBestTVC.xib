@@ -17,37 +17,43 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="book1" translatesAutoresizingMaskIntoConstraints="NO" id="myv-oF-4NK">
-                        <rect key="frame" x="30" y="12" width="59" height="87"/>
+                        <rect key="frame" x="30" y="12" width="60" height="87"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="60" id="Ore-Ns-TJR"/>
+                        </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x8i-bN-Fvh">
-                        <rect key="frame" x="114" y="41" width="10" height="24"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x8i-bN-Fvh">
+                        <rect key="frame" x="102" y="41" width="23" height="24"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="23" id="bdt-cF-cfB"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ㅇㅇㅇ ㅇㅇㅇ ㅇㅇ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dCa-EX-yr4">
-                        <rect key="frame" x="144" y="37" width="118.5" height="19.5"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ㅇㅇㅇ ㅇㅇㅇ ㅇㅇ" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dCa-EX-yr4">
+                        <rect key="frame" x="145" y="37" width="162" height="19.5"/>
                         <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ㅇㅇㅇ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dgh-VI-zTt">
-                        <rect key="frame" x="144" y="62.5" width="36.5" height="17"/>
+                        <rect key="frame" x="145" y="62.5" width="36.5" height="17"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="dgh-VI-zTt" firstAttribute="top" secondItem="dCa-EX-yr4" secondAttribute="bottom" constant="6" id="7YN-cx-cuT"/>
                     <constraint firstAttribute="bottom" secondItem="myv-oF-4NK" secondAttribute="bottom" constant="5" id="9RV-Lm-VGQ"/>
+                    <constraint firstItem="dCa-EX-yr4" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="37" id="AXI-JV-2UT"/>
                     <constraint firstItem="x8i-bN-Fvh" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="41" id="FGe-4q-gZK"/>
-                    <constraint firstAttribute="trailing" secondItem="myv-oF-4NK" secondAttribute="trailing" constant="238" id="KEL-ua-EtD"/>
-                    <constraint firstItem="dCa-EX-yr4" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="37" id="MEc-Or-cAN"/>
-                    <constraint firstItem="dCa-EX-yr4" firstAttribute="leading" secondItem="x8i-bN-Fvh" secondAttribute="trailing" constant="20" id="Q2E-ba-Ixf"/>
+                    <constraint firstItem="x8i-bN-Fvh" firstAttribute="leading" secondItem="myv-oF-4NK" secondAttribute="trailing" constant="12" id="MoD-sl-Uwh"/>
                     <constraint firstItem="dgh-VI-zTt" firstAttribute="leading" secondItem="x8i-bN-Fvh" secondAttribute="trailing" constant="20" id="Yd4-Mj-jjl"/>
+                    <constraint firstItem="dgh-VI-zTt" firstAttribute="top" secondItem="dCa-EX-yr4" secondAttribute="bottom" constant="6" id="bC3-4S-2gc"/>
                     <constraint firstItem="myv-oF-4NK" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="30" id="dfF-rz-nAT"/>
-                    <constraint firstItem="x8i-bN-Fvh" firstAttribute="leading" secondItem="myv-oF-4NK" secondAttribute="trailing" constant="25" id="kqF-oZ-Aad"/>
+                    <constraint firstAttribute="trailing" secondItem="dCa-EX-yr4" secondAttribute="trailing" constant="20" id="iu5-kn-SRK"/>
+                    <constraint firstItem="dCa-EX-yr4" firstAttribute="leading" secondItem="x8i-bN-Fvh" secondAttribute="trailing" constant="20" id="pi0-ek-38h"/>
                     <constraint firstItem="myv-oF-4NK" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="12" id="uyD-Vn-cHl"/>
                 </constraints>
             </tableViewCellContentView>
