@@ -14,7 +14,6 @@ class DetailVC: UIViewController {
     @IBOutlet weak var reviewPostButton: UIButton!
     @IBOutlet weak var reviewContentView: UIView!
     @IBOutlet weak var segmentedControlBackView: UIView!
-    
     @IBOutlet weak var completePercentLabel: UILabel!
     @IBOutlet weak var bookImageView: UIImageView!
     @IBOutlet weak var bookNameLabel: UILabel!
@@ -27,14 +26,34 @@ class DetailVC: UIViewController {
     @IBOutlet weak var categoryLabel: UILabel!
     @IBOutlet weak var postSizeLabel: UILabel!
     @IBOutlet weak var reviewTextField: UITextField!
+    @IBOutlet weak var highlightedReviewCountLabel: UILabel!
     
-    
-    public var reviewTransfer = -1
+    var reviewTransfer = -1
+    var reviewCount = 0
     var receivedBookID: Int = 1
+    var updateCount : Int = 0 {
+        didSet {
+            getReviewLikeData()
+            print("1")
+            detailReviewTV.reloadData()
+        }
+    }
+    public var updateReview : Int = 0 {
+        didSet {
+            print("2")
+        }
+    }
+    var bookNumber : Int = 1
+    var reviewNumber : Int = -1
+    var reviewIdForGet : Int = 0
     
     var detailTVContentList: [detailReviewTVData] = []{
         didSet{
-            NotificationCenter.default.post(name: NSNotification.Name("loadTableViewData"), object: nil, userInfo: nil)
+            if detailTVContentList.count == reviewTransfer{
+                if detailTVContentList[reviewCount-1].rank != reviewCount {
+                    NotificationCenter.default.post(name: NSNotification.Name("loadTableViewData"), object: nil, userInfo: nil)
+                }
+            }
         }
     }
     
@@ -45,9 +64,17 @@ class DetailVC: UIViewController {
     }
     
     @objc func dataRecieved(notification: NSNotification){
-        if detailTVContentList.count == reviewTransfer {
-            self.detailReviewTV.reloadData()
+        sortReview()
+        self.detailReviewTV.reloadData()
+    }
+    
+    func sortReview() {
+        var sortedContent = detailTVContentList.sorted { $0.likeCount >= $1.likeCount }
+        print(sortedContent)
+        for i in 0...(reviewCount-1) {
+            sortedContent[i].rank = i+1
         }
+        detailTVContentList = sortedContent
     }
     
     @objc func reviewIdRecieved(notification: NSNotification){
@@ -55,6 +82,7 @@ class DetailVC: UIViewController {
         putLikeCount()
     }
     
+    // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setBasicLayout()
@@ -68,14 +96,8 @@ class DetailVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-
-        bookNameLabel.isSkeletonable = true
         
-        view.isSkeletonable = true
-        view.showAnimatedGradientSkeleton()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3) { [weak self] in
-            self?.view.hideSkeleton() // Hide Skeleton
-        }
+        setSkeletonView()
     }
     
     func setSegmentedControl() {
@@ -97,12 +119,10 @@ class DetailVC: UIViewController {
         reviewContentView.layer.borderColor = UIColor(red: 0.757, green: 0.757, blue: 0.757, alpha: 1).cgColor
     }
     
-    // MARK: - Navigation
     func registerXib(){
         let xibTableViewName = UINib(nibName: DetailReviewTVC.identifier, bundle: nil)
         detailReviewTV.register(xibTableViewName, forCellReuseIdentifier: DetailReviewTVC.identifier)
     }
-    
     
     @IBAction func swipeGesture(_ sender: UISwipeGestureRecognizer) {
         self.modalTransitionStyle = .crossDissolve
@@ -114,28 +134,22 @@ class DetailVC: UIViewController {
         setTextFieldEmpty()
     }
     
-    public var updateCount : Int = 0 {
-        didSet {
-            getReviewLikeData()
-            print("1")
-            detailReviewTV.reloadData()
-        }
-    }
-    public var updateReview : Int = 0 {
-        didSet {
-            print("2")
-        }
-    }
-    
-    public var bookNumber : Int = 1
-    public var reviewNumber : Int = -1
-    public var reviewIdForGet : Int = 0
-    
     func setTextFieldEmpty() {
         reviewTextField.text = ""
     }
+    
+    // SkeletonView library 이용 로딩 화면 구현
+    func setSkeletonView() {
+        bookNameLabel.isSkeletonable = true
+        view.isSkeletonable = true
+        view.showAnimatedGradientSkeleton()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3) { [weak self] in
+            self?.view.hideSkeleton() // Hide Skeleton
+        }
+    }
 }
 
+// MARK: - 한 줄 리뷰 테이블뷰
 extension DetailVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 119
@@ -161,6 +175,8 @@ extension DetailVC: UITableViewDataSource{
 
 // MARK: - 네트워킹 관련 함수들
 extension DetailVC{
+    
+    // MARK: - GET, 책 세부정보 가져오기 및 리뷰 데이터 가져오기
     func getUserData() {
         detailInfoGetService.shared.readUserData(bookId: receivedBookID) { responseData in
             switch responseData {
@@ -178,9 +194,9 @@ extension DetailVC{
                     }
                     self.completePercentLabel.text = "완독할 확률 \(completePercent)%"
                     self.completePercentLabel.sizeToFit()
-                    let reviewCount = userData.reviewList.count
-                    self.reviewTransfer = reviewCount
-                    self.reviewCountLabel.text = "\(reviewCount)개"
+                    self.reviewCount = userData.reviewList.count
+                    self.reviewTransfer = self.reviewCount
+                    self.reviewCountLabel.text = "\(self.reviewCount)개"
                     self.authorLabel.text = userData.bookInfoList.author
                     self.authorLabel.sizeToFit()
                     self.userStorageLabel.text = userData.bookInfoList.userStorage
@@ -195,10 +211,13 @@ extension DetailVC{
                     self.reviewPointLabel.sizeToFit()
                     self.postSizeLabel.text = userData.bookInfoList.postSize
                     self.postSizeLabel.sizeToFit()
+                    self.highlightedReviewCountLabel.text = String(self.reviewCount)
+                    self.highlightedReviewCountLabel.sizeToFit()
                     
-                    for i in 0...(reviewCount-1){
+                    //리뷰 데이터 배열 append
+                    for i in 0...(self.reviewCount-1){
                         self.detailTVContentList.append(contentsOf: [
-                            detailReviewTVData(username: userData.reviewList[i].nickname, date: userData.reviewList[i].createdAt ?? "2021.11.05", review: userData.reviewList[i].contents, imageName: "Profile", likeCount: userData.reviewList[i].likeCount, updatedLike: 0, reviewId:userData.reviewList[i].id)
+                            detailReviewTVData(username: userData.reviewList[i].nickname, date: userData.reviewList[i].createdAt ?? "2021.11.05", review: userData.reviewList[i].contents, imageName: "Profile", likeCount: userData.reviewList[i].likeCount, updatedLike: 0, reviewId:userData.reviewList[i].id, rank: 0)
                         ])
                     }
                 }
@@ -214,6 +233,7 @@ extension DetailVC{
         }
     }
     
+    // MARK: - PUT, 버튼 클릭시 좋아요 +1
     func putLikeCount() {
         ReviewLikeService.shared.putLikeCount(reviewId: reviewNumber) { responseData in
             switch responseData {
@@ -231,6 +251,7 @@ extension DetailVC{
         }
     }
     
+    // PUT이 Success일 경우 갱신된 좋아요 count 가져오기
     func getReviewLikeData() {
         detailInfoGetService.shared.readUserData(bookId: receivedBookID) { responseData in
             switch responseData {
@@ -253,6 +274,7 @@ extension DetailVC{
         }
     }
     
+    // MARK: - POST, 리뷰 작성 및 정보 전달
     func postReview() {
         PostReviewService.shared.makeReviewService(content: reviewTextField.text ?? "") { responseData in
             switch responseData {

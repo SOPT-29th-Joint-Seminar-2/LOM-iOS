@@ -18,6 +18,7 @@ class DetailReviewTVC: UITableViewCell {
     @IBOutlet weak var likeUIVIew: UIView!
     @IBOutlet weak var likeLabel: UILabel!
     @IBOutlet weak var likeButton: UIButton!
+    @IBOutlet weak var bestLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -40,7 +41,12 @@ class DetailReviewTVC: UITableViewCell {
     }
     
     func setData(appData: detailReviewTVData) {
-        usernameLabel.text = "\(appData.username)·"
+        if appData.rank <= 2 {
+            usernameLabel.text = "\(appData.username)·"
+        } else {
+            usernameLabel.text = "\(appData.username)"
+            bestLabel.text = ""
+        }
         dateLabel.text = appData.date
         reviewLabel.text = appData.review
         profileIV.image = appData.makeImage()

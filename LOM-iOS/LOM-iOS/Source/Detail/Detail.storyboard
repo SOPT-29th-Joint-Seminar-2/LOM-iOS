@@ -596,20 +596,12 @@
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <textField opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KFh-FL-LPb">
+                                                            <textField opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" placeholder="다양한 생각을 남겨주세요" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KFh-FL-LPb">
                                                                 <rect key="frame" x="12" y="32" width="200" height="15"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="15" id="0gy-qu-jZb"/>
                                                                 </constraints>
-                                                                <attributedString key="attributedText">
-                                                                    <fragment content="다양한 생각을 남겨주세요">
-                                                                        <attributes>
-                                                                            <color key="NSColor" red="0.75686274509803919" green="0.75686274509803919" blue="0.75686274509803919" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                            <font key="NSFont" size="14" name="NotoSansKR-Regular"/>
-                                                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                                        </attributes>
-                                                                    </fragment>
-                                                                </attributedString>
+                                                                <attributedString key="attributedText"/>
                                                                 <textInputTraits key="textInputTraits"/>
                                                             </textField>
                                                         </subviews>
@@ -748,6 +740,7 @@
                         <outlet property="categoryLabel" destination="YTi-jG-taN" id="9sa-cy-wB8"/>
                         <outlet property="completePercentLabel" destination="6T8-4k-uM6" id="ChS-9q-MGl"/>
                         <outlet property="detailReviewTV" destination="Sxn-bj-jsW" id="jdF-HC-rHo"/>
+                        <outlet property="highlightedReviewCountLabel" destination="oJD-a3-4dS" id="Dku-6J-vKt"/>
                         <outlet property="postCountLabel" destination="byO-jR-2xy" id="h8l-gV-eXe"/>
                         <outlet property="postSizeLabel" destination="z5z-3b-2rG" id="zNV-Nt-tYj"/>
                         <outlet property="reviewContentView" destination="Pbc-yC-fmA" id="xw2-5T-UtJ"/>

@@ -30,7 +30,6 @@ struct PostReviewService{
             case .success:
                 guard let statusCode = dataResponse.response?.statusCode else {return}
                 guard let value = dataResponse.value else {return}
-                print("3")
                 let networkResult = self.judgeGetInfoStatus(by: statusCode, value)
                 completion(networkResult)
             case .failure(let err):
@@ -43,10 +42,8 @@ struct PostReviewService{
     private func judgeGetInfoStatus(by statusCode: Int, _ data: Data) -> NetworkResult<Any> {
         switch statusCode{
         case 200:
-            print("100")
             return isValidInfoData(data: data)
         case 400:
-            print("4")
             return .pathErr
         case 500: return .serverErr
         default: return .networkFail
@@ -55,7 +52,6 @@ struct PostReviewService{
     
     private func isValidInfoData(data: Data) -> NetworkResult<Any>{
         let decoder = JSONDecoder()
-        print("5")
         guard let decodeData = try? decoder.decode(postReviewResponseData.self, from: data)
         else {return .pathErr}
         return .success(decodeData)
