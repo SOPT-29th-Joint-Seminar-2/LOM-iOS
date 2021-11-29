@@ -34,11 +34,12 @@ class DetailVC: UIViewController {
     
     var detailTVContentList: [detailReviewTVData] = []{
         didSet{
-            NotificationCenter.default.post(name: NSNotification.Name("TestNotification"), object: nil, userInfo: nil)
+            NotificationCenter.default.post(name: NSNotification.Name("loadTableViewData"), object: nil, userInfo: nil)
         }
     }
-    func loadTableViewData(){
-        NotificationCenter.default.addObserver(self, selector: #selector(dataRecieved), name: NSNotification.Name("TestNotification"), object:nil)
+    
+    func addNotiObserver(){
+        NotificationCenter.default.addObserver(self, selector: #selector(dataRecieved), name: NSNotification.Name("loadTableViewData"), object:nil)
         
         NotificationCenter.default.addObserver(self, selector: #selector(reviewIdRecieved), name: NSNotification.Name("sendReviewId"), object:nil)
     }
@@ -62,7 +63,7 @@ class DetailVC: UIViewController {
         detailReviewTV.dataSource = self
         setSegmentedControl()
         getUserData()
-        loadTableViewData()
+        addNotiObserver()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -110,6 +111,7 @@ class DetailVC: UIViewController {
     
     @IBAction func postReviewButton(_ sender: Any) {
         postReview()
+        setTextFieldEmpty()
     }
     
     public var updateCount : Int = 0 {
@@ -126,9 +128,12 @@ class DetailVC: UIViewController {
     }
     
     public var bookNumber : Int = 1
-    public let num = Int.random(in: 1...4)
     public var reviewNumber : Int = -1
     public var reviewIdForGet : Int = 0
+    
+    func setTextFieldEmpty() {
+        reviewTextField.text = ""
+    }
 }
 
 extension DetailVC: UITableViewDelegate {
@@ -154,24 +159,10 @@ extension DetailVC: UITableViewDataSource{
     }
 }
 
-struct detailReviewTVData{
-    let username: String
-    let date: String
-    let review: String
-    let imageName: String
-    var likeCount: Int
-    var updatedLike: Int
-    let reviewId: Int
-    
-    func makeImage() -> UIImage? {
-        return UIImage(named: imageName)
-    }
-}
-
 // MARK: - 네트워킹 관련 함수들
 extension DetailVC{
     func getUserData() {
-        detailInfoGetService.shared.readUserData(bookId: num) { responseData in
+        detailInfoGetService.shared.readUserData(bookId: receivedBookID) { responseData in
             switch responseData {
             case .success(let BookInfoResponse):
                 guard let response = BookInfoResponse as?
@@ -241,7 +232,7 @@ extension DetailVC{
     }
     
     func getReviewLikeData() {
-        detailInfoGetService.shared.readUserData(bookId: num) { responseData in
+        detailInfoGetService.shared.readUserData(bookId: receivedBookID) { responseData in
             switch responseData {
             case .success(let BookInfoResponse):
                 guard let response = BookInfoResponse as?
@@ -285,21 +276,3 @@ extension DetailVC{
         }
     }
 }
-
-
-extension UIViewController {
-    func makeAlert(title: String,
-                   message: String,
-                   okAction : ((UIAlertAction) -> Void)? = nil,
-                   completion : (() -> ())? = nil)
-    {
-        let alertViewController = UIAlertController(title: title,
-                                                    message: message,
-                                                    preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "확인", style: .default, handler: okAction)
-        alertViewController.addAction(okAction)
-        
-        self.present(alertViewController, animated: true, completion: completion)
-    }
-}
-

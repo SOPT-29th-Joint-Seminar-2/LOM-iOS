@@ -6,3 +6,18 @@
 //
 
 import Foundation
+import UIKit
+
+struct detailReviewTVData{
+    let username: String
+    let date: String
+    let review: String
+    let imageName: String
+    var likeCount: Int
+    var updatedLike: Int
+    let reviewId: Int
+    
+    func makeImage() -> UIImage? {
+        return UIImage(named: imageName)
+    }
+}
