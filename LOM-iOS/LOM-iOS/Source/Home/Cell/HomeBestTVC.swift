@@ -18,11 +18,17 @@ class HomeBestTVC: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
     
-    func setData(rank: Int, bookName: String, writerName: String, image: UIImage){
+    func setData(rank: Int, bookName: String, writerName: String, image: String){
         bookRankLabel.text = "\(rank)"
         bookNameLabel.text = bookName
         writerNameLabel.text = writerName
-        bookImageView.image = image
+        let url = URL(string: image)
+        DispatchQueue.global().async {
+            let data = try? Data(contentsOf: url!)
+            DispatchQueue.main.async {
+                self.bookImageView.image = UIImage(data: data!)
+            }
+        }
     }
     
 }

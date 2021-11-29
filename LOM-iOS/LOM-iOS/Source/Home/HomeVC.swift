@@ -30,23 +30,27 @@ class HomeVC: UIViewController {
     // MARK: TableView @IBOutlets
     @IBOutlet weak var bestBookLabel: UILabel!
     @IBOutlet weak var bestBookListTableView: UITableView!
+    @IBOutlet weak var tableViewHeight: NSLayoutConstraint!
     
     var mainBannerContentList: [Banner] = []
-    var bestBookContentList: [Book] = []
+    var bestBookContentList: [BestResultData] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        initializeFunctions()
+    }
+    
+    func initializeFunctions(){
+        getBestBookList()
         initMainBannerContentList()
         initializeBannerCollectionViewLayout()
         initializeTodaysBookLayout()
-        initBestBookContentList()
         registerXib()
         registerTableXib()
         bannerCollectionView.dataSource = self
         bannerCollectionView.delegate = self
         bestBookListTableView.dataSource = self
         bestBookListTableView.delegate = self
-    
     }
     
     func registerXib(){
@@ -109,16 +113,12 @@ class HomeVC: UIViewController {
             Banner(title: "영화와 책을 아우르는\n씨네21 칼럼니스트", subtitle: "이다혜 작가전 보러가기!", image: Const.Image.bannerImg3)
         ])
     }
-    
-    func initBestBookContentList(){
-        bestBookContentList.append(contentsOf: [
-            Book(title: "달러구트 꿈 백화점 2", writer: "이미예(지은이)", image: Const.Image.bestImg4)
-        ])
-    }
+
 }
 
 extension HomeVC: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        
         return mainBannerContentList.count
     }
     
@@ -151,6 +151,8 @@ extension HomeVC: UICollectionViewDataSource, UICollectionViewDelegate, UICollec
 
 extension HomeVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        print("bestBookContentList.count : \(bestBookContentList.count)")
+        
         return bestBookContentList.count
     }
 
@@ -159,7 +161,7 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
         
         let nowData = bestBookContentList[indexPath.row]
         
-        cell.setData(rank: indexPath.row + 1, bookName: nowData.title, writerName: nowData.writer, image: nowData.image)
+        cell.setData(rank: indexPath.row + 1, bookName: nowData.bookName, writerName: nowData.author, image: nowData.bookImg)
     
         return cell
     }
@@ -169,14 +171,39 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if(indexPath.row == 0){
+        
             let storyboard = UIStoryboard.init(name: "Detail",bundle: nil)
             guard let nextVC = storyboard.instantiateViewController(withIdentifier: "DetailVC") as? DetailVC else {return}
 
+            nextVC.receivedBookID = indexPath.row + 1
             nextVC.modalPresentationStyle = .fullScreen
             nextVC.modalTransitionStyle = .coverVertical
                        
             present(nextVC, animated: true, completion: nil)
+    }
+}
+
+extension HomeVC {
+    func getBestBookList(){
+        HomeInfoGetService.shared.readBestList{ responseData in
+            
+        switch responseData {
+        case .success(let bestBookResponse):
+            guard let response = bestBookResponse as? BestResponseData else {return}
+            if let userData = response.data {
+                self.bestBookContentList.append(contentsOf: userData)
+                self.tableViewHeight.constant = CGFloat(104 * self.bestBookContentList.count)
+                self.bestBookListTableView.reloadData()
+            }
+        case .requestErr(let msg):
+            print("requestErr \(msg)")
+        case .pathErr:
+            print("pathErr")
+        case .serverErr:
+            print("serverErr")
+        case .networkFail:
+            print("networkFail")
         }
+    }
     }
 }

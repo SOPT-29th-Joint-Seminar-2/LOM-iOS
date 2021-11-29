@@ -28,6 +28,7 @@ class DetailVC: UIViewController {
     @IBOutlet weak var postSizeLabel: UILabel!
 
     public var reviewTransfer = -1
+    var receivedBookID: Int = 1
     
     var detailTVContentList: [detailReviewTVData] = []{
         didSet{
