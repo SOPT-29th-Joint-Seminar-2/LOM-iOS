@@ -26,7 +26,9 @@ class DetailVC: UIViewController {
     @IBOutlet weak var bookInfoDescriptionLabel: UILabel!
     @IBOutlet weak var categoryLabel: UILabel!
     @IBOutlet weak var postSizeLabel: UILabel!
-
+    @IBOutlet weak var reviewTextField: UITextField!
+    
+    
     public var reviewTransfer = -1
     
     var detailTVContentList: [detailReviewTVData] = []{
@@ -105,6 +107,10 @@ class DetailVC: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
     
+    @IBAction func postReviewButton(_ sender: Any) {
+        postReview()
+    }
+    
     public var updateCount : Int = 0 {
         didSet {
             getReviewLikeData()
@@ -112,10 +118,16 @@ class DetailVC: UIViewController {
             detailReviewTV.reloadData()
         }
     }
+    public var updateReview : Int = 0 {
+        didSet {
+            print("2")
+        }
+    }
     
     public var bookNumber : Int = 1
     public let num = Int.random(in: 1...4)
     public var reviewNumber : Int = -1
+    public var reviewIdForGet : Int = 0
 }
 
 extension DetailVC: UITableViewDelegate {
@@ -155,6 +167,7 @@ struct detailReviewTVData{
     }
 }
 
+// MARK: - 네트워킹 관련 함수들
 extension DetailVC{
     func getUserData() {
         detailInfoGetService.shared.readUserData(bookId: num) { responseData in
@@ -247,4 +260,45 @@ extension DetailVC{
             }
         }
     }
+    
+    func postReview() {
+        PostReviewService.shared.makeReviewService(content: reviewTextField.text ?? "") { responseData in
+            switch responseData {
+            case .success(let postReviewResponse):
+                guard let response = postReviewResponse as?
+                        postReviewResponseData else {return}
+                if let reviewData = response.data {
+                    self.reviewIdForGet = reviewData.reviewID
+                    self.updateReview += 1
+                }
+                self.makeAlert(title: "로그인", message: response.message)
+            case .requestErr(let msg):
+                print("requestErr \(msg)")
+            case .pathErr:
+                print("pathErr")
+            case .serverErr:
+                print("serverErr")
+            case .networkFail:
+                print("networkFail")
+            }
+        }
+    }
 }
+
+
+extension UIViewController {
+    func makeAlert(title: String,
+                   message: String,
+                   okAction : ((UIAlertAction) -> Void)? = nil,
+                   completion : (() -> ())? = nil)
+    {
+        let alertViewController = UIAlertController(title: title,
+                                                    message: message,
+                                                    preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "확인", style: .default, handler: okAction)
+        alertViewController.addAction(okAction)
+        
+        self.present(alertViewController, animated: true, completion: completion)
+    }
+}
+

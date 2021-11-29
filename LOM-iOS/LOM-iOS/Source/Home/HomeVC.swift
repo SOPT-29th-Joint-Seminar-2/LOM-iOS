@@ -175,7 +175,7 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
 
             nextVC.modalPresentationStyle = .fullScreen
             nextVC.modalTransitionStyle = .coverVertical
-                       
+
             present(nextVC, animated: true, completion: nil)
         }
     }
