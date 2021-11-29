@@ -50,6 +50,11 @@
 		EB69483E2752B32500B0A3DD /* NetworkResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB69483D2752B32500B0A3DD /* NetworkResult.swift */; };
 		EB6948402752B41F00B0A3DD /* UISegmentedControl +.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB69483F2752B41F00B0A3DD /* UISegmentedControl +.swift */; };
 		EB6948442752B43F00B0A3DD /* UIImage +.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6948432752B43F00B0A3DD /* UIImage +.swift */; };
+		EBFAF1E6275520D1001FCA0C /* PostReviewService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFAF1E5275520D0001FCA0C /* PostReviewService.swift */; };
+		EBFAF1E8275520ED001FCA0C /* ReviewLikeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFAF1E7275520ED001FCA0C /* ReviewLikeService.swift */; };
+		EBFAF1EA27552101001FCA0C /* UIViewController +.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFAF1E927552101001FCA0C /* UIViewController +.swift */; };
+		EBFAF1EC27552111001FCA0C /* UITextField +.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFAF1EB27552111001FCA0C /* UITextField +.swift */; };
+		EBFAF1EE27552241001FCA0C /* DetailDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFAF1ED27552241001FCA0C /* DetailDataModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -100,6 +105,11 @@
 		EB69483D2752B32500B0A3DD /* NetworkResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResult.swift; sourceTree = "<group>"; };
 		EB69483F2752B41F00B0A3DD /* UISegmentedControl +.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UISegmentedControl +.swift"; sourceTree = "<group>"; };
 		EB6948432752B43F00B0A3DD /* UIImage +.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage +.swift"; sourceTree = "<group>"; };
+		EBFAF1E5275520D0001FCA0C /* PostReviewService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostReviewService.swift; sourceTree = "<group>"; };
+		EBFAF1E7275520ED001FCA0C /* ReviewLikeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewLikeService.swift; sourceTree = "<group>"; };
+		EBFAF1E927552101001FCA0C /* UIViewController +.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController +.swift"; sourceTree = "<group>"; };
+		EBFAF1EB27552111001FCA0C /* UITextField +.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField +.swift"; sourceTree = "<group>"; };
+		EBFAF1ED27552241001FCA0C /* DetailDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailDataModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -215,6 +225,8 @@
 				9877CEBB2748C8BB00DE4166 /* UIFont +.swift */,
 				EB69483F2752B41F00B0A3DD /* UISegmentedControl +.swift */,
 				EB6948432752B43F00B0A3DD /* UIImage +.swift */,
+				EBFAF1E927552101001FCA0C /* UIViewController +.swift */,
+				EBFAF1EB27552111001FCA0C /* UITextField +.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -223,6 +235,7 @@
 			isa = PBXGroup;
 			children = (
 				15B7CCA127403E7D006D34E9 /* Const.swift */,
+				EBFAF1ED27552241001FCA0C /* DetailDataModel.swift */,
 				15B7CCA327403EAA006D34E9 /* Image.swift */,
 			);
 			path = Constants;
@@ -288,6 +301,8 @@
 				EB6948352752136F00B0A3DD /* APIConstants.swift */,
 				EB6948392752B2C100B0A3DD /* DetailResponseData.swift */,
 				EB69483B2752B30800B0A3DD /* DetailInfoGetService.swift */,
+				EBFAF1E7275520ED001FCA0C /* ReviewLikeService.swift */,
+				EBFAF1E5275520D0001FCA0C /* PostReviewService.swift */,
 				EB69483D2752B32500B0A3DD /* NetworkResult.swift */,
 				989365522753D5D600C249BC /* HomeResponseData.swift */,
 				989365542753D5E700C249BC /* HomeInfoGetService.swift */,
@@ -421,17 +436,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EBFAF1EC27552111001FCA0C /* UITextField +.swift in Sources */,
 				15B7CC8A273F9241006D34E9 /* DetailVC.swift in Sources */,
+				EBFAF1EA27552101001FCA0C /* UIViewController +.swift in Sources */,
 				15B7CC86273F91E8006D34E9 /* HomeVC.swift in Sources */,
 				EB6948442752B43F00B0A3DD /* UIImage +.swift in Sources */,
 				15B7CCB82742B9E9006D34E9 /* SeawaterHomeTVC.swift in Sources */,
 				EB69483A2752B2C100B0A3DD /* DetailResponseData.swift in Sources */,
 				15B7CC9F274037BD006D34E9 /* UIColor +.swift in Sources */,
 				15B7CC6C273F866D006D34E9 /* AppDelegate.swift in Sources */,
+				EBFAF1E6275520D1001FCA0C /* PostReviewService.swift in Sources */,
 				EB69483C2752B30800B0A3DD /* DetailInfoGetService.swift in Sources */,
 				9877CEBC2748C8BB00DE4166 /* UIFont +.swift in Sources */,
 				15B7CC98273F98EA006D34E9 /* DetailReviewTVC.swift in Sources */,
 				15B7CCAD2742459B006D34E9 /* SeawaterDetailVC.swift in Sources */,
+				EBFAF1E8275520ED001FCA0C /* ReviewLikeService.swift in Sources */,
 				EB6948402752B41F00B0A3DD /* UISegmentedControl +.swift in Sources */,
 				EB6948362752136F00B0A3DD /* APIConstants.swift in Sources */,
 				989365552753D5E700C249BC /* HomeInfoGetService.swift in Sources */,
@@ -441,6 +460,7 @@
 				15B7CCAB2742458F006D34E9 /* SeawaterHomeVC.swift in Sources */,
 				EB69483E2752B32500B0A3DD /* NetworkResult.swift in Sources */,
 				15B7CCC227436997006D34E9 /* SeawaterHomeTitleTVC.swift in Sources */,
+				EBFAF1EE27552241001FCA0C /* DetailDataModel.swift in Sources */,
 				15B7CC90273F98A2006D34E9 /* HomeBestTVC.swift in Sources */,
 				15B7CCB2274245EB006D34E9 /* SeawaterDetailReviewTVC.swift in Sources */,
 				15B7CC6E273F866D006D34E9 /* SceneDelegate.swift in Sources */,
