@@ -33,15 +33,18 @@ class DetailVC: UIViewController {
     var receivedBookID: Int = 1
     var staticReviewId: Int = -1
     
-    var likeUpdateAssist : Int = 0
+    var likeUpdateAssist : Int = 0 {
+        willSet {
+            if self.likeUpdateAssist == 0 {
+                self.detailReviewTV.reloadData()
+            }
+        }
+    }
     
     var updateCount : Int = 0 {
         didSet {
             getReviewLikeData()
             print("updateCount didset")
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1) { [weak self] in
-                self?.detailReviewTV.reloadData()
-            }
         }
     }
     
