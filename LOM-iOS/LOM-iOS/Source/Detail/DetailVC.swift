@@ -31,54 +31,93 @@ class DetailVC: UIViewController {
     var reviewTransfer = -1
     var reviewCount = 0
     var receivedBookID: Int = 1
+    var staticReviewId: Int = -1
+    
+    var likeUpdateAssist : Int = 0
+    
     var updateCount : Int = 0 {
         didSet {
             getReviewLikeData()
-            print("1")
-            detailReviewTV.reloadData()
+            print("updateCount didset")
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) { [weak self] in
+                self?.detailReviewTV.reloadData()
+            }
         }
     }
+    
     public var updateReview : Int = 0 {
         didSet {
+            getReviewData()
             print("2")
         }
     }
+    
     var bookNumber : Int = 1
-    var reviewNumber : Int = -1
+    var reviewNumber : Int = 1
     var reviewIdForGet : Int = 0
+    var ifReviewPosted : Int = 0
     
     var detailTVContentList: [detailReviewTVData] = []{
         didSet{
             if detailTVContentList.count == reviewTransfer{
                 if detailTVContentList[reviewCount-1].rank != reviewCount {
-                    NotificationCenter.default.post(name: NSNotification.Name("loadTableViewData"), object: nil, userInfo: nil)
+                    if ifReviewPosted == 0 {
+                        if detailTVContentList[self.reviewNumber-1].updatedLike == 0 {
+                            if likeUpdateAssist == 0 {
+                                print("노티 리로드;;")
+                                NotificationCenter.default.post(name: NSNotification.Name("loadTableViewData"), object: nil, userInfo: nil)
+                            }
+                        }
+                    }
                 }
             }
         }
     }
     
     func addNotiObserver(){
+        //1.초기 GET 완료 후 테이블뷰 리로드
         NotificationCenter.default.addObserver(self, selector: #selector(dataRecieved), name: NSNotification.Name("loadTableViewData"), object:nil)
+        
+        //2.좋아요 버튼 누를 시 리로드
+        NotificationCenter.default.addObserver(self, selector: #selector(reviewLikeReload), name: NSNotification.Name("reviewLikeReload"), object:nil)
+        
+        //3. staticReviewId 및 reviewNumber 받고 리로드
+        NotificationCenter.default.addObserver(self, selector: #selector(staticReviewIdRecieved), name: NSNotification.Name("sendstaticReviewId"), object:nil)
         
         NotificationCenter.default.addObserver(self, selector: #selector(reviewIdRecieved), name: NSNotification.Name("sendReviewId"), object:nil)
     }
     
+    //1. 좋아요 수에 따른 정렬 및 리로드
     @objc func dataRecieved(notification: NSNotification){
         sortReview()
         self.detailReviewTV.reloadData()
     }
     
+    //1. 정렬 함수
     func sortReview() {
         var sortedContent = detailTVContentList.sorted { $0.likeCount >= $1.likeCount }
-        print(sortedContent)
         for i in 0...(reviewCount-1) {
             sortedContent[i].rank = i+1
         }
+        print(sortedContent)
         detailTVContentList = sortedContent
+    }
+    
+    //2. 좋아요 버튼 누를 시 리로드 및 포스트
+    @objc func reviewLikeReload(notification: NSNotification){
+        self.detailReviewTV.reloadData()
+        NotificationCenter.default.post(name: NSNotification.Name("1"), object: nil, userInfo: nil)
+    }
+    
+    //3. staticReviewId 및 reviewNumber 받고 리로드
+    @objc func staticReviewIdRecieved(notification: NSNotification){
+        print("나는 스태틱리뷰 전달 노티")
+        staticReviewId = notification.object as! Int
     }
     
     @objc func reviewIdRecieved(notification: NSNotification){
         reviewNumber = notification.object as! Int
+        print("putLIkeCount한다")
         putLikeCount()
     }
     
@@ -217,7 +256,7 @@ extension DetailVC{
                     //리뷰 데이터 배열 append
                     for i in 0...(self.reviewCount-1){
                         self.detailTVContentList.append(contentsOf: [
-                            detailReviewTVData(username: userData.reviewList[i].nickname, date: userData.reviewList[i].createdAt ?? "2021.11.05", review: userData.reviewList[i].contents, imageName: "Profile", likeCount: userData.reviewList[i].likeCount, updatedLike: 0, reviewId:userData.reviewList[i].id, rank: 0)
+                            detailReviewTVData(username: userData.reviewList[i].nickname, date: userData.reviewList[i].createdAt ?? "2021.11.05", review: userData.reviewList[i].contents, imageName: "Profile", likeCount: userData.reviewList[i].likeCount, updatedLike: 0, reviewId:userData.reviewList[i].id, rank: 0, staticReviewId: i+1)
                         ])
                     }
                 }
@@ -235,7 +274,7 @@ extension DetailVC{
     
     // MARK: - PUT, 버튼 클릭시 좋아요 +1
     func putLikeCount() {
-        ReviewLikeService.shared.putLikeCount(reviewId: reviewNumber) { responseData in
+        ReviewLikeService.shared.putLikeCount(reviewId: staticReviewId) { responseData in
             switch responseData {
             case .success:
                 self.updateCount += 1
@@ -259,8 +298,11 @@ extension DetailVC{
                 guard let response = BookInfoResponse as?
                         DetailResponseData else {return}
                 if let userData = response.data {
-                    self.detailTVContentList[self.reviewNumber-1].likeCount = userData.reviewList[self.reviewNumber-1].likeCount
+                    self.likeUpdateAssist = 1
                     self.detailTVContentList[self.reviewNumber-1].updatedLike += 1
+                    self.detailTVContentList[self.reviewNumber-1].likeCount = userData.reviewList[self.staticReviewId-1].likeCount
+                    self.likeUpdateAssist = 0
+                    print(self.detailTVContentList)
                 }
             case .requestErr(let msg):
                 print("requestErr \(msg)")
@@ -286,6 +328,50 @@ extension DetailVC{
                     self.updateReview += 1
                 }
                 self.makeAlert(title: "로그인", message: response.message)
+            case .requestErr(let msg):
+                print("requestErr \(msg)")
+            case .pathErr:
+                print("pathErr")
+            case .serverErr:
+                print("serverErr")
+            case .networkFail:
+                print("networkFail")
+            }
+        }
+    }
+    
+    // post 이후 리뷰 데이터 불러오기
+    func getReviewData() {
+        detailInfoGetService.shared.readUserData(bookId: receivedBookID) { [self] responseData in
+            switch responseData {
+            case .success(let BookInfoResponse):
+                guard let response = BookInfoResponse as?
+                        DetailResponseData else {return}
+                if let userData = response.data {
+                    self.reviewCount = userData.reviewList.count
+                    self.reviewTransfer = self.reviewCount
+                    self.reviewCountLabel.text = "\(self.reviewCount)개"
+                    self.highlightedReviewCountLabel.text = String(self.reviewCount)
+                    self.highlightedReviewCountLabel.sizeToFit()
+                    
+                    self.ifReviewPosted += 1
+                    
+                    self.detailTVContentList.append(contentsOf: [
+                        detailReviewTVData(username: userData.reviewList[self.reviewCount-1].nickname, date: userData.reviewList[self.reviewCount-1].createdAt ?? "2021.11.05", review: userData.reviewList[self.reviewCount-1].contents, imageName: "Profile", likeCount: userData.reviewList[self.reviewCount-1].likeCount, updatedLike: 0, reviewId:userData.reviewList[self.reviewCount-1].id, rank: 3, staticReviewId: self.reviewCount-1)
+                    ])
+                    
+                    for i in 2...(self.reviewCount-2) {
+                        self.detailTVContentList[i].rank = i+2
+                    }
+                    
+                    func sortReview() {
+                        let sortedContent = self.detailTVContentList.sorted { $0.rank < $1.rank }
+                        self.detailTVContentList = sortedContent
+                    }
+                    sortReview()
+                    print(detailTVContentList)
+                    self.detailReviewTV.reloadData()
+                }
             case .requestErr(let msg):
                 print("requestErr \(msg)")
             case .pathErr:

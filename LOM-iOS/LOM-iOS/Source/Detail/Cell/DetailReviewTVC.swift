@@ -10,6 +10,7 @@ import UIKit
 class DetailReviewTVC: UITableViewCell {
     static let identifier = "DetailReviewTVC"
     var reviewIdTransfer = -1
+    var staticReviewId = -1
 
     @IBOutlet weak var profileIV: UIImageView!
     @IBOutlet weak var usernameLabel: UILabel!
@@ -37,12 +38,28 @@ class DetailReviewTVC: UITableViewCell {
     }
     
     @IBAction func tapToRaiseCount(_ sender: Any) {
+        print("버튼클릭 수")
+        setNotification()
+        
+        NotificationCenter.default.post(name: NSNotification.Name("reviewLikeReload"), object: nil, userInfo: nil)
+    }
+    
+    func setNotification() {
+        NotificationCenter.default.addObserver(self, selector: #selector(dataTransfer), name: NSNotification.Name("1"), object:nil)
+    }
+    
+    @objc func dataTransfer(notification: NSNotification){
+        NotificationCenter.default.post(name: NSNotification.Name("sendstaticReviewId"), object: staticReviewId, userInfo: nil)
+        
         NotificationCenter.default.post(name: NSNotification.Name("sendReviewId"), object: reviewIdTransfer, userInfo: nil)
+        
+        NotificationCenter.default.removeObserver(self)
     }
     
     func setData(appData: detailReviewTVData) {
         if appData.rank <= 2 {
             usernameLabel.text = "\(appData.username)·"
+            bestLabel.text = "Best"
         } else {
             usernameLabel.text = "\(appData.username)"
             bestLabel.text = ""
@@ -51,11 +68,12 @@ class DetailReviewTVC: UITableViewCell {
         reviewLabel.text = appData.review
         profileIV.image = appData.makeImage()
         likeLabel.text = String(appData.likeCount)
-        reviewIdTransfer = appData.reviewId
-        if(appData.updatedLike == 0){
-            setUIView()
-        } else{
-            setUIView()
+        staticReviewId = appData.staticReviewId
+        
+        reviewIdTransfer = appData.rank
+        
+        setUIView()
+        if(appData.updatedLike != 0) {
             let filledImage = UIImage.SymbolConfiguration(pointSize: 17, weight: .bold, scale: .medium)
             likeButton.tintColor = .black
             likeButton.setImage(UIImage(systemName: "suit.heart.fill", withConfiguration: filledImage), for: .normal)

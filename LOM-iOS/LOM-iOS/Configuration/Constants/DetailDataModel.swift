@@ -17,6 +17,7 @@ struct detailReviewTVData{
     var updatedLike: Int
     let reviewId: Int
     var rank: Int
+    var staticReviewId: Int
     
     func makeImage() -> UIImage? {
         return UIImage(named: imageName)
