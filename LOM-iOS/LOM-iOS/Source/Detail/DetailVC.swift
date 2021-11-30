@@ -27,6 +27,7 @@ class DetailVC: UIViewController {
     @IBOutlet weak var postSizeLabel: UILabel!
     @IBOutlet weak var reviewTextField: UITextField!
     @IBOutlet weak var highlightedReviewCountLabel: UILabel!
+    @IBOutlet weak var reviewContentLength: UILabel!
     
     var reviewTransfer = -1
     var reviewCount = 0
@@ -134,12 +135,18 @@ class DetailVC: UIViewController {
         setSegmentedControl()
         getUserData()
         addNotiObserver()
+        countReviewLength()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         setSkeletonView()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        NotificationCenter.default.removeObserver(self)
     }
     
     func setSegmentedControl() {
@@ -164,6 +171,17 @@ class DetailVC: UIViewController {
     func registerXib(){
         let xibTableViewName = UINib(nibName: DetailReviewTVC.identifier, bundle: nil)
         detailReviewTV.register(xibTableViewName, forCellReuseIdentifier: DetailReviewTVC.identifier)
+    }
+    
+    // 리뷰 문자열 길이 세기
+    func countReviewLength() {
+        reviewTextField.addTarget(self, action:
+                                    #selector(self.textFieldDidChange(_:)),for:.editingChanged)
+    }
+     
+    @objc func textFieldDidChange(_ sender:Any?) -> Void {
+        let reviewLength = reviewTextField.text?.count
+        reviewContentLength.text = "\(reviewLength ?? 0)/50"
     }
     
     @IBAction func swipeGesture(_ sender: UISwipeGestureRecognizer) {

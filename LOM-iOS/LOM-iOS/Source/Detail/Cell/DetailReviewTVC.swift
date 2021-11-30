@@ -36,10 +36,10 @@ class DetailReviewTVC: UITableViewCell {
         likeUIVIew.layer.borderWidth = 1
         likeUIVIew.layer.borderColor = UIColor(red: 0.757, green: 0.757, blue: 0.757, alpha: 1).cgColor
         let filledImage = UIImage.SymbolConfiguration(pointSize: 17, weight: .bold, scale: .medium)
-        likeButton.tintColor = .gray2
+        likeButton.tintColor = .lightGray2
         likeButton.setImage(UIImage(systemName: "suit.heart", withConfiguration: filledImage), for: .normal)
-        likeButton.tintColor = .gray2
-        likeLabel.textColor = .gray2
+        likeButton.tintColor = .lightGray2
+        likeLabel.textColor = .lightGray2
     }
     
     @IBAction func tapToRaiseCount(_ sender: Any) {

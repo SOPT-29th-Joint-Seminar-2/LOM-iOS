@@ -552,14 +552,14 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Ku-zp-QC1">
-                                        <rect key="frame" x="0.0" y="1021" width="375" height="714"/>
+                                        <rect key="frame" x="0.0" y="1021" width="375" height="594"/>
                                         <subviews>
-                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Sxn-bj-jsW">
-                                                <rect key="frame" x="0.0" y="85" width="375" height="480"/>
+                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Sxn-bj-jsW">
+                                                <rect key="frame" x="0.0" y="85" width="375" height="360"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="375" id="ot1-D7-Z88"/>
-                                                    <constraint firstAttribute="height" constant="480" id="zW6-qc-7kE"/>
+                                                    <constraint firstAttribute="height" constant="360" id="zW6-qc-7kE"/>
                                                 </constraints>
                                                 <prototypes>
                                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="DetailReviewTV" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="OoP-qr-RZT" customClass="DetailReviewTVC" customModule="LOM_iOS" customModuleProvider="target">
@@ -585,7 +585,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lOC-Lp-2mS">
-                                                <rect key="frame" x="0.0" y="565" width="375" height="68"/>
+                                                <rect key="frame" x="0.0" y="445" width="375" height="68"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pbc-yC-fmA">
                                                         <rect key="frame" x="62" y="0.0" width="220" height="54"/>
@@ -667,7 +667,7 @@
                                             <constraint firstItem="oJD-a3-4dS" firstAttribute="leading" secondItem="ccy-hp-aPa" secondAttribute="trailing" constant="3" id="Pej-Mn-lj5"/>
                                             <constraint firstItem="ccy-hp-aPa" firstAttribute="top" secondItem="9Ku-zp-QC1" secondAttribute="top" constant="28" id="aa0-gD-Bah"/>
                                             <constraint firstAttribute="trailing" secondItem="lOC-Lp-2mS" secondAttribute="trailing" id="hdF-M7-lGR"/>
-                                            <constraint firstAttribute="height" constant="714" id="m9k-oD-hoj"/>
+                                            <constraint firstAttribute="height" constant="594" id="m9k-oD-hoj"/>
                                             <constraint firstItem="oJD-a3-4dS" firstAttribute="centerY" secondItem="ccy-hp-aPa" secondAttribute="centerY" id="nkN-cO-fUb"/>
                                             <constraint firstAttribute="trailing" secondItem="Sxn-bj-jsW" secondAttribute="trailing" id="oCJ-1B-Bu0"/>
                                             <constraint firstItem="lOC-Lp-2mS" firstAttribute="leading" secondItem="9Ku-zp-QC1" secondAttribute="leading" id="s56-xC-W3J"/>
@@ -743,6 +743,7 @@
                         <outlet property="highlightedReviewCountLabel" destination="oJD-a3-4dS" id="Dku-6J-vKt"/>
                         <outlet property="postCountLabel" destination="byO-jR-2xy" id="h8l-gV-eXe"/>
                         <outlet property="postSizeLabel" destination="z5z-3b-2rG" id="zNV-Nt-tYj"/>
+                        <outlet property="reviewContentLength" destination="Vna-ph-NgO" id="ctb-Ah-gk7"/>
                         <outlet property="reviewContentView" destination="Pbc-yC-fmA" id="xw2-5T-UtJ"/>
                         <outlet property="reviewCountLabel" destination="ZId-zq-30a" id="tLk-Hf-ChR"/>
                         <outlet property="reviewPointLabel" destination="oY6-Kx-WBO" id="XzO-k9-uja"/>
