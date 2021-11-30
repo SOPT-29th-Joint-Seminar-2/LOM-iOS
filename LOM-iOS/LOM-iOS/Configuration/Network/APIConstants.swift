@@ -12,4 +12,5 @@ struct APIConstants {
     
     static let getBookInfoURL = baseURL + "/book"
     static let reviewLikeURL = baseURL + "/review"
+    static let postReviewURL = baseURL + "/review"
 }

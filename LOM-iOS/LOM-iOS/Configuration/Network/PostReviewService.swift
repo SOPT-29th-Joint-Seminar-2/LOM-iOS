@@ -1,24 +1,28 @@
 //
-//  DetailInfoGetService.swift
+//  PostReviewService.swift
 //  LOM-iOS
 //
-//  Created by Junho Lee on 2021/11/28.
+//  Created by Junho Lee on 2021/11/29.
 //
 
 import Foundation
 import Alamofire
 
-struct detailInfoGetService{
-    static let shared = detailInfoGetService()
-
-    func readUserData(bookId: Int, completion: @escaping (NetworkResult<Any>) -> (Void)) {
-        let url = APIConstants.getBookInfoURL + "/\(bookId)"
+struct PostReviewService{
+    static let shared = PostReviewService()
+        
+    func makeReviewService(content: String, completion: @escaping (NetworkResult<Any>) -> (Void)) {
+        let url = APIConstants.postReviewURL
         let header: HTTPHeaders = [
             "content-Type" : "application/json"
             ]
-
+        let params : Parameters = [
+            "content" : content
+        ]
+        
         let dataRequest = AF.request(url,
-                                     method: .get,
+                                     method: .post,
+                                     parameters: params,
                                      encoding: JSONEncoding.default,
                                      headers: header)
         dataRequest.responseData { dataResponse in
@@ -37,8 +41,10 @@ struct detailInfoGetService{
     
     private func judgeGetInfoStatus(by statusCode: Int, _ data: Data) -> NetworkResult<Any> {
         switch statusCode{
-        case 200: return isValidInfoData(data: data)
-        case 400: return .pathErr
+        case 200:
+            return isValidInfoData(data: data)
+        case 400:
+            return .pathErr
         case 500: return .serverErr
         default: return .networkFail
         }
@@ -46,7 +52,7 @@ struct detailInfoGetService{
     
     private func isValidInfoData(data: Data) -> NetworkResult<Any>{
         let decoder = JSONDecoder()
-        guard let decodeData = try? decoder.decode(DetailResponseData.self, from: data)
+        guard let decodeData = try? decoder.decode(postReviewResponseData.self, from: data)
         else {return .pathErr}
         return .success(decodeData)
     }

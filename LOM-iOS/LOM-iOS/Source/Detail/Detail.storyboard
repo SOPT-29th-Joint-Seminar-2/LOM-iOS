@@ -90,7 +90,7 @@
                                                                 </constraints>
                                                             </imageView>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4.9만 개 +" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5pR-Wk-bW3">
-                                                                <rect key="frame" x="32" y="51" width="60.333333333333343" height="21"/>
+                                                                <rect key="frame" x="32.333333333333336" y="51" width="60.000000000000007" height="21"/>
                                                                 <fontDescription key="fontDescription" name="NotoSansKR-Regular" family="Noto Sans KR" pointSize="14"/>
                                                                 <color key="textColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <nil key="highlightedColor"/>
@@ -190,7 +190,7 @@
                                                                 </constraints>
                                                             </imageView>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="13개" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="byO-jR-2xy">
-                                                                <rect key="frame" x="48.000000000000028" y="51" width="28.666666666666671" height="21"/>
+                                                                <rect key="frame" x="48.333333333333343" y="51" width="28" height="21"/>
                                                                 <fontDescription key="fontDescription" name="NotoSansKR-Regular" family="Noto Sans KR" pointSize="14"/>
                                                                 <color key="textColor" red="0.33333333329999998" green="0.33333333329999998" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <nil key="highlightedColor"/>
@@ -555,11 +555,11 @@
                                         <rect key="frame" x="0.0" y="1021" width="375" height="594"/>
                                         <subviews>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Sxn-bj-jsW">
-                                                <rect key="frame" x="0.0" y="85" width="375" height="240"/>
+                                                <rect key="frame" x="0.0" y="85" width="375" height="360"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="375" id="ot1-D7-Z88"/>
-                                                    <constraint firstAttribute="height" constant="240" id="zW6-qc-7kE"/>
+                                                    <constraint firstAttribute="height" constant="360" id="zW6-qc-7kE"/>
                                                 </constraints>
                                                 <prototypes>
                                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="DetailReviewTV" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="OoP-qr-RZT" customClass="DetailReviewTVC" customModule="LOM_iOS" customModuleProvider="target">
@@ -585,30 +585,32 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lOC-Lp-2mS">
-                                                <rect key="frame" x="0.0" y="325" width="375" height="68"/>
+                                                <rect key="frame" x="0.0" y="445" width="375" height="68"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pbc-yC-fmA">
                                                         <rect key="frame" x="62" y="0.0" width="220" height="54"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="다양한 생각을 남겨주세요" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H0k-tP-los">
-                                                                <rect key="frame" x="12" y="26" width="181.66666666666666" height="25.333333333333329"/>
-                                                                <fontDescription key="fontDescription" name="NotoSansKR-Regular" family="Noto Sans KR" pointSize="17"/>
-                                                                <color key="textColor" red="0.75686274509803919" green="0.75686274509803919" blue="0.75686274509803919" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="한줄리뷰" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LuM-3Z-pOx">
                                                                 <rect key="frame" x="12.000000000000004" y="10" width="44.333333333333343" height="18"/>
                                                                 <fontDescription key="fontDescription" name="NotoSansKR-Regular" family="Noto Sans KR" pointSize="12"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
+                                                            <textField opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" placeholder="다양한 생각을 남겨주세요" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KFh-FL-LPb">
+                                                                <rect key="frame" x="12" y="32" width="200" height="15"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="15" id="0gy-qu-jZb"/>
+                                                                </constraints>
+                                                                <attributedString key="attributedText"/>
+                                                                <textInputTraits key="textInputTraits"/>
+                                                            </textField>
                                                         </subviews>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
-                                                            <constraint firstItem="H0k-tP-los" firstAttribute="leading" secondItem="LuM-3Z-pOx" secondAttribute="leading" id="Xgd-SF-3Ux"/>
+                                                            <constraint firstItem="KFh-FL-LPb" firstAttribute="leading" secondItem="LuM-3Z-pOx" secondAttribute="leading" id="E9q-2m-IRm"/>
                                                             <constraint firstAttribute="height" constant="54" id="a7p-fT-su4"/>
                                                             <constraint firstItem="LuM-3Z-pOx" firstAttribute="leading" secondItem="Pbc-yC-fmA" secondAttribute="leading" constant="12" id="bVV-Xs-qnF"/>
-                                                            <constraint firstItem="H0k-tP-los" firstAttribute="top" secondItem="LuM-3Z-pOx" secondAttribute="bottom" constant="-2" id="lSJ-jM-vt7"/>
+                                                            <constraint firstItem="KFh-FL-LPb" firstAttribute="top" secondItem="LuM-3Z-pOx" secondAttribute="bottom" constant="4" id="uOo-wV-eUH"/>
                                                             <constraint firstItem="LuM-3Z-pOx" firstAttribute="top" secondItem="Pbc-yC-fmA" secondAttribute="top" constant="10" id="vLK-gm-8da"/>
                                                         </constraints>
                                                     </view>
@@ -631,6 +633,9 @@
                                                         <state key="normal" title="등록">
                                                             <color key="titleColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.93725490196078431" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="postReviewButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="Fph-uQ-OIi"/>
+                                                        </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0/50" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vna-ph-NgO">
                                                         <rect key="frame" x="252" y="52" width="25" height="18"/>
@@ -735,12 +740,15 @@
                         <outlet property="categoryLabel" destination="YTi-jG-taN" id="9sa-cy-wB8"/>
                         <outlet property="completePercentLabel" destination="6T8-4k-uM6" id="ChS-9q-MGl"/>
                         <outlet property="detailReviewTV" destination="Sxn-bj-jsW" id="jdF-HC-rHo"/>
+                        <outlet property="highlightedReviewCountLabel" destination="oJD-a3-4dS" id="Dku-6J-vKt"/>
                         <outlet property="postCountLabel" destination="byO-jR-2xy" id="h8l-gV-eXe"/>
                         <outlet property="postSizeLabel" destination="z5z-3b-2rG" id="zNV-Nt-tYj"/>
+                        <outlet property="reviewContentLength" destination="Vna-ph-NgO" id="ctb-Ah-gk7"/>
                         <outlet property="reviewContentView" destination="Pbc-yC-fmA" id="xw2-5T-UtJ"/>
                         <outlet property="reviewCountLabel" destination="ZId-zq-30a" id="tLk-Hf-ChR"/>
                         <outlet property="reviewPointLabel" destination="oY6-Kx-WBO" id="XzO-k9-uja"/>
                         <outlet property="reviewPostButton" destination="7Vs-Gt-jTg" id="o5v-Wa-zUH"/>
+                        <outlet property="reviewTextField" destination="KFh-FL-LPb" id="r9u-wo-si5"/>
                         <outlet property="segmentedControlBackView" destination="qqy-xK-Qzz" id="2ml-l8-Mp6"/>
                         <outlet property="userStorageLabel" destination="5pR-Wk-bW3" id="gkP-hV-Hsv"/>
                     </connections>

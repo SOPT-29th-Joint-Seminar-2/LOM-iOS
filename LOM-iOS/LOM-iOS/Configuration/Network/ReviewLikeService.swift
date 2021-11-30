@@ -1,24 +1,24 @@
 //
-//  DetailInfoGetService.swift
+//  ReviewLikeService.swift
 //  LOM-iOS
 //
-//  Created by Junho Lee on 2021/11/28.
+//  Created by Junho Lee on 2021/11/29.
 //
 
 import Foundation
 import Alamofire
 
-struct detailInfoGetService{
-    static let shared = detailInfoGetService()
-
-    func readUserData(bookId: Int, completion: @escaping (NetworkResult<Any>) -> (Void)) {
-        let url = APIConstants.getBookInfoURL + "/\(bookId)"
+struct ReviewLikeService{
+    static let shared = ReviewLikeService()
+        
+    func putLikeCount(reviewId: Int, completion: @escaping (NetworkResult<Any>) -> (Void)) {
+        let url = APIConstants.reviewLikeURL + "/\(reviewId)"
         let header: HTTPHeaders = [
             "content-Type" : "application/json"
             ]
-
+        
         let dataRequest = AF.request(url,
-                                     method: .get,
+                                     method: .put,
                                      encoding: JSONEncoding.default,
                                      headers: header)
         dataRequest.responseData { dataResponse in
@@ -46,7 +46,7 @@ struct detailInfoGetService{
     
     private func isValidInfoData(data: Data) -> NetworkResult<Any>{
         let decoder = JSONDecoder()
-        guard let decodeData = try? decoder.decode(DetailResponseData.self, from: data)
+        guard let decodeData = try? decoder.decode(likeCountResponseData.self, from: data)
         else {return .pathErr}
         return .success(decodeData)
     }

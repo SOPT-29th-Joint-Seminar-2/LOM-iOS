@@ -115,6 +115,7 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="bestLabel" destination="bEL-nK-6gD" id="bDG-ht-Q9Q"/>
                 <outlet property="dateLabel" destination="8E6-TP-nW4" id="gnu-uL-Bmi"/>
                 <outlet property="likeButton" destination="98d-k1-Qv9" id="gcz-pb-pmP"/>
                 <outlet property="likeLabel" destination="Rbr-bG-vRj" id="0hh-hx-ive"/>
