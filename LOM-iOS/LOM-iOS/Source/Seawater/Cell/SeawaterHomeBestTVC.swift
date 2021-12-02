@@ -10,7 +10,7 @@ import UIKit
 class SeawaterHomeBestTVC: UITableViewCell {
     
     public static let identifier = "SeawaterHomeBestTVC"
-
+    
     @IBOutlet weak var rankLabel: UILabel!
     @IBOutlet weak var bookImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
@@ -19,16 +19,23 @@ class SeawaterHomeBestTVC: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
     
-    func setData(rank: Int, image: UIImage, title: String, writer: String) {
+    func setData(rank: Int, image: String, title: String, writer: String) {
         rankLabel.text = "\(rank)"
-        bookImageView.image = image
+        guard let url = URL(string: image) else {
+            return
+        }
+        let data = try? Data(contentsOf: url)
+        DispatchQueue.main.async {
+            self.bookImageView.image = UIImage(data: data!)
+        }
+    
         titleLabel.text = title
         writerLabel.text = writer
     }
-
+    
 }
