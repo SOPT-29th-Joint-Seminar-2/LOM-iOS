@@ -81,6 +81,7 @@ extension SeawaterHomeVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.row >= 4, indexPath.row <= 13 {
             guard let detailVC = self.storyboard?.instantiateViewController(withIdentifier: "SeawaterDetailVC") as? SeawaterDetailVC else { return }
+            detailVC.bookId = bestBookList[indexPath.row - 4].bookID
             self.navigationController?.pushViewController(detailVC, animated: true)
         }
         
@@ -91,7 +92,7 @@ extension SeawaterHomeVC: UITableViewDelegate {
         case 0: return UIScreen.main.bounds.width * (360/375)
         case 1, 3: return 50
         case 2: return 475
-        case 4...(3+bestBookList.count): return 109
+        case 4...(3 + bestBookList.count): return 109
         default: return 100
         }
     }

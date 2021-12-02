@@ -15,6 +15,7 @@ struct review {
 
 class SeawaterDetailVC: UIViewController {
     
+    var bookId: Int = 0
     var completePercent: Int = 0
     var reviewList: [review] = []
     
@@ -23,6 +24,11 @@ class SeawaterDetailVC: UIViewController {
     @IBOutlet weak var percentLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var reviewTableView: UITableView!
+    @IBOutlet weak var authorLabel: UILabel!
+    @IBOutlet weak var bookImageView: UIImageView!
+    @IBOutlet weak var bookInfoLabel: UILabel!
+    @IBOutlet weak var reviewCountLabel: UILabel!
+    @IBOutlet weak var postCountLabel: UILabel!
     
     @IBOutlet weak var reviewTableViewHeight: NSLayoutConstraint!
     @IBOutlet weak var reviewContainerViewHeight: NSLayoutConstraint!
@@ -33,6 +39,7 @@ class SeawaterDetailVC: UIViewController {
         setData()
         setUI()
         setTableView()
+        getBookDetailNetworking(id: bookId)
     }
     
     func setUI() {
@@ -74,6 +81,31 @@ extension SeawaterDetailVC: UITableViewDataSource {
 }
 
 extension SeawaterDetailVC {
+    func getBookDetailNetworking(id: Int) {
+        SeawaterBookService.shared.getBookInfo(bookId: bookId) { res in
+            switch res {
+            case .success(let data):
+                guard let data = data as? DetailResponseData else { return }
+                self.titleLabel.text = data.data?.bookInfoList.bookName
+                self.authorLabel.text = data.data?.bookInfoList.author
+                guard let url = URL(string: data.data?.bookInfoList.bookImg ?? "") else {
+                    return
+                }
+                let imageURL = try? Data(contentsOf: url)
+                DispatchQueue.main.async {
+                    self.bookImageView.image = UIImage(data: imageURL!)
+                }
+                self.bookInfoLabel.text = data.data?.bookInfoList.bookInfoListDescription
+                self.reviewCountLabel.text = "\(data.data?.reviewList.count ?? 0)개"
+                self.postCountLabel.text = "\(data.data?.bookInfoList.postCount ?? 0)개"
+            case .pathErr: print("pathErr")
+            case .requestErr(_): print("requestErr")
+            case .serverErr: print("serverErr")
+            case .networkFail: print("networkFail")
+            }
+        }
+    }
+    
     func setDummy() {
         reviewList.append(contentsOf: [review(name: "아요짱", date: "2021.11.11", content: "페니가 성장한 만큼, 저도 성장한 기분이었습니다."),
                                        review(name: "아요짱", date: "2021.11.11", content: "페니가 성장한 만큼, 저도 성장한 기분이었습니다."),

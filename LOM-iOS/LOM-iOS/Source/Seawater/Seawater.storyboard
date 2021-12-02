@@ -524,20 +524,22 @@
                                                             <constraint firstAttribute="bottom" secondItem="JzQ-fo-Ere" secondAttribute="bottom" id="ezZ-Ll-AuN"/>
                                                         </constraints>
                                                     </view>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="book2" translatesAutoresizingMaskIntoConstraints="NO" id="cSe-qq-P0Q">
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cSe-qq-P0Q">
                                                         <rect key="frame" x="84" y="169.5" width="246" height="367"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="246" id="iSj-HA-ceF"/>
                                                             <constraint firstAttribute="height" constant="367" id="yGR-x2-BGQ"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xC3-uU-Q1D">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="   " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xC3-uU-Q1D">
                                                         <rect key="frame" x="22" y="558.5" width="370" height="24"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="지은이" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ojL-IL-UW9">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="    " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ojL-IL-UW9">
                                                         <rect key="frame" x="22" y="593.5" width="370" height="17"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <color key="textColor" red="0.6470588235294118" green="0.6470588235294118" blue="0.6470588235294118" alpha="1" colorSpace="calibratedRGB"/>
@@ -980,9 +982,14 @@
                     </view>
                     <size key="freeformSize" width="414" height="2000"/>
                     <connections>
+                        <outlet property="authorLabel" destination="ojL-IL-UW9" id="Aaf-lY-obY"/>
+                        <outlet property="bookImageView" destination="cSe-qq-P0Q" id="ZJc-c1-UjT"/>
+                        <outlet property="bookInfoLabel" destination="jvR-6M-OWU" id="MfE-ct-CL1"/>
                         <outlet property="outerView" destination="0v4-wA-FG4" id="1rX-9z-mYc"/>
                         <outlet property="percentLabel" destination="OMT-7I-MXK" id="lna-k5-Up7"/>
+                        <outlet property="postCountLabel" destination="R9g-fW-ASu" id="Mby-R4-cKr"/>
                         <outlet property="reviewContainerViewHeight" destination="qrc-gT-yLc" id="SB9-3B-KtI"/>
+                        <outlet property="reviewCountLabel" destination="C5D-kV-8k0" id="zC6-gq-ir5"/>
                         <outlet property="reviewTableView" destination="cPp-68-HsS" id="mhN-Oi-Q5z"/>
                         <outlet property="reviewTableViewHeight" destination="A2D-rp-lFU" id="coc-6u-zgX"/>
                         <outlet property="segmentedControl" destination="JzQ-fo-Ere" id="Mbv-PK-Gau"/>
@@ -1035,7 +1042,6 @@
     <resources>
         <image name="Profile" width="34" height="34"/>
         <image name="book1" width="88" height="128"/>
-        <image name="book2" width="69" height="103"/>
         <image name="book6" width="104" height="144"/>
         <image name="ic_check" width="48" height="48"/>
         <image name="ic_home_active" width="48" height="48"/>

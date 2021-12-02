@@ -27,7 +27,7 @@ enum BookRouter: URLRequestConvertible {
     var path: String {
         switch self {
         case .bestBook: return "/book"
-        case .bookDetail(let id): return "/\(id)"
+        case .bookDetail(let id): return "/book/\(id)"
         }
     }
     
