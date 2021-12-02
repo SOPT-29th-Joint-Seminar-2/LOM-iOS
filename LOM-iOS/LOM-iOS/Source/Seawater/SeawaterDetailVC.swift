@@ -17,7 +17,7 @@ class SeawaterDetailVC: UIViewController {
     
     var bookId: Int = 0
     var completePercent: Int = 0
-    var reviewList: [review] = []
+    var reviewList: [ReviewList] = []
     
     @IBOutlet weak var outerView: UIView!
     @IBOutlet weak var segmentedControl: UISegmentedControl!
@@ -35,10 +35,8 @@ class SeawaterDetailVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setDummy()
         setData()
         setUI()
-        setTableView()
         getBookDetailNetworking(id: bookId)
     }
     
@@ -75,6 +73,9 @@ extension SeawaterDetailVC: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = reviewTableView.dequeueReusableCell(withIdentifier: SeawaterDetailReviewTVC.identifier, for: indexPath) as? SeawaterDetailReviewTVC else { return UITableViewCell() }
+        cell.setData(name: reviewList[indexPath.row].nickname,
+                     date: reviewList[indexPath.row].createdAt ?? "",
+                     content: reviewList[indexPath.row].contents)
         return cell
     }
     
@@ -98,6 +99,9 @@ extension SeawaterDetailVC {
                 self.bookInfoLabel.text = data.data?.bookInfoList.bookInfoListDescription
                 self.reviewCountLabel.text = "\(data.data?.reviewList.count ?? 0)개"
                 self.postCountLabel.text = "\(data.data?.bookInfoList.postCount ?? 0)개"
+                self.reviewList = data.data?.reviewList ?? []
+                self.setTableView()
+                
             case .pathErr: print("pathErr")
             case .requestErr(_): print("requestErr")
             case .serverErr: print("serverErr")
@@ -106,11 +110,4 @@ extension SeawaterDetailVC {
         }
     }
     
-    func setDummy() {
-        reviewList.append(contentsOf: [review(name: "아요짱", date: "2021.11.11", content: "페니가 성장한 만큼, 저도 성장한 기분이었습니다."),
-                                       review(name: "아요짱", date: "2021.11.11", content: "페니가 성장한 만큼, 저도 성장한 기분이었습니다."),
-                                       review(name: "아요짱", date: "2021.11.11", content: "페니가 성장한 만큼, 저도 성장한 기분이었습니다."),
-                                       review(name: "아요짱", date: "2021.11.11", content: "페니가 성장한 만큼, 저도 성장한 기분이었습니다."),
-                                       review(name: "아요짱", date: "2021.11.11", content: "페니가 성장한 만큼, 저도 성장한 기분이었습니다.")])
-    }
 }
