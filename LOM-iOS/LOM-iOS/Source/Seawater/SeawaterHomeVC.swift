@@ -22,7 +22,7 @@ struct Book {
 class SeawaterHomeVC: UIViewController {
     
     var bannerList: [Banner] = []
-    var bestBookList: [Book] = []
+    var bestBookList: [BestResultData] = []
     
     @IBOutlet weak var statusBgView: UIView!
     @IBOutlet weak var bgView: UIView!
@@ -35,7 +35,7 @@ class SeawaterHomeVC: UIViewController {
         super.viewDidLoad()
         setDummy()
         setUI()
-        setTableVIew()
+        getBestBookNetworking()
     }
     
     func setUI() {
@@ -65,7 +65,6 @@ class SeawaterHomeVC: UIViewController {
 // MARK: - TableView Extension
 extension SeawaterHomeVC: UITableViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        print(homeTableView.contentOffset.y)
         if homeTableView.contentOffset.y > -20 {
             UIView.animate(withDuration: 0.2) {
                 self.navigationView.backgroundColor = .white
@@ -82,6 +81,7 @@ extension SeawaterHomeVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.row >= 4, indexPath.row <= 13 {
             guard let detailVC = self.storyboard?.instantiateViewController(withIdentifier: "SeawaterDetailVC") as? SeawaterDetailVC else { return }
+            detailVC.bookId = bestBookList[indexPath.row - 4].bookID
             self.navigationController?.pushViewController(detailVC, animated: true)
         }
         
@@ -92,7 +92,7 @@ extension SeawaterHomeVC: UITableViewDelegate {
         case 0: return UIScreen.main.bounds.width * (360/375)
         case 1, 3: return 50
         case 2: return 475
-        case 4...13: return 109
+        case 4...(3 + bestBookList.count): return 109
         default: return 100
         }
     }
@@ -117,7 +117,7 @@ extension SeawaterHomeVC: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 14
+        return 4+bestBookList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -137,12 +137,12 @@ extension SeawaterHomeVC: UITableViewDataSource {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: SeawaterHomeTitleTVC.identifier, for: indexPath) as? SeawaterHomeTitleTVC else { return UITableViewCell() }
             cell.setData(title: "서점 베스트 TOP 10")
             return cell
-        case 4...13:
+        case 4...(3 + bestBookList.count):
             guard let cell = tableView.dequeueReusableCell(withIdentifier: SeawaterHomeBestTVC.identifier, for: indexPath) as? SeawaterHomeBestTVC else { return UITableViewCell() }
             cell.setData(rank: indexPath.row - 3,
-                         image: bestBookList[indexPath.row - 4].image,
-                         title: bestBookList[indexPath.row - 4].title,
-                         writer: bestBookList[indexPath.row - 4].writer)
+                         image: bestBookList[indexPath.row - 4].bookImg,
+                         title: bestBookList[indexPath.row - 4].bookName,
+                         writer: bestBookList[indexPath.row - 4].author)
             return cell
         default:
             return UITableViewCell()
@@ -156,6 +156,22 @@ extension SeawaterHomeVC: UITableViewDataSource {
 
 // MARK: - Dummy Data Setting
 extension SeawaterHomeVC {
+    
+    func getBestBookNetworking() {
+        SeawaterBookService.shared.getbestbook { res in
+            switch res {
+            case .success(let data):
+                guard let data = data as? BestResponseData else { return }
+                self.bestBookList = data.data ?? []
+                self.setTableVIew()
+            case .pathErr: print("pathErr")
+            case .requestErr(_): print("requestErr")
+            case .serverErr: print("serverErr")
+            case .networkFail: print("networkFail")
+            }
+        }
+    }
+    
     func setDummy() {
         bannerList.append(contentsOf: [Banner(title: "SNS로 ‘진짜 나’를\n찾을 수 있을까",
                                               subtitle: "종이책 출간 전에 읽는 화제의 신작",
@@ -166,37 +182,6 @@ extension SeawaterHomeVC {
                                        Banner(title: "SNS로 ‘진짜 나’를\n찾을 수 있을까",
                                               subtitle: "종이책 출간 전에 읽는 화제의 신작",
                                               image: Const.Image.bannerImg3)])
-        
-        bestBookList.append(contentsOf: [Book(title: "거꾸로 읽는 세계",
-                                              writer: "유시민",
-                                              image: Const.Image.bestImg1),
-                                         Book(title: "달러구트 꿈 백화점 2",
-                                              writer: "이미예(지은이)",
-                                              image: Const.Image.bestImg2),
-                                         Book(title: "달러구트 꿈 백화점",
-                                              writer: "이미예(지은이)",
-                                              image: Const.Image.bestImg3),
-                                         Book(title: "거꾸로 읽는 세계",
-                                              writer: "유시민",
-                                              image: Const.Image.bestImg4),
-                                         Book(title: "거꾸로 읽는 세계",
-                                              writer: "유시민",
-                                              image: Const.Image.bestImg1),
-                                         Book(title: "거꾸로 읽는 세계",
-                                              writer: "유시민",
-                                              image: Const.Image.bestImg1),
-                                         Book(title: "거꾸로 읽는 세계",
-                                              writer: "유시민",
-                                              image: Const.Image.bestImg1),
-                                         Book(title: "거꾸로 읽는 세계",
-                                              writer: "유시민",
-                                              image: Const.Image.bestImg1),
-                                         Book(title: "거꾸로 읽는 세계",
-                                              writer: "유시민",
-                                              image: Const.Image.bestImg1),
-                                         Book(title: "거꾸로 읽는 세계",
-                                              writer: "유시민",
-                                              image: Const.Image.bestImg1)
-                                        ])
+
     }
 }
