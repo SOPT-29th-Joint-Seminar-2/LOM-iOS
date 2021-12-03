@@ -61,43 +61,19 @@ class DetailVC: UIViewController {
     var reviewIdForGet : Int = 0
     var ifReviewPosted : Int = 0
     
-    var detailTVContentList: [detailReviewTVData] = []{
-        didSet{
-            if detailTVContentList.count == reviewTransfer{
-                if detailTVContentList[reviewCount-1].rank != reviewCount {
-                    if ifReviewPosted == 0 {
-                        if detailTVContentList[self.reviewNumber-1].updatedLike == 0 {
-                            if likeUpdateAssist == 0 {
-                                print("노티 리로드;;")
-                                NotificationCenter.default.post(name: NSNotification.Name("loadTableViewData"), object: nil, userInfo: nil)
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    }
+    var detailTVContentList: [detailReviewTVData] = []
     
     func addNotiObserver(){
-        //1.초기 GET 완료 후 테이블뷰 리로드
-        NotificationCenter.default.addObserver(self, selector: #selector(dataRecieved), name: NSNotification.Name("loadTableViewData"), object:nil)
-        
-        //2.좋아요 버튼 누를 시 리로드
+        //1.좋아요 버튼 누를 시 리로드
         NotificationCenter.default.addObserver(self, selector: #selector(reviewLikeReload), name: NSNotification.Name("reviewLikeReload"), object:nil)
         
-        //3. staticReviewId 및 reviewNumber 받고 리로드
+        //2. staticReviewId 및 reviewNumber 받고 리로드
         NotificationCenter.default.addObserver(self, selector: #selector(staticReviewIdRecieved), name: NSNotification.Name("sendstaticReviewId"), object:nil)
         
         NotificationCenter.default.addObserver(self, selector: #selector(reviewIdRecieved), name: NSNotification.Name("sendReviewId"), object:nil)
     }
     
-    //1. 좋아요 수에 따른 정렬 및 리로드
-    @objc func dataRecieved(notification: NSNotification){
-        sortReview()
-        self.detailReviewTV.reloadData()
-    }
-    
-    //1. 정렬 함수
+    // 정렬 함수
     func sortReview() {
         var sortedContent = detailTVContentList.sorted { $0.likeCount >= $1.likeCount }
         for i in 0...(reviewCount-1) {
@@ -107,13 +83,13 @@ class DetailVC: UIViewController {
         detailTVContentList = sortedContent
     }
     
-    //2. 좋아요 버튼 누를 시 리로드 및 포스트
+    //1. 좋아요 버튼 누를 시 리로드 및 포스트
     @objc func reviewLikeReload(notification: NSNotification){
         self.detailReviewTV.reloadData()
         NotificationCenter.default.post(name: NSNotification.Name("1"), object: nil, userInfo: nil)
     }
     
-    //3. staticReviewId 및 reviewNumber 받고 리로드
+    //2. staticReviewId 및 reviewNumber 받고 리로드
     @objc func staticReviewIdRecieved(notification: NSNotification){
         print("나는 스태틱리뷰 전달 노티")
         staticReviewId = notification.object as! Int
@@ -280,6 +256,8 @@ extension DetailVC{
                             detailReviewTVData(username: userData.reviewList[i].nickname, date: userData.reviewList[i].createdAt ?? "2021.11.05", review: userData.reviewList[i].contents, imageName: "Profile", likeCount: userData.reviewList[i].likeCount, updatedLike: 0, reviewId:userData.reviewList[i].id, rank: 0, staticReviewId: i+1)
                         ])
                     }
+                    self.sortReview()
+                    self.detailReviewTV.reloadData()
                 }
             case .requestErr(let msg):
                 print("requestErr \(msg)")
